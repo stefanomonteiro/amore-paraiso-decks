@@ -9,16 +9,17 @@
  * Why this layer exists: n8n runs on a shared Hetzner VPS that is not reliable
  * enough to be the only entry point for guest data. Cloudflare's edge is. So if
  * n8n is unreachable / errors / times out, this function emails Stefano the FULL
- * payload via Resend (the durable failure record — Pages Function logs do NOT
+ * payload via ZeptoMail (the durable failure record — Pages Function logs do NOT
  * persist) and returns 502 so the page tells the guest to try again.
  *
  * Environment variables (Pages project → Settings → Environment variables, all
  * encrypted):
  *   N8N_WEBHOOK_URL    — the n8n webhook to forward to
  *   N8N_SHARED_SECRET  — added to the forwarded body; n8n's IF-node checks it
- *   RESEND_API_KEY     — Resend key for the failure email
+ *   ZEPTO_API_TOKEN    — ZeptoMail Send Mail token (verbatim; includes the
+ *                        "Zoho-enczapikey " prefix). Used for the failure email.
  *   ALERT_FROM         — (optional) error-email "from", default alerts@amoreparaiso.com
- *   ALERT_TO           — (optional) error-email "to",   default stefano@outsrc.website
+ *   ALERT_TO           — (optional) error-email "to",   default concierge@amoreparaiso.com
  *
  * Pages Functions convention: this file at functions/api/interest.js is served
  * at https://experiences.amoreparaiso.com/api/interest — same origin as the
@@ -184,10 +185,10 @@ export async function onRequestPost(context) {
   return json({ ok: false, error: 'forward_failed' }, 502, origin);
 }
 
+// Formats the durable failure record (subject + full payload) and hands it to
+// the ZeptoMail sender. Fires only when the forward to n8n fails.
 async function sendFailureEmail(env, payload, reason) {
-  if (!env.RESEND_API_KEY) return; // can't email; 502 still returned by caller
-  const from = env.ALERT_FROM || 'alerts@amoreparaiso.com';
-  const to = env.ALERT_TO || 'stefano@outsrc.website';
+  if (!env.ZEPTO_API_TOKEN) return; // can't email; 502 still returned by caller
 
   const lines = [
     'An interest submission could NOT be forwarded to n8n and is recorded here so it is not lost.',
@@ -210,20 +211,37 @@ async function sendFailureEmail(env, payload, reason) {
     JSON.stringify(payload, null, 2),
   ];
 
-  const body = {
-    from: `Amore Paraíso Alerts <${from}>`,
-    to: [to],
-    reply_to: payload.email,
-    subject: `[FAILED INTEREST] ${payload.area || 'area'} · ${payload.name} · ${payload.experiences.length} experience(s)`,
-    text: lines.join('\n'),
-  };
+  const subject = `[FAILED INTEREST] ${payload.area || 'area'} · ${payload.name} · ${payload.experiences.length} experience(s)`;
+  // reply_to = the guest, so replying to the alert reaches them directly.
+  const replyTo = payload.email ? { address: payload.email, name: payload.name || '' } : null;
+  await sendAlertEmail(env, subject, lines.join('\n'), replyTo);
+}
 
-  await fetch('https://api.resend.com/emails', {
+// Low-level send via ZeptoMail's HTTP API (Workers can't do SMTP). The
+// Authorization header is the token verbatim — it already includes the
+// "Zoho-enczapikey " prefix, so do NOT add "Bearer".
+async function sendAlertEmail(env, subject, textBody, replyTo) {
+  const payload = {
+    from: { address: env.ALERT_FROM || 'alerts@amoreparaiso.com' },
+    to: [{ email_address: { address: env.ALERT_TO || 'concierge@amoreparaiso.com' } }],
+    subject,
+    textbody: textBody,
+  };
+  if (replyTo && replyTo.address) {
+    payload.reply_to = [{ address: replyTo.address, name: replyTo.name || '' }];
+  }
+  const resp = await fetch('https://api.zeptomail.com/v1.1/email', {
     method: 'POST',
     headers: {
-      'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+      'Authorization': env.ZEPTO_API_TOKEN,
       'Content-Type': 'application/json',
+      'Accept': 'application/json',
     },
-    body: JSON.stringify(body),
+    body: JSON.stringify(payload),
   });
+  if (!resp.ok) {
+    // Last-resort: log so it shows in live-tail. Do not throw — the guest already
+    // failed; don't double-fail.
+    console.error('ZeptoMail alert failed', resp.status, await resp.text());
+  }
 }
