@@ -56,7 +56,7 @@ body {
   text-align: center;
   overflow: hidden;
 }
-.hero-logo { width: 130px; margin: 0 auto 6px; }
+.hero-logo { width: 100px; margin: 0 auto 6px; }
 .hero-logo svg { width: 100%; height: auto; display: block; }
 .hero-script {
   font-family: 'Creattion', cursive;
@@ -80,33 +80,55 @@ body {
 }
 @media (max-width: 560px) { .hero-script { font-size: 44px; } .hero-area { font-size: 17px; } }
 
-/* concierge intro card overlapping hero */
+/* instruction card overlapping hero */
 .intro {
   position: relative;
   z-index: 5;
   max-width: 620px;
-  margin: -52px auto 0;
+  margin: -52px auto 16px;
   background: var(--white);
   border: 0.5px solid var(--greyDD);
   border-radius: 12px;
-  padding: 22px 26px;
-  display: flex;
-  gap: 18px;
-  align-items: center;
+  padding: 22px 26px 24px;
 }
-.intro-avatar {
+.intro-title {
+  font-family: 'PlayfairDisplay', Georgia, serif;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: var(--mauve);
+  text-align: center;
+  margin-bottom: 16px;
+}
+.intro-steps {
+  display: flex;
+  gap: 14px;
+}
+.intro-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+}
+.intro-step-num {
   flex: none;
-  width: 58px; height: 58px;
+  width: 30px; height: 30px;
   border-radius: 50%;
   background: var(--blush);
   display: flex; align-items: center; justify-content: center;
   font-family: 'PlayfairDisplay', Georgia, serif;
-  font-size: 19px;
+  font-size: 14px;
   color: var(--mauve);
 }
-.intro p { font-size: 13.5px; line-height: 1.65; color: var(--grey55); }
-.intro p strong { color: var(--mauve); font-weight: 500; }
-@media (max-width: 560px) { .intro { margin-left: 18px; margin-right: 18px; flex-direction: row; padding: 18px 18px; } }
+.intro-step p { font-size: 12.5px; line-height: 1.5; color: var(--grey55); }
+.intro-step strong { color: var(--mauve); font-weight: 500; }
+.intro-fine { text-align: center; font-size: 11.5px; color: var(--grey99); margin-top: 16px; }
+@media (max-width: 560px) {
+  .intro { margin-left: 18px; margin-right: 18px; padding: 20px 18px 22px; }
+  .intro-steps { flex-direction: column; gap: 14px; }
+  .intro-step { flex-direction: row; text-align: left; gap: 12px; }
+}
 
 /* ---------- SECTION LABELS ---------- */
 .section-label { display: flex; align-items: center; gap: 18px; margin: 56px 24px 8px; }
@@ -339,7 +361,7 @@ body {
 .basket-status { font-size: 13px; text-align: center; margin-top: 12px; line-height: 1.5; min-height: 0; }
 .basket-status.err { color: var(--rose); }
 /* thank-you state (swaps in over the form on success) */
-.basket-thanks { text-align: center; padding: 18px 6px 8px; }
+.basket-thanks { text-align: center; padding: 18px 6px 38px; }
 .basket-thanks .ic-check { width: 40px; height: 40px; color: var(--rose); margin: 0 auto 14px; display: block; }
 .basket-thanks h3 { font-family: 'PlayfairDisplay', Georgia, serif; font-size: 20px; margin-bottom: 8px; font-weight: normal; }
 .basket-thanks p { font-size: 14px; color: var(--grey55); line-height: 1.65; max-width: 420px; margin: 0 auto; }
@@ -393,6 +415,53 @@ body {
 }
 .footer-tagline { font-size: 12px; color: var(--grey99); }
 
+
+/* ---------- PRICES (client-facing approx, VAT excl) ---------- */
+.price { font-family:'PlayfairDisplay',Georgia,serif; font-size:15px; color:var(--rose); letter-spacing:.01em; white-space:nowrap; }
+.price small { font-family:'Avenir','Avenir Next',-apple-system,sans-serif; font-size:10px; font-weight:300; letter-spacing:.04em; color:var(--rose); opacity:.85; margin-right:1px; }
+.price .price-unit { font-family:'Avenir','Avenir Next',-apple-system,sans-serif; font-size:10px; color:var(--grey99); letter-spacing:.03em; }
+/* featured card foot: View details (left) + price (right), same baseline */
+.fcard-foot { display:flex; flex-direction:row-reverse; justify-content:space-between; align-items:baseline; margin-top:auto; padding-top:4px; }
+.fcard-foot .fcard-more { margin:0; }
+/* --- bottom-align price/footer regardless of title wrapping --- */
+/* rail + VLS cards: make the card a flex column and the body grow so the foot sits at the bottom */
+.rcard, .vcard { display:flex; flex-direction:column; }
+.rcard-body, .vcard-body { display:flex; flex-direction:column; flex:1; }
+.rcard-foot { margin-top:auto; text-align:right; padding-top:8px; }
+.rcard-foot .price, .vcard .price { font-size:13.5px; }
+.price-note { max-width:760px; margin: 28px auto 8px; padding:0 24px; font-size:11.5px; color:var(--grey99); line-height:1.6; text-align:center; }
+/* ---------- VISTA LOS SUEÑOS GROUP SECTION (grid, not slider) ---------- */
+.vls-intro { max-width:760px; margin: 4px auto 16px; padding:0 24px; }
+.vls-intro p { font-size:14px; color:var(--grey55); line-height:1.7; }
+.vls-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; padding:4px 24px 8px; }
+@media (min-width:680px){ .vls-grid { grid-template-columns:repeat(3,1fr); } }
+@media (min-width:980px){ .vls-grid { grid-template-columns:repeat(4,1fr); } }
+.vcard { border:0.5px solid var(--greyDD); border-radius:12px; overflow:hidden; background:#fff; cursor:pointer; transition:border-color .15s ease, transform .15s ease; position:relative; display:flex; flex-direction:column; }
+.vcard:hover { border-color:var(--rose); transform:translateY(-2px); }
+.vcard.vls-pick { border:1px solid var(--rose); }
+.vcard-img { position:relative; height:158px; background:linear-gradient(135deg,var(--blush),#f7e6e3); display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.vcard-img .ph { font-size:9px; letter-spacing:.14em; text-transform:uppercase; color:var(--greyBB); }
+.vcard-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+/* featured-card photos */
+.fcard-img { overflow:hidden; }
+.fcard-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+/* rail-card photos */
+.rcard-img { position:relative; overflow:hidden; }
+.rcard-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+/* rail rendered as a grid (for sections with many options) */
+.rail-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; padding:4px 24px 8px; }
+@media (min-width:680px){ .rail-grid { grid-template-columns:repeat(3,1fr); } }
+@media (min-width:980px){ .rail-grid { grid-template-columns:repeat(4,1fr); } }
+@media (min-width:1280px){ .rail-grid { grid-template-columns:repeat(5,1fr); } }
+.rail-grid .rcard { width:auto; flex:initial; scroll-snap-align:none; }
+/* detail-sheet photo */
+.sheet-img { overflow:hidden; padding:0; }
+.sheet-photo { width:100%; height:100%; object-fit:cover; display:block; border-radius:12px; }
+.vcard .heart { width:32px; height:32px; font-size:14px; top:9px; right:9px; }
+.vcard-body { padding:12px 14px 14px; }
+.vls-badge { position:absolute; top:9px; left:9px; background:var(--rose); color:#fff; font-size:9px; letter-spacing:.07em; text-transform:uppercase; padding:4px 8px; border-radius:20px; max-width:calc(100% - 50px); }
+.vls-badge.tag { background:rgba(80,66,66,.78); }
+
 </style>
 </head>
 <body>
@@ -436,291 +505,505 @@ body {
 
 <!-- CONCIERGE INTRO -->
 <div class="intro">
-  <div class="intro-avatar">S</div>
-  <p><strong>Hi, I'm Stefano — your concierge.</strong> Tap the little heart on anything that excites you, then send me your list. I'll check availability and come back with your options. Nothing to pay here, nothing booked yet.</p>
+  <div class="intro-title">How this works</div>
+  <div class="intro-steps">
+    <div class="intro-step">
+      <div class="intro-step-num">1</div>
+      <p><strong>Browse</strong> the experiences below.</p>
+    </div>
+    <div class="intro-step">
+      <div class="intro-step-num">2</div>
+      <p><strong>Tap the heart</strong> on anything that excites you.</p>
+    </div>
+    <div class="intro-step">
+      <div class="intro-step-num">3</div>
+      <p><strong>Send your list</strong> and I'll reply with options.</p>
+    </div>
+  </div>
+  <div class="intro-fine">Nothing to pay here, nothing booked yet.</div>
 </div>
 
 <div class="wrap">
 
-  <!-- FEATURED — TEMPLATE: the 5 cards below map to the CSV rows with top5_rank 1–5, in rank order.
-       Per card swap: data-tour + data-heart + .fcard-name = the tour title (all three must match
-       exactly — they key the heart/sheet/basket JS); .fcard-badge = "#N Most Popular" (keep the
-       full "Most Popular" only on #1 if space is tight, "#2".."#5" otherwise); .meta = a short
-       "Duration · Audience · Activity" line; <p> = the CSV `teaser`. Keep .ph "Photo" placeholder
-       until a real image is added. Never put price/provider here. -->
+
+  <!-- VISTA LOS SUEÑOS — group adventure day (TOP SECTION) -->
   <div class="section-label">
     <div class="section-label-line"></div>
-    <div class="section-label-text">The 5 Most Popular</div>
+    <div class="section-label-text">Your Group Adventure Day</div>
     <div class="section-label-line"></div>
   </div>
-  <p class="section-intro">The experiences almost every wedding group ends up loving.</p>
-
-  <div class="featured">
-    <div class="fcard" data-tour="Catamaran Sail &amp; Snorkel">
-      <div class="fcard-img"><span class="ph">Photo</span>
-        <div class="fcard-badge">#1 Most Popular</div>
-        <div class="heart" data-heart="Catamaran Sail &amp; Snorkel"></div>
+  <div class="vls-intro">
+    <p><strong>Gabrielle &amp; Trevor are spending a day at Vista Los Sueños Adventure Park</strong> — and you're warmly invited. The whole group travels out together; once you're there, everyone does whatever they love. The couple chose the <strong>Zipline + ATV + Waterfalls</strong> combo, so you can join them on the same adventure, or pick any of the others below. It's all at one park, so the group stays together while each person follows their own thrill.</p>
+  </div>
+  <div class="vls-grid">
+    <div class="vcard vls-pick" data-tour="Zipline + ATV + Waterfalls">
+      <div class="vcard-img"><img class="vcard-photo" src="images/VLS/zipline 2.jpg" alt="Zipline + ATV + Waterfalls" loading="lazy">
+        <div class="vls-badge">The couple’s pick</div>
+        <div class="heart" data-heart="Zipline + ATV + Waterfalls"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
-      <div class="fcard-body">
-        <div class="fcard-name">Catamaran Sail &amp; Snorkel</div>
-        <div class="meta">Half day · All ages, any group size · Easy</div>
-        <p>A day on the Pacific — sail to a secluded beach, swim, snorkel, and toast the sunset with lunch and an open bar on board. My favorite way to bring a group together.</p>
-        <span class="fcard-more">View details</span>
-      </div>
-    </div>
-
-    <div class="fcard" data-tour="Zipline Canopy Tour">
-      <div class="fcard-img"><span class="ph">Photo</span>
-        <div class="fcard-badge">#2</div>
-        <div class="heart" data-heart="Zipline Canopy Tour"></div>
-      </div>
-      <div class="fcard-body">
-        <div class="fcard-name">Zipline Canopy Tour</div>
-        <div class="meta">2–3 hrs · Ages 4+ · Active</div>
-        <p>Fly through the rainforest canopy on cables with ocean views — macaws and monkeys below, the Pacific on the horizon. The area&#x27;s signature thrill.</p>
-        <span class="fcard-more">View details</span>
+      <div class="vcard-body">
+        <div class="rcard-name">Zipline + ATV + Waterfalls</div>
+        <div class="meta">Half day · Active · Ages 8+</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $145</span></div>
       </div>
     </div>
-
-    <div class="fcard" data-tour="Surf Lesson on Esterillos Beach">
-      <div class="fcard-img"><span class="ph">Photo</span>
-        <div class="fcard-badge">#3</div>
-        <div class="heart" data-heart="Surf Lesson on Esterillos Beach"></div>
+    <div class="vcard" data-tour="One Day Tour — Transport, 2 Activities &amp; Lunch">
+      <div class="vcard-img"><img class="vcard-photo" src="images/VLS/fullday.jpg" alt="One Day Tour — Transport, 2 Activities &amp; Lunch" loading="lazy">
+        <div class="vls-badge tag">Full Day</div>
+        <div class="heart" data-heart="One Day Tour — Transport, 2 Activities &amp; Lunch"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
-      <div class="fcard-body">
-        <div class="fcard-name">Surf Lesson on Esterillos Beach</div>
-        <div class="meta">1.5–2 hrs · All ages · Active</div>
-        <p>Learn to surf steps from the villa — patient local instructors, gentle rollers, and one of the least crowded beaches on the coast.</p>
-        <span class="fcard-more">View details</span>
+      <div class="vcard-body">
+        <div class="rcard-name">One Day Tour — Transport, 2 Activities &amp; Lunch</div>
+        <div class="meta">Full day · All ages</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $170</span></div>
       </div>
     </div>
-
-    <div class="fcard" data-tour="Horseback Ride on the Beach">
-      <div class="fcard-img"><span class="ph">Photo</span>
-        <div class="fcard-badge">#4</div>
-        <div class="heart" data-heart="Horseback Ride on the Beach"></div>
+    <div class="vcard" data-tour="Zipline + Chocolate Tour">
+      <div class="vcard-img"><img class="vcard-photo" src="images/VLS/zipline 4.jpg" alt="Zipline + Chocolate Tour" loading="lazy">
+        <div class="vls-badge tag">Popular Combo</div>
+        <div class="heart" data-heart="Zipline + Chocolate Tour"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
-      <div class="fcard-body">
-        <div class="fcard-name">Horseback Ride on the Beach</div>
-        <div class="meta">1.5–2 hrs · All ages · Easy</div>
-        <p>An unhurried ride along miles of empty gray-sand beach — magic at sunset, lovely for first-timers and experienced riders alike.</p>
-        <span class="fcard-more">View details</span>
+      <div class="vcard-body">
+        <div class="rcard-name">Zipline + Chocolate Tour</div>
+        <div class="meta">Half day · Active · All ages</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $110</span></div>
       </div>
     </div>
-
-    <div class="fcard" data-tour="Crocodile River Safari">
-      <div class="fcard-img"><span class="ph">Photo</span>
-        <div class="fcard-badge">#5</div>
-        <div class="heart" data-heart="Crocodile River Safari"></div>
+    <div class="vcard" data-tour="Zipline + Horseback Riding">
+      <div class="vcard-img"><img class="vcard-photo" src="images/VLS/zipline 3.jpg" alt="Zipline + Horseback Riding" loading="lazy">
+        <div class="vls-badge tag">Popular Combo</div>
+        <div class="heart" data-heart="Zipline + Horseback Riding"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
-      <div class="fcard-body">
-        <div class="fcard-name">Crocodile River Safari</div>
-        <div class="meta">2 hrs on water · All ages · Easy</div>
-        <p>Cruise the Tárcoles River among some of the biggest crocodiles in the Americas, with scarlet macaws and herons overhead. A guest favorite, 40 minutes up the coast.</p>
-        <span class="fcard-more">View details</span>
+      <div class="vcard-body">
+        <div class="rcard-name">Zipline + Horseback Riding</div>
+        <div class="meta">Half day · Active · Ages 4+</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $145</span></div>
+      </div>
+    </div>
+    <div class="vcard" data-tour="Zipline / Canopy">
+      <div class="vcard-img"><img class="vcard-photo" src="images/VLS/zipline 5.jpg" alt="Zipline / Canopy" loading="lazy">
+        
+        <div class="heart" data-heart="Zipline / Canopy"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="vcard-body">
+        <div class="rcard-name">Zipline / Canopy</div>
+        <div class="meta">2 hrs · Active · Ages 4+</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $95</span></div>
+      </div>
+    </div>
+    <div class="vcard" data-tour="Horseback Riding to Natural Pools">
+      <div class="vcard-img"><img class="vcard-photo" src="images/VLS/horse.jpg" alt="Horseback Riding to Natural Pools" loading="lazy">
+        
+        <div class="heart" data-heart="Horseback Riding to Natural Pools"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="vcard-body">
+        <div class="rcard-name">Horseback Riding to Natural Pools</div>
+        <div class="meta">2 hrs · Easy · Ages 4+</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $100</span></div>
+      </div>
+    </div>
+    <div class="vcard" data-tour="ATV Adventure">
+      <div class="vcard-img"><img class="vcard-photo" src="images/VLS/atv.jpg" alt="ATV Adventure" loading="lazy">
+        
+        <div class="heart" data-heart="ATV Adventure"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="vcard-body">
+        <div class="rcard-name">ATV Adventure</div>
+        <div class="meta">2 hrs · Active · Drivers 18+</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $100 <span class="price-unit">per ATV</span></span></div>
+      </div>
+    </div>
+    <div class="vcard" data-tour="Buggy Adventure">
+      <div class="vcard-img"><img class="vcard-photo" src="images/VLS/ParqueVistaLosSuenos-buggy.jpg" alt="Buggy Adventure" loading="lazy">
+        
+        <div class="heart" data-heart="Buggy Adventure"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="vcard-body">
+        <div class="rcard-name">Buggy Adventure</div>
+        <div class="meta">2 hrs+ · Active · Drivers 18+</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $175 <span class="price-unit">per buggy</span></span></div>
+      </div>
+    </div>
+    <div class="vcard" data-tour="Extreme Canyoning">
+      <div class="vcard-img"><img class="vcard-photo" src="images/VLS/cannoying 3.jpg" alt="Extreme Canyoning" loading="lazy">
+        
+        <div class="heart" data-heart="Extreme Canyoning"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="vcard-body">
+        <div class="rcard-name">Extreme Canyoning</div>
+        <div class="meta">3 hrs · Challenging · Ages 12+</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $115</span></div>
+      </div>
+    </div>
+    <div class="vcard" data-tour="Savegre White Water Rafting">
+      <div class="vcard-img"><img class="vcard-photo" src="images/VLS/rafting.jpg" alt="Savegre White Water Rafting" loading="lazy">
+        
+        <div class="heart" data-heart="Savegre White Water Rafting"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="vcard-body">
+        <div class="rcard-name">Savegre White Water Rafting</div>
+        <div class="meta">Half day · Active · Ages 6+</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $145</span></div>
+      </div>
+    </div>
+    <div class="vcard" data-tour="Chocolate Experience">
+      <div class="vcard-img"><img class="vcard-photo" src="images/VLS/chocolate toru.jpg" alt="Chocolate Experience" loading="lazy">
+        
+        <div class="heart" data-heart="Chocolate Experience"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="vcard-body">
+        <div class="rcard-name">Chocolate Experience</div>
+        <div class="meta">2 hrs · Easy · All ages</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $70</span></div>
+      </div>
+    </div>
+    <div class="vcard" data-tour="Tarzan Swing">
+      <div class="vcard-img"><img class="vcard-photo" src="images/VLS/Trazan_Swing.jpg" alt="Tarzan Swing" loading="lazy">
+        
+        <div class="heart" data-heart="Tarzan Swing"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="vcard-body">
+        <div class="rcard-name">Tarzan Swing</div>
+        <div class="meta">1 hr · Active · Ages 10+</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $60</span></div>
+      </div>
+    </div>
+    <div class="vcard" data-tour="Self-Guided Hiking Trail">
+      <div class="vcard-img"><img class="vcard-photo" src="images/VLS/self hiking.jpg" alt="Self-Guided Hiking Trail" loading="lazy">
+        
+        <div class="heart" data-heart="Self-Guided Hiking Trail"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="vcard-body">
+        <div class="rcard-name">Self-Guided Hiking Trail</div>
+        <div class="meta">~1 hr · Challenging · Active</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $45</span></div>
       </div>
     </div>
   </div>
 
-  <!-- EDITORIAL BANNER — TEMPLATE: from the research notes' "Editorial banner proposal".
-       .banner-label = the small label (default "A Local Tip"); .banner-title = the script
-       headline; <p> = the ~2-line tip. No prices/providers. -->
+  <!-- THE 6 MOST POPULAR -->
+  <div class="section-label">
+    <div class="section-label-line"></div>
+    <div class="section-label-text">The 6 Most Popular</div>
+    <div class="section-label-line"></div>
+  </div>
+  <div class="featured">
+    <div class="fcard" data-tour="Manuel Antonio National Park">
+      <div class="fcard-img"><img class="fcard-photo" src="images/Pop%206/Manuel%20Antonio%20National%20Park%20.jpg" alt="Manuel Antonio National Park" loading="lazy">
+        <div class="fcard-badge">#1 Most Popular</div>
+        <div class="heart" data-heart="Manuel Antonio National Park"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="fcard-body">
+        <div class="fcard-name">Manuel Antonio National Park</div>
+        <div class="meta">Half day · Moderate · All ages</div>
+        <p>Sloths, monkeys and postcard beaches with a naturalist guide — Costa Rica&#x27;s most-loved park, under an hour away.</p>
+        <div class="fcard-foot">
+          <span class="fcard-more">View details</span>
+          <span class="price"><small>approx</small> $99</span>
+        </div>
+      </div>
+    </div>
+    <div class="fcard" data-tour="Mangrove Boat Safari">
+      <div class="fcard-img"><img class="fcard-photo" src="images/Pop%206/mangrove.jpg" alt="Mangrove Boat Safari" loading="lazy">
+        <div class="fcard-badge">#2</div>
+        <div class="heart" data-heart="Mangrove Boat Safari"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="fcard-body">
+        <div class="fcard-name">Mangrove Boat Safari</div>
+        <div class="meta">Half day · Easy · All ages</div>
+        <p>Glide through mangrove channels spotting monkeys, herons and crocodiles — nature at its calmest.</p>
+        <div class="fcard-foot">
+          <span class="fcard-more">View details</span>
+          <span class="price"><small>approx</small> $99</span>
+        </div>
+      </div>
+    </div>
+    <div class="fcard" data-tour="Carara National Park &amp; Crocodile Bridge">
+      <div class="fcard-img"><img class="fcard-photo" src="images/Pop%206/carara2.webp" alt="Carara National Park &amp; Crocodile Bridge" loading="lazy">
+        <div class="fcard-badge">#3</div>
+        <div class="heart" data-heart="Carara National Park &amp; Crocodile Bridge"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="fcard-body">
+        <div class="fcard-name">Carara National Park &amp; Crocodile Bridge</div>
+        <div class="meta">Half day · Moderate · All ages</div>
+        <p>Scarlet macaws, poison-dart frogs and the famous crocodile river — a rich nature morning up the coast.</p>
+        <div class="fcard-foot">
+          <span class="fcard-more">View details</span>
+          <span class="price"><small>approx</small> $85</span>
+        </div>
+      </div>
+    </div>
+    <div class="fcard" data-tour="Tortuga Island Day Trip">
+      <div class="fcard-img"><img class="fcard-photo" src="images/Pop%206/Isla-Tortuga-Day-in-the-Bay.jpg" alt="Tortuga Island Day Trip" loading="lazy">
+        <div class="fcard-badge">#4</div>
+        <div class="heart" data-heart="Tortuga Island Day Trip"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="fcard-body">
+        <div class="fcard-name">Tortuga Island Day Trip</div>
+        <div class="meta">Full day · Easy · All ages</div>
+        <p>White sand and turquoise water on a full island beach day by boat — the postcard tropical escape.</p>
+        <div class="fcard-foot">
+          <span class="fcard-more">View details</span>
+          <span class="price"><small>approx</small> $150</span>
+        </div>
+      </div>
+    </div>
+    <div class="fcard" data-tour="Whitewater Rafting">
+      <div class="fcard-img"><img class="fcard-photo" src="images/Pop%206/rafting_2.jpg" alt="Whitewater Rafting" loading="lazy">
+        <div class="fcard-badge">#5</div>
+        <div class="heart" data-heart="Whitewater Rafting"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="fcard-body">
+        <div class="fcard-name">Whitewater Rafting</div>
+        <div class="meta">Half–full day · Active · Ages 8+</div>
+        <p>Paddle the jungle rivers near Esterillos — gentle Class II–III or punchy Class III–IV, your call.</p>
+        <div class="fcard-foot">
+          <span class="fcard-more">View details</span>
+          <span class="price"><small>approx</small> $125</span>
+        </div>
+      </div>
+    </div>
+    <div class="fcard" data-tour="Spice &amp; Chocolate Farm Tour">
+      <div class="fcard-img"><img class="fcard-photo" src="images/Pop%206/Chocolate-Tour-42-scaled.webp" alt="Spice &amp; Chocolate Farm Tour" loading="lazy">
+        <div class="fcard-badge">#6</div>
+        <div class="heart" data-heart="Spice &amp; Chocolate Farm Tour"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="fcard-body">
+        <div class="fcard-name">Spice &amp; Chocolate Farm Tour</div>
+        <div class="meta">Half day · Easy · All ages</div>
+        <p>Coffee, cacao and vanilla on a working farm, finished with a farm-to-table lunch — a delicious slow morning.</p>
+        <div class="fcard-foot">
+          <span class="fcard-more">View details</span>
+          <span class="price"><small>approx</small> $79</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDITORIAL BANNER -->
   <div class="banner">
     <div class="banner-label">A Local Tip</div>
     <div class="banner-title">The beach is the secret</div>
-    <p>Esterillos is one long, nearly empty beach — locals walk it at low tide to find tide pools and the mermaid statue at Esterillos Oeste. Save one evening for nothing but the sunset; it&#x27;s the best free show on the Central Pacific.</p>
+    <p>Esterillos is one long, nearly empty beach — walk it at low tide to find tide pools and the mermaid statue at Esterillos Oeste. Save one evening for nothing but the sunset; it's the best free show on the Central Pacific.</p>
   </div>
 
-  <!-- CATEGORY RAILS — TEMPLATE: one .section-label + .rail per CSV `categories` value that has rows.
-       A tour can appear in multiple rails (its `categories` is comma-separated). Omit any rail with
-       no rows. Each .rcard: data-tour + data-heart + .rcard-name all = the tour title (must match);
-       .meta = a one-word/short duration. Keep the .rail-hint "swipe" affordance. -->
-
-
-  <!-- CATEGORY: WATER &amp; BEACH -->
+  <!-- CATEGORY: WATER & BEACH -->
   <div class="section-label">
     <div class="section-label-line"></div>
     <div class="section-label-text">Water &amp; Beach</div>
     <div class="section-label-line"></div>
   </div>
-  <div class="rail-hint">swipe<svg class="ic ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M14 6.5 19.5 12 14 17.5"/></svg></div>
-  <div class="rail">
-    <div class="rcard" data-tour="Catamaran Sail &amp; Snorkel">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="Catamaran Sail &amp; Snorkel"></div>
-      <div class="rcard-body"><div class="rcard-name">Catamaran Sail &amp; Snorkel</div><div class="meta">Half day</div></div>
-    </div>
-    <div class="rcard" data-tour="Surf Lesson on Esterillos Beach">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="Surf Lesson on Esterillos Beach"></div>
-      <div class="rcard-body"><div class="rcard-name">Surf Lesson on Esterillos Beach</div><div class="meta">1.5–2 hrs</div></div>
-    </div>
-    <div class="rcard" data-tour="Sportfishing Charter">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="Sportfishing Charter"></div>
-      <div class="rcard-body"><div class="rcard-name">Sportfishing Charter</div><div class="meta">Half or full day</div></div>
-    </div>
-    <div class="rcard" data-tour="Sunset Sail">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="Sunset Sail"></div>
-      <div class="rcard-body"><div class="rcard-name">Sunset Sail</div><div class="meta">2–3 hrs</div></div>
-    </div>
+  <div class="rail-grid">
     <div class="rcard" data-tour="Tortuga Island Day Trip">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="Tortuga Island Day Trip"></div>
-      <div class="rcard-body"><div class="rcard-name">Tortuga Island Day Trip</div><div class="meta">Full day</div></div>
+      <div class="rcard-img"><img class="rcard-photo" src="images/Pop%206/Isla-Tortuga-Day-in-the-Bay.jpg" alt="Tortuga Island Day Trip" loading="lazy">
+        <div class="heart" data-heart="Tortuga Island Day Trip"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="rcard-body">
+        <div class="rcard-name">Tortuga Island Day Trip</div>
+        <div class="meta">Full day</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $150</span></div>
+      </div>
+    </div>
+    <div class="rcard" data-tour="Sea Kayak &amp; Snorkel">
+      <div class="rcard-img"><img class="rcard-photo" src="images/sea%20kayak.jpg" alt="Sea Kayak &amp; Snorkel" loading="lazy">
+        <div class="heart" data-heart="Sea Kayak &amp; Snorkel"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="rcard-body">
+        <div class="rcard-name">Sea Kayak &amp; Snorkel</div>
+        <div class="meta">Half day</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $75</span></div>
+      </div>
     </div>
   </div>
 
-  <!-- CATEGORY: ADVENTURE -->
+  <!-- CATEGORY: NATURE & WILDLIFE -->
   <div class="section-label">
     <div class="section-label-line"></div>
-    <div class="section-label-text">Adventure</div>
+    <div class="section-label-text">Nature &amp; Wildlife</div>
     <div class="section-label-line"></div>
   </div>
-  <div class="rail-hint">swipe<svg class="ic ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M14 6.5 19.5 12 14 17.5"/></svg></div>
-  <div class="rail">
-    <div class="rcard" data-tour="Zipline Canopy Tour">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="Zipline Canopy Tour"></div>
-      <div class="rcard-body"><div class="rcard-name">Zipline Canopy Tour</div><div class="meta">2–3 hrs</div></div>
+  <div class="rail-grid">
+    <div class="rcard" data-tour="Manuel Antonio National Park">
+      <div class="rcard-img"><img class="rcard-photo" src="images/Pop%206/Manuel%20Antonio%20National%20Park%20.jpg" alt="Manuel Antonio National Park" loading="lazy">
+        <div class="heart" data-heart="Manuel Antonio National Park"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="rcard-body">
+        <div class="rcard-name">Manuel Antonio National Park</div>
+        <div class="meta">Half day</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $99</span></div>
+      </div>
     </div>
-    <div class="rcard" data-tour="Surf Lesson on Esterillos Beach">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="Surf Lesson on Esterillos Beach"></div>
-      <div class="rcard-body"><div class="rcard-name">Surf Lesson on Esterillos Beach</div><div class="meta">1.5–2 hrs</div></div>
+    <div class="rcard" data-tour="Mangrove Boat Safari">
+      <div class="rcard-img"><img class="rcard-photo" src="images/Pop%206/mangrove.jpg" alt="Mangrove Boat Safari" loading="lazy">
+        <div class="heart" data-heart="Mangrove Boat Safari"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="rcard-body">
+        <div class="rcard-name">Mangrove Boat Safari</div>
+        <div class="meta">Half day</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $99</span></div>
+      </div>
     </div>
-    <div class="rcard" data-tour="Horseback Ride on the Beach">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="Horseback Ride on the Beach"></div>
-      <div class="rcard-body"><div class="rcard-name">Horseback Ride on the Beach</div><div class="meta">1.5–2 hrs</div></div>
+    <div class="rcard" data-tour="Mangrove Kayak Tour">
+      <div class="rcard-img"><img class="rcard-photo" src="images/Mangrove%20Kayak%20Tour%20.webp" alt="Mangrove Kayak Tour" loading="lazy">
+        <div class="heart" data-heart="Mangrove Kayak Tour"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="rcard-body">
+        <div class="rcard-name">Mangrove Kayak Tour</div>
+        <div class="meta">Half day</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $99</span></div>
+      </div>
     </div>
-    <div class="rcard" data-tour="Crocodile River Safari">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="Crocodile River Safari"></div>
-      <div class="rcard-body"><div class="rcard-name">Crocodile River Safari</div><div class="meta">2 hrs on water</div></div>
+    <div class="rcard" data-tour="Carara National Park &amp; Crocodile Bridge">
+      <div class="rcard-img"><img class="rcard-photo" src="images/Pop%206/carara2.webp" alt="Carara National Park &amp; Crocodile Bridge" loading="lazy">
+        <div class="heart" data-heart="Carara National Park &amp; Crocodile Bridge"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="rcard-body">
+        <div class="rcard-name">Carara National Park &amp; Crocodile Bridge</div>
+        <div class="meta">Half day</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $85</span></div>
+      </div>
     </div>
-    <div class="rcard" data-tour="ATV Jungle &amp; Waterfall Ride">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="ATV Jungle &amp; Waterfall Ride"></div>
-      <div class="rcard-body"><div class="rcard-name">ATV Jungle &amp; Waterfall Ride</div><div class="meta">2–3 hrs</div></div>
+    <div class="rcard" data-tour="Rainmaker Hanging Bridges">
+      <div class="rcard-img"><img class="rcard-photo" src="images/Rainmaker%20.jpg" alt="Rainmaker Hanging Bridges" loading="lazy">
+        <div class="heart" data-heart="Rainmaker Hanging Bridges"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="rcard-body">
+        <div class="rcard-name">Rainmaker Hanging Bridges</div>
+        <div class="meta">Half day</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $149</span></div>
+      </div>
+    </div>
+    <div class="rcard" data-tour="Nauyaca Waterfalls">
+      <div class="rcard-img"><img class="rcard-photo" src="images/Nauyaca%202022%201.jpeg" alt="Nauyaca Waterfalls" loading="lazy">
+        <div class="heart" data-heart="Nauyaca Waterfalls"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="rcard-body">
+        <div class="rcard-name">Nauyaca Waterfalls</div>
+        <div class="meta">Full day</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $179</span></div>
+      </div>
+    </div>
+    <div class="rcard" data-tour="Jungle Night Walk">
+      <div class="rcard-img"><img class="rcard-photo" src="images/Frog-on-the-Night-Walk.jpg" alt="Jungle Night Walk" loading="lazy">
+        <div class="heart" data-heart="Jungle Night Walk"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="rcard-body">
+        <div class="rcard-name">Jungle Night Walk</div>
+        <div class="meta">Evening</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $70</span></div>
+      </div>
+    </div>
+    <div class="rcard" data-tour="Birdwatching Tour">
+      <div class="rcard-img"><img class="rcard-photo" src="images/Birdwatching%20Tour.jpeg" alt="Birdwatching Tour" loading="lazy">
+        <div class="heart" data-heart="Birdwatching Tour"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="rcard-body">
+        <div class="rcard-name">Birdwatching Tour</div>
+        <div class="meta">Half day</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $169</span></div>
+      </div>
+    </div>
+    <div class="rcard" data-tour="Punta Quepos Ocean View Nature Hike">
+      <div class="rcard-img"><img class="rcard-photo" src="images/puntaquepos_hero-74ab46a8.jpeg" alt="Punta Quepos Ocean View Nature Hike" loading="lazy">
+        <div class="heart" data-heart="Punta Quepos Ocean View Nature Hike"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="rcard-body">
+        <div class="rcard-name">Punta Quepos Ocean View Nature Hike</div>
+        <div class="meta">Half day</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $95</span></div>
+      </div>
+    </div>
+    <div class="rcard" data-tour="Tocori Mountain &amp; Waterfall">
+      <div class="rcard-img"><img class="rcard-photo" src="images/cabalgatatocori_hero_v2-164b6f7b.jpeg" alt="Tocori Mountain &amp; Waterfall" loading="lazy">
+        <div class="heart" data-heart="Tocori Mountain &amp; Waterfall"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="rcard-body">
+        <div class="rcard-name">Tocori Mountain &amp; Waterfall</div>
+        <div class="meta">Half day</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $95</span></div>
+      </div>
+    </div>
+    <div class="rcard" data-tour="Cataratas Tour">
+      <div class="rcard-img"><img class="rcard-photo" src="images/tourcataratas_hero-571c3fb8.jpeg" alt="Cataratas Tour" loading="lazy">
+        <div class="heart" data-heart="Cataratas Tour"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="rcard-body">
+        <div class="rcard-name">Cataratas Tour</div>
+        <div class="meta">Full day</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $179</span></div>
+      </div>
+    </div>
+    <div class="rcard" data-tour="Corcovado One Day Adventure">
+      <div class="rcard-img"><img class="rcard-photo" src="images/corcovado_hero-791229c0.jpeg" alt="Corcovado One Day Adventure" loading="lazy">
+        <div class="heart" data-heart="Corcovado One Day Adventure"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="rcard-body">
+        <div class="rcard-name">Corcovado One Day Adventure</div>
+        <div class="meta">Full day</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $600</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY: ADVENTURE & ADRENALINE -->
+  <div class="section-label">
+    <div class="section-label-line"></div>
+    <div class="section-label-text">Adventure &amp; Adrenaline</div>
+    <div class="section-label-line"></div>
+  </div>
+  <div class="rail-grid">
+    <div class="rcard" data-tour="Whitewater Rafting">
+      <div class="rcard-img"><img class="rcard-photo" src="images/Pop%206/rafting_2.jpg" alt="Whitewater Rafting" loading="lazy">
+        <div class="heart" data-heart="Whitewater Rafting"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="rcard-body">
+        <div class="rcard-name">Whitewater Rafting</div>
+        <div class="meta">Half–full day</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $125</span></div>
+      </div>
     </div>
     <div class="rcard" data-tour="Sportfishing Charter">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="Sportfishing Charter"></div>
-      <div class="rcard-body"><div class="rcard-name">Sportfishing Charter</div><div class="meta">Half or full day</div></div>
-    </div>
-    <div class="rcard" data-tour="Rainforest Hanging Bridges Walk">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="Rainforest Hanging Bridges Walk"></div>
-      <div class="rcard-body"><div class="rcard-name">Rainforest Hanging Bridges Walk</div><div class="meta">Half day</div></div>
-    </div>
-    <div class="rcard" data-tour="Jungle Night Walk">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="Jungle Night Walk"></div>
-      <div class="rcard-body"><div class="rcard-name">Jungle Night Walk</div><div class="meta">Evening, ~2 hrs</div></div>
-    </div>
-    <div class="rcard" data-tour="Nauyaca Waterfalls Adventure">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="Nauyaca Waterfalls Adventure"></div>
-      <div class="rcard-body"><div class="rcard-name">Nauyaca Waterfalls Adventure</div><div class="meta">Full day</div></div>
+      <div class="rcard-img"><img class="rcard-photo" src="images/fishing.webp" alt="Sportfishing Charter" loading="lazy">
+        <div class="heart" data-heart="Sportfishing Charter"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="rcard-body">
+        <div class="rcard-name">Sportfishing Charter</div>
+        <div class="meta">Half–full day</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $990 <span class="price-unit">per boat</span></span></div>
+      </div>
     </div>
   </div>
 
-  <!-- CATEGORY: RELAX &amp; SLOW DAYS -->
-  <div class="section-label">
-    <div class="section-label-line"></div>
-    <div class="section-label-text">Relax &amp; Slow Days</div>
-    <div class="section-label-line"></div>
-  </div>
-  <div class="rail-hint">swipe<svg class="ic ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M14 6.5 19.5 12 14 17.5"/></svg></div>
-  <div class="rail">
-    <div class="rcard" data-tour="Horseback Ride on the Beach">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="Horseback Ride on the Beach"></div>
-      <div class="rcard-body"><div class="rcard-name">Horseback Ride on the Beach</div><div class="meta">1.5–2 hrs</div></div>
-    </div>
-    <div class="rcard" data-tour="Mangrove Kayak or Boat Safari">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="Mangrove Kayak or Boat Safari"></div>
-      <div class="rcard-body"><div class="rcard-name">Mangrove Kayak or Boat Safari</div><div class="meta">4 hrs</div></div>
-    </div>
-    <div class="rcard" data-tour="Sunset Sail">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="Sunset Sail"></div>
-      <div class="rcard-body"><div class="rcard-name">Sunset Sail</div><div class="meta">2–3 hrs</div></div>
-    </div>
-    <div class="rcard" data-tour="In-Villa Spa &amp; Massage">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="In-Villa Spa &amp; Massage"></div>
-      <div class="rcard-body"><div class="rcard-name">In-Villa Spa &amp; Massage</div><div class="meta">1 hr+</div></div>
-    </div>
-    <div class="rcard" data-tour="Beach Yoga">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="Beach Yoga"></div>
-      <div class="rcard-body"><div class="rcard-name">Beach Yoga</div><div class="meta">1 hr</div></div>
-    </div>
-  </div>
-
-  <!-- CATEGORY: FAMILY -->
-  <div class="section-label">
-    <div class="section-label-line"></div>
-    <div class="section-label-text">Family</div>
-    <div class="section-label-line"></div>
-  </div>
-  <div class="rail-hint">swipe<svg class="ic ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M14 6.5 19.5 12 14 17.5"/></svg></div>
-  <div class="rail">
-    <div class="rcard" data-tour="Crocodile River Safari">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="Crocodile River Safari"></div>
-      <div class="rcard-body"><div class="rcard-name">Crocodile River Safari</div><div class="meta">2 hrs on water</div></div>
-    </div>
-    <div class="rcard" data-tour="Manuel Antonio National Park Tour">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="Manuel Antonio National Park Tour"></div>
-      <div class="rcard-body"><div class="rcard-name">Manuel Antonio National Park Tour</div><div class="meta">Half day</div></div>
-    </div>
-    <div class="rcard" data-tour="Mangrove Kayak or Boat Safari">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="Mangrove Kayak or Boat Safari"></div>
-      <div class="rcard-body"><div class="rcard-name">Mangrove Kayak or Boat Safari</div><div class="meta">4 hrs</div></div>
-    </div>
-    <div class="rcard" data-tour="Rainforest Hanging Bridges Walk">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="Rainforest Hanging Bridges Walk"></div>
-      <div class="rcard-body"><div class="rcard-name">Rainforest Hanging Bridges Walk</div><div class="meta">Half day</div></div>
-    </div>
-    <div class="rcard" data-tour="Chocolate Farm Experience">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="Chocolate Farm Experience"></div>
-      <div class="rcard-body"><div class="rcard-name">Chocolate Farm Experience</div><div class="meta">1.5–2 hrs</div></div>
-    </div>
-    <div class="rcard" data-tour="Jungle Night Walk">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="Jungle Night Walk"></div>
-      <div class="rcard-body"><div class="rcard-name">Jungle Night Walk</div><div class="meta">Evening, ~2 hrs</div></div>
-    </div>
-  </div>
-
-  <!-- CATEGORY: FOOD &amp; CULTURE -->
+  <!-- CATEGORY: FOOD & CULTURE -->
   <div class="section-label">
     <div class="section-label-line"></div>
     <div class="section-label-text">Food &amp; Culture</div>
     <div class="section-label-line"></div>
   </div>
-  <div class="rail-hint">swipe<svg class="ic ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M14 6.5 19.5 12 14 17.5"/></svg></div>
-  <div class="rail">
-    <div class="rcard" data-tour="Manuel Antonio National Park Tour">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="Manuel Antonio National Park Tour"></div>
-      <div class="rcard-body"><div class="rcard-name">Manuel Antonio National Park Tour</div><div class="meta">Half day</div></div>
+  <div class="rail-grid">
+    <div class="rcard" data-tour="Spice &amp; Chocolate Farm Tour">
+      <div class="rcard-img"><img class="rcard-photo" src="images/Pop%206/Chocolate-Tour-42-scaled.webp" alt="Spice &amp; Chocolate Farm Tour" loading="lazy">
+        <div class="heart" data-heart="Spice &amp; Chocolate Farm Tour"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="rcard-body">
+        <div class="rcard-name">Spice &amp; Chocolate Farm Tour</div>
+        <div class="meta">Half day</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $79</span></div>
+      </div>
     </div>
-    <div class="rcard" data-tour="Chocolate Farm Experience">
-      <div class="rcard-img"><span class="ph">Photo</span></div>
-      <div class="heart" data-heart="Chocolate Farm Experience"></div>
-      <div class="rcard-body"><div class="rcard-name">Chocolate Farm Experience</div><div class="meta">1.5–2 hrs</div></div>
+    <div class="rcard" data-tour="Market &amp; Cooking Class">
+      <div class="rcard-img"><img class="rcard-photo" src="images/Local%20Flavor%20Experience.webp" alt="Market &amp; Cooking Class" loading="lazy">
+        <div class="heart" data-heart="Market &amp; Cooking Class"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="rcard-body">
+        <div class="rcard-name">Market &amp; Cooking Class</div>
+        <div class="meta">Half day</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $79</span></div>
+      </div>
     </div>
   </div>
+
+  <div class="price-note">All prices are approximate, per person unless noted, and shown in US dollars excluding 13% tax. Vista Los Sueños prices include round-trip transport from Esterillos. Final pricing is confirmed when you send your list.</div>
 
   <!-- FOOTER -->
   <div class="footer">
@@ -737,7 +1020,7 @@ body {
 <!-- DETAIL SHEET -->
 <div class="sheet" id="sheet">
   <div class="sheet-handle"></div>
-  <div class="sheet-img"><span class="ph">Photo Slideshow</span></div>
+  <div class="sheet-img" id="sheetImg"><span class="ph">Photo Slideshow</span></div>
   <div class="sheet-body">
     <div class="sheet-name" id="sheetName">Tour Name</div>
     <div class="meta" id="sheetMeta">Half Day · Adventure · All Ages</div>
@@ -778,14 +1061,14 @@ body {
     <div class="hp-field" aria-hidden="true"><label>Leave this field blank</label><input id="fHp" type="text" name="hp" tabindex="-1" autocomplete="off"></div>
     <button class="send" id="sendBtn">Send to Stefano<svg class="ic ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M14 6.5 19.5 12 14 17.5"/></svg></button>
     <div class="basket-status" id="basketStatus" role="status" aria-live="polite"></div>
-    <div class="basket-fine">No payment · No commitment · I reply within 24 hours</div>
+    <div class="basket-fine">No payment · No commitment · I reply within 72 hours</div>
   </div>
 
   <!-- THANK-YOU STATE (swapped in on success — no redirect). -->
   <div class="basket-body basket-thanks" id="basketThanks" hidden>
     <svg class="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>
     <h3>Got it — your list is on its way to me.</h3>
-    <p>I'll check availability and reply within 24 hours. Nothing is booked or charged yet — this just tells me what caught your eye.</p>
+    <p>I'll check availability and reply within 72 hours. Nothing is booked or charged yet — this just tells me what caught your eye.</p>
   </div>
 </div>
 
@@ -808,7 +1091,7 @@ body {
     // Optional ?w=<slug> → display-name map. Leave empty to always use the
     // neutral hero line. Add entries like 'gabrielle-trevor':'Gabrielle & Trevor'
     // as a later enhancement; unknown/absent slugs fall back to neutral copy.
-    WEDDINGS:  {}
+    WEDDINGS:  { 'gabrielle-trevor': 'Gabrielle & Trevor' }
   };
   var STORAGE_KEY = 'ap_interest_' + CONFIG.AREA_SLUG;
 
@@ -817,124 +1100,253 @@ body {
      object. Each entry: { meta, desc, duration, audience, activity }. Any missing
      field is simply hidden in the sheet. NEVER include price/provider/notes. */
   var TOURS = {
-  "Catamaran Sail & Snorkel": {
-    "meta": "Half day · All ages, any group size · Easy",
-    "desc": "You'll board in Herradura or Quepos and cruise to a quiet cove only reachable by boat. Swim, snorkel, paddle, or just stretch out on deck with a drink while the crew takes care of everything. Dolphins often join the ride. Shared sailings or a fully private charter for your whole group — I'll match you with the right boat.",
+  "Zipline + ATV + Waterfalls": {
+    "meta": "Half day · Active · Ages 8+",
+    "desc": "Soar across the rainforest canopy on ziplines with ocean views, then jump on an ATV for jungle trails and river crossings that finish at a waterfall swim. This is the couple's choice for the group adventure day — everyone heads to the same park together and each person does whatever they love.",
     "duration": "Half day",
-    "audience": "All ages, any group size",
-    "activity": "Easy"
+    "audience": "Ages 8+ (ATV drivers 18+)",
+    "activity": "Active",
+    "img": "images/VLS/zipline%202.jpg"
   },
-  "Zipline Canopy Tour": {
-    "meta": "2–3 hrs · Ages 4+ · Active",
-    "desc": "A tractor ride carries you up the mountain, then bilingual guides clip you in for a series of cables and platforms high above the forest, with views over Herradura Bay and the coast. Keep an eye out for scarlet macaws, toucans, and white-faced monkeys between lines. Finishes with fresh tropical fruit. Ages 4 and up.",
-    "duration": "2–3 hrs",
+  "One Day Tour — Transport, 2 Activities & Lunch": {
+    "meta": "Full day · All ages",
+    "desc": "A full-day getaway with round-trip transport (including a stop at the Tárcoles crocodile bridge), your pick of two activities at the park — zipline, ATV & natural pools or horseback & waterfalls, chocolate experience, or a surf lesson — plus a typical Costa Rican lunch. Transport, guides, gear and insurance all included. Starts ~7:30am.",
+    "duration": "Full day (~10 hrs)",
+    "audience": "All ages",
+    "activity": "Moderate",
+    "img": "images/VLS/fullday.jpg"
+  },
+  "Zipline + Chocolate Tour": {
+    "meta": "Half day · Active · All ages",
+    "desc": "The park's most popular pairing: glide across the rainforest canopy on ziplines, then settle into the chocolate experience — taste cocoa fruit, learn the varieties, and make your own chocolate. A great mix of thrill and sweetness for mixed groups.",
+    "duration": "Half day",
+    "audience": "All ages",
+    "activity": "Active",
+    "img": "images/VLS/zipline%204.jpg"
+  },
+  "Zipline + Horseback Riding": {
+    "meta": "Half day · Active · Ages 4+",
+    "desc": "Combine the canopy ziplines with a gentle horseback ride to hidden natural pools for a swim. A favourite for groups who want one big-thrill activity balanced with something slower and scenic. Ages 4 and up.",
+    "duration": "Half day",
     "audience": "Ages 4+",
-    "activity": "Active"
+    "activity": "Active",
+    "img": "images/VLS/zipline%203.jpg"
   },
-  "Surf Lesson on Esterillos Beach": {
-    "meta": "1.5–2 hrs · All ages · Active",
-    "desc": "Esterillos is a surf town at heart, with long, forgiving waves and plenty of room to find your own peak. Local instructors handle boards, technique, and a lot of encouragement — most first-timers stand up within the hour. Private or small-group lessons, right on the beach in front of town.",
-    "duration": "1.5–2 hrs",
+  "Zipline / Canopy": {
+    "meta": "2 hrs · Active · Ages 4+",
+    "desc": "A tractor ride carries you up the mountain, then guides clip you in for ten cables and twelve platforms high above the forest, with sweeping Pacific views. Watch for scarlet macaws, toucans, and white-faced monkeys between lines. Ages 4 and up, max 250 lbs.",
+    "duration": "2 hrs",
+    "audience": "Ages 4+",
+    "activity": "Active",
+    "img": "images/VLS/zipline%205.jpg"
+  },
+  "Horseback Riding to Natural Pools": {
+    "meta": "2 hrs · Easy · Ages 4+",
+    "desc": "An easy guided ride through Vista Los Sueños' private forest leads to a short walk down to pristine natural pools — time for a swim before riding back. Gentle pace, bilingual guides, and a real cowboy along for the ride. Lovely for all levels; kids 4–5 ride with a parent.",
+    "duration": "2 hrs",
+    "audience": "Ages 4+",
+    "activity": "Easy",
+    "img": "images/VLS/horse.jpg"
+  },
+  "ATV Adventure": {
+    "meta": "2 hrs · Active · Drivers 18+",
+    "desc": "Guided ATVs take you through rainforest backroads, creek crossings, and ridgeline lookouts, with a waterfall stop along the way. No experience needed, just clothes you don't mind getting muddy. Drivers must be 18+; price is per ATV.",
+    "duration": "2 hrs",
+    "audience": "Drivers 18+",
+    "activity": "Active",
+    "img": "images/VLS/atv.jpg"
+  },
+  "Buggy Adventure": {
+    "meta": "2 hrs+ · Active · Drivers 18+",
+    "desc": "Pile two to four people into an off-road buggy and follow jungle trails along the river to private natural pools. A fun group option that keeps everyone together. Two- to six-hour routes available; drivers 18+, passengers 4 and up. Price is per buggy (seats up to 4).",
+    "duration": "2 hrs+",
+    "audience": "Drivers 18+",
+    "activity": "Active",
+    "img": "images/VLS/ParqueVistaLosSuenos-buggy.jpg"
+  },
+  "Extreme Canyoning": {
+    "meta": "3 hrs · Challenging · Ages 12+",
+    "desc": "For the thrill-seekers: a tractor ride and short hike bring you to the top of a series of waterfalls you rappel straight down — the biggest over 150 feet — with riverbed scrambles in between. Ages 12 and up; you'll need to be comfortable in water.",
+    "duration": "3 hrs",
+    "audience": "Ages 12+, must swim",
+    "activity": "Challenging",
+    "img": "images/VLS/cannoying%203.jpg"
+  },
+  "Savegre White Water Rafting": {
+    "meta": "Half day · Active · Ages 6+",
+    "desc": "A scenic drive up to San Gerardo de Dota for Class II & III rafting on the Savegre, Costa Rica's cleanest river — swim and float sections, six- or two-person rafts, and a breakfast box with snacks and drinks. Minimum age 6; a great active day out.",
+    "duration": "~6.5 hrs",
+    "audience": "Ages 6+",
+    "activity": "Active",
+    "img": "images/VLS/rafting.jpg"
+  },
+  "Chocolate Experience": {
+    "meta": "2 hrs · Easy · All ages",
+    "desc": "A gentle nature walk leads into a chocolate experience built around the park's international cocoa collection — taste the fruit, learn the varieties, and make your own chocolate. Sweet, shaded, and genuinely fun for every age. Kids 6 and under free.",
+    "duration": "2 hrs",
     "audience": "All ages",
-    "activity": "Active"
+    "activity": "Easy",
+    "img": "images/VLS/chocolate%20toru.jpg"
   },
-  "Horseback Ride on the Beach": {
-    "meta": "1.5–2 hrs · All ages · Easy",
-    "desc": "Esterillos' long, wide beach was made for this: a gentle ride along the surf line, through palm groves and tide pools, with a guide who matches the pace to your group. Time it for late afternoon and you'll ride home under one of the Central Pacific's famous sunsets.",
-    "duration": "1.5–2 hrs",
-    "audience": "All ages",
-    "activity": "Easy"
+  "Tarzan Swing": {
+    "meta": "1 hr · Active · Ages 10+",
+    "desc": "A quick adrenaline hit: walk up to the platform, get clipped into a double independent safety-rope system, and jump for a free-fall swing through the trees. Bilingual guide, full safety gear and insurance included. Minimum age 10.",
+    "duration": "~1 hr",
+    "audience": "Ages 10+",
+    "activity": "Active",
+    "img": "images/VLS/Trazan_Swing.jpg"
   },
-  "Crocodile River Safari": {
-    "meta": "2 hrs on water · All ages · Easy",
-    "desc": "A flat-bottomed boat takes you gently down the Tárcoles, where crocs over 13 feet bask on the banks and the birdlife is extraordinary — scarlet macaws, roseate spoonbills, herons. Guides know every resident by name. Easy, shaded, and great for all ages; pairs beautifully with a stop at Carara National Park.",
-    "duration": "2 hrs on water",
-    "audience": "All ages",
-    "activity": "Easy"
+  "Self-Guided Hiking Trail": {
+    "meta": "~1 hr · Challenging · Active",
+    "desc": "A self-guided 2.8 km trail with over 400 m of elevation gain and around 400 stairs — a real workout rewarded with views over Herradura Bay, its island, and the Nicoya Gulf. Comes with a map, walking stick, fruit and water, and rest stops with plant signage along the way.",
+    "duration": "~1 hr",
+    "audience": "Sure-footed, active",
+    "activity": "Challenging",
+    "img": "images/VLS/self%20hiking.jpg"
   },
-  "ATV Jungle & Waterfall Ride": {
-    "meta": "2–3 hrs · Drivers 16+, passengers younger · Active",
-    "desc": "You'll ride guided ATVs through rainforest backroads and ridgelines above the coast, splashing through creeks and stopping at viewpoints most visitors never see. Most routes include a waterfall swim stop. Single or double machines available, no experience needed — just a sense of adventure and clothes you don't mind muddying.",
-    "duration": "2–3 hrs",
-    "audience": "Drivers 16+, passengers younger",
-    "activity": "Active"
-  },
-  "Manuel Antonio National Park Tour": {
-    "meta": "Half day · All ages · Moderate",
-    "desc": "A naturalist guide leads you along flat forest trails with a telescope in hand, spotting sloths, capuchins, toucans, and more than you'd ever find alone. The walk ends at a white-sand cove inside the park where you can swim before heading back. Gentle pace, huge payoff — the classic Costa Rica day out.",
+  "Manuel Antonio National Park": {
+    "meta": "Half day · Moderate · All ages",
+    "desc": "A naturalist leads you along flat forest trails with a telescope, spotting sloths, capuchins, toucans and more than you'd ever find alone. The walk ends at a white-sand cove inside the park where you can swim. Gentle pace, huge payoff. Closed Tuesdays.",
     "duration": "Half day",
     "audience": "All ages",
-    "activity": "Moderate"
+    "activity": "Moderate",
+    "img": "images/Pop%206/Manuel%20Antonio%20National%20Park%20.jpg"
   },
-  "Mangrove Kayak or Boat Safari": {
-    "meta": "4 hrs · All ages · Easy",
-    "desc": "The Damas Island estuary is a maze of mangrove channels alive with white-faced monkeys, anteaters, herons, and kingfishers. Choose a guided kayak for a closer, quieter ride, or a covered boat if you'd rather sit back. Timed to the tides, with a home-cooked Costa Rican meal afterwards.",
-    "duration": "4 hrs",
-    "audience": "All ages",
-    "activity": "Easy"
-  },
-  "Sportfishing Charter": {
-    "meta": "Half or full day · Adults & older kids · Moderate",
-    "desc": "The waters off Herradura and Quepos are world-class billfish territory. Your private boat comes fully crewed and equipped — inshore runs for roosterfish and snapper, or offshore for sailfish, marlin, and mahi-mahi. The crew will even fillet your catch for the villa chef to cook that night.",
-    "duration": "Half or full day",
-    "audience": "Adults & older kids",
-    "activity": "Moderate"
-  },
-  "Rainforest Hanging Bridges Walk": {
-    "meta": "Half day · All ages, sure-footed · Moderate",
-    "desc": "At Rainmaker, a private reserve in the hills behind the coast, a trail of suspension bridges carries you up through the canopy past waterfalls and swimming holes. It's one of the most biodiverse corners of the Central Pacific — expect poison dart frogs, morphos, and mist drifting through the trees.",
+  "Mangrove Boat Safari": {
+    "meta": "Half day · Easy · All ages",
+    "desc": "The Damas Island estuary is a maze of mangrove channels alive with white-faced monkeys, anteaters, herons and kingfishers. A covered boat takes you deep into the tunnels with a guide, finishing with a home-cooked Costa Rican meal. Easy and shaded.",
     "duration": "Half day",
-    "audience": "All ages, sure-footed",
-    "activity": "Moderate"
-  },
-  "Chocolate Farm Experience": {
-    "meta": "1.5–2 hrs · All ages · Easy",
-    "desc": "A hands-on tour of a cacao farm where you'll crack pods, roast and grind beans the traditional way, and taste chocolate at every stage — from bitter nib to finished truffle. Sweet, shaded, and genuinely fun for every age. Easily combined with ziplining at the same adventure park.",
-    "duration": "1.5–2 hrs",
     "audience": "All ages",
-    "activity": "Easy"
+    "activity": "Easy",
+    "img": "images/Pop%206/mangrove.jpg"
   },
-  "Sunset Sail": {
-    "meta": "2–3 hrs · All ages · Easy",
-    "desc": "A shorter, softer cruise made for one thing: the Central Pacific sunset, which puts on a show nearly every evening. Appetizers and an open bar on board, calm water, and that light everyone flies here for. Lovely as a couples' evening or an easygoing group send-off.",
-    "duration": "2–3 hrs",
+  "Carara National Park & Crocodile Bridge": {
+    "meta": "Half day · Moderate · All ages",
+    "desc": "Carara is one of the few places where scarlet macaws and poison-dart frogs share the forest. A guided walk on easy trails is paired with a stop at the Tárcoles crocodile bridge, where giant crocs bask below. Transport from Esterillos included.",
+    "duration": "Half day",
     "audience": "All ages",
-    "activity": "Easy"
-  },
-  "Jungle Night Walk": {
-    "meta": "Evening, ~2 hrs · Ages 5+ · Moderate",
-    "desc": "With headlamps and a sharp-eyed naturalist, you'll walk quiet trails as the night shift comes alive: red-eyed tree frogs, sleeping birds, kinkajous, and more. The lights-off moment in the middle of the forest is something nobody forgets. A short evening outing with an outsized wow factor.",
-    "duration": "Evening, ~2 hrs",
-    "audience": "Ages 5+",
-    "activity": "Moderate"
-  },
-  "In-Villa Spa & Massage": {
-    "meta": "1 hr+ · Adults · Easy",
-    "desc": "Licensed therapists set up right at your villa — poolside, on the terrace, or in your room — for massages, facials, and treatments scheduled around your day. Book a single session or bring a team for a group spa afternoon. The easiest yes of the whole trip.",
-    "duration": "1 hr+",
-    "audience": "Adults",
-    "activity": "Easy"
-  },
-  "Beach Yoga": {
-    "meta": "1 hr · All ages · Easy",
-    "desc": "A local instructor leads a relaxed beachfront session — all levels welcome, mats provided, fresh juice after. Or have the instructor come to the villa for a private group class on your own schedule. The kindest way to start a wedding-week morning.",
-    "duration": "1 hr",
-    "audience": "All ages",
-    "activity": "Easy"
+    "activity": "Moderate",
+    "img": "images/Pop%206/carara2.webp"
   },
   "Tortuga Island Day Trip": {
-    "meta": "Full day · All ages · Easy",
-    "desc": "A boat day to Isla Tortuga's white-sand beaches and clear, calm water — snorkel, paddle, swim, and lunch on the island. It's the postcard tropical beach the gray-sand coast doesn't have, and a private charter makes it an effortless full-day group outing.",
+    "meta": "Full day · Easy · All ages",
+    "desc": "A boat day to Isla Tortuga's white-sand beaches and clear, calm water — snorkel, paddle, swim and lunch on the island. It's the postcard tropical beach the gray-sand coast doesn't have, and an easy full-day group outing.",
     "duration": "Full day",
     "audience": "All ages",
-    "activity": "Easy"
+    "activity": "Easy",
+    "img": "images/Pop%206/Isla-Tortuga-Day-in-the-Bay.jpg"
   },
-  "Nauyaca Waterfalls Adventure": {
-    "meta": "Full day · Confident swimmers · Challenging",
-    "desc": "Nauyaca is the waterfall of Costa Rica daydreams: a 148-foot cascade pouring into a wide pool you can actually swim in. Ride in by 4x4 truck or on horseback through the hills, swim beneath the falls, and picnic on the rocks. A full, beautiful day for the adventurous side of the group.",
+  "Whitewater Rafting": {
+    "meta": "Half–full day · Active · Ages 8+",
+    "desc": "The Savegre (Costa Rica's cleanest river, Class II–III, ages 8+) and the Naranjo (Class III–IV, ages 10+) both run close to Esterillos. Expert guides, swim and float sections, and a riverside meal. Choose the run that matches your group's nerve.",
+    "duration": "Half–full day",
+    "audience": "Ages 8+",
+    "activity": "Active",
+    "img": "images/Pop%206/rafting_2.jpg"
+  },
+  "Spice & Chocolate Farm Tour": {
+    "meta": "Half day · Easy · All ages",
+    "desc": "A hands-on visit to a private ranch where coffee, cacao and vanilla are grown and processed — walk the organic garden, taste at every stage, and sit down to a farm-to-table lunch. Sweet, shaded and easy for all ages.",
+    "duration": "Half day",
+    "audience": "All ages",
+    "activity": "Easy",
+    "img": "images/Pop%206/Chocolate-Tour-42-scaled.webp"
+  },
+  "Sea Kayak & Snorkel": {
+    "meta": "Half day",
+    "desc": "Sea kayak from the coast past rocky islands and nesting grounds to a sheltered bay for snorkeling — parrotfish, starfish, the occasional turtle — finishing with a snack and a home-cooked meal. No experience needed.",
+    "duration": "Half day",
+    "audience": "Ages 8+",
+    "activity": "Active",
+    "img": "images/sea%20kayak.jpg"
+  },
+  "Mangrove Kayak Tour": {
+    "meta": "Half day",
+    "desc": "A quieter, closer way through the Damas Island mangroves — paddle the natural canals and tunnels with a guide, spotting birds, reptiles and monkeys. Lunch included. Ages 6 and up.",
+    "duration": "Half day",
+    "audience": "Ages 6+",
+    "activity": "Easy",
+    "img": "images/Mangrove%20Kayak%20Tour%20.webp"
+  },
+  "Rainmaker Hanging Bridges": {
+    "meta": "Half day",
+    "desc": "At Rainmaker, a private reserve in the hills, a trail of suspension bridges carries you up through the canopy past waterfalls and swimming holes — one of the most biodiverse corners of the coast. Expect frogs, morphos and mist in the trees.",
+    "duration": "Half day",
+    "audience": "Sure-footed, all ages",
+    "activity": "Moderate",
+    "img": "images/Rainmaker%20.jpg"
+  },
+  "Nauyaca Waterfalls": {
+    "meta": "Full day",
+    "desc": "Nauyaca is the waterfall of Costa Rica daydreams — a 148-foot cascade pouring into a wide swimming pool. Reach it on a guided nature walk, swim beneath the falls, and picnic on the rocks. A full, beautiful day for the adventurous.",
     "duration": "Full day",
     "audience": "Confident swimmers",
-    "activity": "Challenging"
+    "activity": "Challenging",
+    "img": "images/Nauyaca%202022%201.jpeg"
+  },
+  "Jungle Night Walk": {
+    "meta": "Evening",
+    "desc": "With headlamps and a sharp-eyed naturalist, you'll walk quiet trails as the night shift comes alive: red-eyed tree frogs, sleeping birds, kinkajous and more. The lights-off moment in the middle of the forest is unforgettable. Ages 5+.",
+    "duration": "Evening",
+    "audience": "Ages 5+",
+    "activity": "Moderate",
+    "img": "images/Frog-on-the-Night-Walk.jpg"
+  },
+  "Birdwatching Tour": {
+    "meta": "Half day",
+    "desc": "For the keen-eyed: a dawn or late-afternoon outing with a specialist guide and telescope through some of the richest birding habitat on the Central Pacific. Tanagers, trogons, motmots and, with luck, scarlet macaws overhead.",
+    "duration": "Half day",
+    "audience": "All ages",
+    "activity": "Easy",
+    "img": "images/Birdwatching%20Tour.jpeg"
+  },
+  "Punta Quepos Ocean View Nature Hike": {
+    "meta": "Half day",
+    "desc": "A recently discovered trail on the Punta Quepos headland, climbing through protected secondary forest to a panoramic viewpoint over the ocean, Punta Catedral and the town of Quepos. Choose a pleasant or a more stimulating pace; finishes with beach time. Great for birdwatchers and walkers alike.",
+    "duration": "4 hrs",
+    "audience": "All ages",
+    "activity": "Moderate",
+    "img": "images/puntaquepos_hero-74ab46a8.jpeg"
+  },
+  "Tocori Mountain & Waterfall": {
+    "meta": "Half day",
+    "desc": "Just north of Quepos, ride on horseback through rivers, mountains and jungle to the Tocori waterfalls, where you can swim in the natural pools. Includes a medicinal-plant garden walk and a typical Costa Rican lunch. Bilingual naturalist guides; minimum age 7.",
+    "duration": "4 hrs",
+    "audience": "Ages 7+",
+    "activity": "Moderate",
+    "img": "images/cabalgatatocori_hero_v2-164b6f7b.jpeg"
+  },
+  "Cataratas Tour": {
+    "meta": "Full day",
+    "desc": "Travel the coastal highway south to visit a string of impressive waterfalls — Portalón, Dominicalito's Poza Azul, and the Uvita falls — swimming in natural pools along the way. Add the famous El Pavón waterfall with its 15-metre jump if you're feeling brave. Lunch, snacks and certified guides included.",
+    "duration": "Full day",
+    "audience": "All ages",
+    "activity": "Moderate",
+    "img": "images/tourcataratas_hero-571c3fb8.jpeg"
+  },
+  "Corcovado One Day Adventure": {
+    "meta": "Full day",
+    "desc": "A once-in-a-trip journey to the Osa Peninsula: drive to Sierpe, then a boat to San Pedrillo station for guided hiking through Corcovado National Park — tapirs, peccaries, monkeys, scarlet macaws and, if you're lucky, big cats. Dolphins and whales often appear on the boat ride back. Coffee, lunch and a certified guide included.",
+    "duration": "Full day",
+    "audience": "All ages, moderate fitness",
+    "activity": "Active",
+    "img": "images/corcovado_hero-791229c0.jpeg"
+  },
+  "Sportfishing Charter": {
+    "meta": "Half–full day",
+    "desc": "The waters off Herradura and Quepos are world-class billfish territory. Your crewed boat runs inshore for roosterfish and snapper, or offshore for sailfish, marlin and mahi-mahi — and the crew will fillet your catch for the villa chef. Price is per boat.",
+    "duration": "Half–full day",
+    "audience": "Adults & older kids",
+    "activity": "Moderate",
+    "img": "images/fishing.webp"
+  },
+  "Market & Cooking Class": {
+    "meta": "Half day",
+    "desc": "Start at the Quepos farmers' market picking ingredients, then a hands-on cooking class at a private ranch — tortillas, ceviche, picadillos, the works — and eat what you make. A relaxed, social half-day with a local family.",
+    "duration": "Half day",
+    "audience": "All ages",
+    "activity": "Easy",
+    "img": "images/Local%20Flavor%20Experience.webp"
   }
 };
 
@@ -1044,6 +1456,11 @@ body {
     var meta = document.getElementById('sheetMeta');
     if (t.meta){ meta.textContent = t.meta; meta.style.display = ''; } else { meta.style.display = 'none'; }
     document.getElementById('sheetDesc').textContent = t.desc || '';
+    var simg = document.getElementById('sheetImg');
+    if (simg) {
+      if (t.img) { simg.innerHTML = '<img class="sheet-photo" src="' + t.img + '" alt="' + name + '">'; }
+      else { simg.innerHTML = '<span class="ph">Photo Slideshow</span>'; }
+    }
     setFact('factDuration', 'factDurationText', t.duration);
     setFact('factAudience', 'factAudienceText', t.audience);
     setFact('factActivity', 'factActivityText', t.activity);
