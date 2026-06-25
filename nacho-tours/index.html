@@ -65,14 +65,14 @@
   .stop{position:relative; margin-bottom:16px;}
   .stop .dot{position:absolute; left:-29px; top:4px; width:20px; height:20px; border-radius:50%;
     background:#fff; border:3px solid var(--rose); display:flex; align-items:center; justify-content:center;}
-  .stop.pickup .dot{border-color:var(--sage);}
+  .stop.arrival .dot{border-color:var(--sage);}
   .stop .dot svg{width:10px; height:10px; stroke:var(--mauve);}
   .card{background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 16px;}
   .stoptime{font-family:Georgia,serif; font-size:18px; font-weight:700; color:var(--mauve);
     display:inline-block; margin-bottom:1px;}
   .stoptime .dir{font-size:11px; text-transform:uppercase; letter-spacing:1.2px; margin-left:8px;
     padding:2px 8px; border-radius:999px; color:#fff; vertical-align:middle;}
-  .stoptime .dir.pickup{background:var(--sage);} .stoptime .dir.dropoff{background:var(--rose);}
+  .stoptime .dir.arrival{background:var(--sage);} .stoptime .dir.return{background:var(--rose);}
   .wed{font-size:11px; text-transform:uppercase; letter-spacing:1.4px; color:var(--sage); font-weight:700; margin-top:6px;}
   .route{font-family:Georgia,serif; font-size:16px; font-weight:600; margin:2px 0 0;}
   .grp{border-left:3px solid var(--blush); padding:4px 0 4px 12px; margin-top:10px;}
@@ -107,15 +107,15 @@
 <script>
 /* =========================================================================
    BOOKINGS — edit this list to update the schedule.
-   One entry = one van run (one pickup OR one drop-off).
+   One entry = one van run (one arrival OR one return).
    A SHARED VAN collecting people from DIFFERENT FLIGHTS = one entry with
    multiple objects in `groups` (each group = one flight + its passengers).
-   A round trip = TWO entries (one pickup + one dropoff).
+   A round trip = TWO entries (one arrival + one return).
 
    FIELDS
      date     "YYYY-MM-DD"  service date (sorting + auto-hide past)
-     time     "HH:MM"       van pickup/departure time (24h)
-     type     "pickup" | "dropoff"
+     time     "HH:MM"       hotel/airport pickup time for the van (24h)
+     type     "arrival" (airport → hotel) | "return" (hotel → airport)
      wedding  couple / wedding name
      from     where the driver collects
      to       where the driver delivers
@@ -128,7 +128,7 @@
 const BOOKINGS = [
   /* ---- Lauren & Cooper — Feb 2027 wedding · July 2026 trip (FF entry #27) ---- */
   {
-    date:"2026-07-02", time:"11:45", type:"pickup",
+    date:"2026-07-02", time:"11:45", type:"arrival",
     wedding:"Lauren & Cooper",
     from:"LIR — Daniel Oduber (Liberia)",
     to:"El Mangroove (Playa Panama)",
@@ -140,16 +140,16 @@ const BOOKINGS = [
     notes:"Round trip — arrival leg. Guest chose to leave as soon as they land (no wait/share). 2 passengers, no children."
   },
   {
-    date:"2026-07-05", time:"13:00", type:"dropoff",
+    date:"2026-07-05", time:"10:00", type:"return",
     wedding:"Lauren & Cooper",
     from:"El Mangroove (Playa Panama)",
     to:"LIR — Daniel Oduber (Liberia)",
     groups:[
-      { airline:"JetBlue", flight:"B6 1158", when:"Departs Jul 5",
+      { airline:"JetBlue", flight:"B6 1158", when:"Departs at 13:00",
         passengers:["Lauren Hack","Cooper McCollum"] }
     ],
     phone:"+1 972 804 3323",
-    notes:"Round trip — departure leg. Pickup 1:00 pm (booked slot). Confirm flight departure time before the run."
+    notes:"Round trip — return leg. Hotel pickup 10:00 (suggested by Nacho; flight departs 13:00)."
   }
   // ── Add more bookings above this line ──
 ];
@@ -191,13 +191,13 @@ function statusRow(){
 }
 
 function card(b){
-  const isP=b.type==='pickup', shared=b.groups.length>1;
+  const isArr=b.type==='arrival', shared=b.groups.length>1;
   const grps=b.groups.map(g=>
     '<div class="grp"><span class="grp-flight">'+esc(g.airline)+' '+esc(g.flight)+'</span> '+
       '<span class="grp-when">· '+esc(g.when)+'</span>'+paxUL(g)+'</div>').join('');
-  return '<div class="stop '+b.type+'"><div class="dot">'+(isP?IC.down:IC.up)+'</div>'+
+  return '<div class="stop '+b.type+'"><div class="dot">'+(isArr?IC.down:IC.up)+'</div>'+
     '<div class="card">'+
-      '<span class="stoptime">'+esc(b.time)+'<span class="dir '+b.type+'">'+(isP?'Pickup':'Drop-off')+(shared?' · shared':'')+'</span></span>'+
+      '<span class="stoptime">'+esc(b.time)+'<span class="dir '+b.type+'">'+(isArr?'Arrival':'Return')+(shared?' · shared':'')+'</span></span>'+
       '<div class="wed">'+esc(b.wedding)+'</div>'+
       '<div class="route">'+esc(b.from)+' → '+esc(b.to)+'</div>'+
       '<div class="lbl" style="margin-top:6px">'+IC.users+' '+paxTotal(b)+' passenger'+(paxTotal(b)>1?'s':'')+'</div>'+
