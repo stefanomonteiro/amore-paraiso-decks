@@ -1,0 +1,15 @@
+{
+  "names": "Stephanie & Jonathan",
+  "wedding_date": "2027-03-04",
+  "location": "Marriott Los Sueños, Playa Herradura",
+  "guest": {
+    "itinerary":  { "desc": "Your day-by-day plan for the wedding week." },
+    "transport":  { "desc": "Airport transfers and shuttles — options and how to book." },
+    "activities": { "desc": "Tours and experiences to enjoy near Playa Herradura / Jacó." }
+  },
+  "couple": {
+    "activities": { "desc": "Research & presentations I prepared for you." },
+    "finances":   { "desc": "Payments made, amounts due, and what's coming up." },
+    "guests_paid":{ "desc": "Which guests have paid for which services." }
+  }
+}

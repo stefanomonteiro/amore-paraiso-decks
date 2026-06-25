@@ -22,7 +22,8 @@
   font-weight: 300;
 }
 :root{
-  --bg:#fdf9f8; --ink:#504242; --muted:#8a7868; --rose:#e79d9b;
+  --bg:#fdf9f8; --ink:#504242; --muted:#8a7868; --rose:#e79d9b; --olive:#5d730e;
+  --line:#efe2df;
 }
 *{box-sizing:border-box}
 html,body{margin:0}
@@ -39,49 +40,72 @@ h1{
 .head p{font-family:'PlayfairDisplay',Georgia,serif;font-style:italic;color:var(--muted);margin:0}
 .rule{width:54px;height:1px;background:var(--rose);border:0;margin:1.2rem auto 0;opacity:.8}
 .grid{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
-  gap:1.4rem;max-width:900px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:1.4rem;max-width:920px;margin:0 auto;
 }
 .card{
-  display:flex;align-items:center;justify-content:center;text-align:center;
+  display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
+  gap:.55rem;text-align:left;
   text-decoration:none;color:var(--ink);
-  aspect-ratio:5/2;padding:1.2rem;
-  background:linear-gradient(125deg,#ffffff 0%,#f9ebe8 45%,#f3d7d3 100%);
-  border:1px solid #efe2df;border-radius:12px;
+  min-height:128px;padding:1.4rem 1.5rem;
+  background:linear-gradient(125deg,#ffffff 0%,#f9ebe8 60%,#f3d7d3 100%);
+  border:1px solid var(--line);border-radius:12px;
   transition:border-color .15s ease,transform .15s ease;
 }
 .card:hover{border-color:var(--rose);transform:translateY(-2px)}
 .name{
-  font-family:'PlayfairDisplay',Georgia,serif;font-size:1.25rem;line-height:1.3;
+  font-family:'PlayfairDisplay',Georgia,serif;font-size:1.3rem;line-height:1.2;
   color:var(--ink);
 }
+.meta{display:flex;flex-direction:column;gap:.25rem;width:100%}
+.when{
+  display:flex;align-items:center;gap:.5rem;
+  font-size:.92rem;color:var(--ink);font-weight:600;letter-spacing:.01em;
+}
+.where{font-size:.86rem;color:var(--muted);line-height:1.35}
+.flag{
+  font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
+  padding:.12rem .45rem;border-radius:999px;line-height:1.4;
+}
+.flag.soon{background:#fbe3df;color:#b5524f}
+.flag.past{background:#eee6df;color:#9a8b7c}
 .empty{text-align:center;color:var(--muted);font-style:italic}
 </style>
 </head>
 <body>
   <div class="head">
     <h1>Couples</h1>
-    <p>6 couples</p>
+    <p>7 couples · by wedding date</p>
     <hr class="rule">
   </div>
   <div class="grid">
-      <a class="card" href="../aleyna-hector/">
-        <span class="name">Aleyna &amp; Hector</span>
+      <a class="card" href="../nadean-dan/">
+        <span class="name">NaDean &amp; Dan</span>
+        <span class="meta"><span class="when">26 Sep 2026</span><span class="where">El Mangroove, Playa Panamá</span></span>
       </a>
       <a class="card" href="../gabrielle-trevor/">
         <span class="name">Gabrielle &amp; Trevor</span>
+        <span class="meta"><span class="when">16 Oct 2026</span><span class="where">Casa Pura Estates, Esterillos</span></span>
+      </a>
+      <a class="card" href="../aleyna-hector/">
+        <span class="name">Aleyna &amp; Hector</span>
+        <span class="meta"><span class="when">7 Dec 2026</span><span class="where">Villa Diosa del Mar, Junquillal</span></span>
+      </a>
+      <a class="card" href="../allegra-aaron/">
+        <span class="name">Allegra &amp; Aaron</span>
+        <span class="meta"><span class="when">9 Jan 2027</span><span class="where">El Mangroove, Playa Panamá</span></span>
       </a>
       <a class="card" href="../lauren-cooper/">
         <span class="name">Lauren &amp; Cooper</span>
-      </a>
-      <a class="card" href="../melissa-nathan/">
-        <span class="name">Melissa &amp; Nathan</span>
-      </a>
-      <a class="card" href="../nadean-dan/">
-        <span class="name">Nadean &amp; Dan</span>
+        <span class="meta"><span class="when">6 Feb 2027</span><span class="where">El Mangroove, Gulf of Papagayo</span></span>
       </a>
       <a class="card" href="../stephanie-jonathan/">
         <span class="name">Stephanie &amp; Jonathan</span>
+        <span class="meta"><span class="when">4 Mar 2027</span><span class="where">Marriott Los Sueños, Playa Herradura</span></span>
+      </a>
+      <a class="card" href="../melissa-nathan/">
+        <span class="name">Melissa &amp; Nathan</span>
+        <span class="meta"><span class="when">16 Apr 2027</span><span class="where">El Mangroove, Playa Panamá</span></span>
       </a>
   </div>
 </body>
