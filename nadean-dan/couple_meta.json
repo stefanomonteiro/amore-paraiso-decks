@@ -1,0 +1,19 @@
+{
+  "names": "NaDean & Dan",
+  "wedding_date": "2026-09-26",
+  "location": "El Mangroove, Playa Panamá",
+  "guest": {
+    "itinerary":  { "desc": "Your day-by-day plan for the wedding week." },
+    "transport":  { "desc": "Airport transfers and shuttles — options and how to book." },
+    "activities": { "desc": "Tours and experiences to enjoy near Playa Panamá." }
+  },
+  "couple": {
+    "extra": [
+      { "title": "Bachelorette Catamaran", "href": "../bachelorette-catamaran/", "desc": "Catamaran options I put together for the bachelorette outing." },
+      { "title": "Fishing Charter Options", "href": "../fishing-charter-options/", "desc": "Fishing charter options for the group (10–12 pax)." }
+    ],
+    "activities":  { "hidden": true },
+    "finances":    { "desc": "Payments made, amounts due, and what's coming up." },
+    "guests_paid": { "desc": "Which guests have paid for which services." }
+  }
+}
