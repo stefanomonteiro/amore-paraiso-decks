@@ -1,0 +1,18 @@
+{
+  "names": "Gabrielle & Trevor",
+  "wedding_date": "2026-10-16",
+  "location": "Casa Pura Estates, Esterillos",
+  "guest": {
+    "itinerary":  { "href": "./itinerary/", "desc": "Your day-by-day plan for the wedding week." },
+    "transport":  { "desc": "Airport transfers and shuttles — options and how to book." },
+    "activities": { "href": "/things-to-do/esterillos/?w=gabrielle-trevor", "desc": "Tours and experiences to enjoy in Esterillos." }
+  },
+  "couple": {
+    "extra": [
+      { "title": "Group Activities", "href": "../group-activities-presentation/", "desc": "The group activities presentation I prepared for you." }
+    ],
+    "activities":  { "hidden": true },
+    "finances":    { "desc": "Payments made, amounts due, and what's coming up." },
+    "guests_paid": { "desc": "Which guests have paid for which services." }
+  }
+}
