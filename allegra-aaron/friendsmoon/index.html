@@ -47,13 +47,24 @@ body {
 /* HEADER */
 .header {
   background: var(--blush);
-  padding: 48px 32px 44px;
+  padding: 48px 32px 150px;
   text-align: center;
 }
+
+/* OVERLAP HERO PHOTO — straddles blush header & white page */
+.hero-overlap {
+  max-width: 520px;
+  margin: -90px auto 0;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+.hero-overlap .vls-photo { margin: 0; }
+.hero-overlap .photo-placeholder { min-height: 280px; }
 .header-logo { width: 105px; margin: 0 auto 28px; display: block; }
 .header-script {
   font-family: 'Creattion', cursive;
-  font-size: 44px;
+  font-size: 60px;
   color: var(--rose);
   line-height: 1.1;
   margin-bottom: 10px;
@@ -114,6 +125,49 @@ body {
   margin-bottom: 22px;
 }
 
+/* ITINERARY TIMELINE */
+.itinerary { margin: 8px 0 4px; }
+.itin-stop {
+  position: relative;
+  padding: 0 0 30px 34px;
+  border-left: 1.5px solid var(--blush);
+  margin-left: 8px;
+}
+.itin-stop:last-child { border-left-color: transparent; padding-bottom: 4px; }
+.itin-stop::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--rose);
+  border: 3px solid var(--white);
+  box-shadow: 0 0 0 1.5px var(--rose);
+}
+.itin-dates {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 3px;
+}
+.itin-place {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  color: var(--mauve);
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.itin-desc { font-size: 13.5px; color: var(--mauve); line-height: 1.55; margin-bottom: 6px; }
+.itin-detail {
+  font-size: 12.5px;
+  color: var(--rose);
+  line-height: 1.5;
+}
+.itin-detail strong { color: var(--mauve); font-weight: 600; }
+
 /* OPTION CARD */
 .option-card {
   border: 0.5px solid var(--greyDD);
@@ -152,7 +206,14 @@ body {
   font-family: 'PlayfairDisplay', Georgia, serif;
   font-size: 23px;
   color: var(--mauve);
-  margin-bottom: 5px;
+  margin-bottom: 4px;
+}
+.option-subtitle {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 14px;
 }
 .option-tagline {
   font-size: 13px;
@@ -176,6 +237,47 @@ body {
 }
 .info-value { font-size: 13px; color: var(--mauve); line-height: 1.55; }
 .divider { height: 1px; background: var(--greyEE); margin: 22px 0; }
+
+/* MAP LINK */
+.map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sage);
+  text-decoration: none;
+  border: 1px solid var(--sage);
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.map-link:hover { background: var(--sage); color: var(--white); }
+.map-link svg { width: 12px; height: 12px; display: block; }
+
+/* ROOM OPTIONS */
+.room-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 4px;
+}
+.room-opt {
+  border: 0.5px solid var(--greyDD);
+  border-radius: 10px;
+  padding: 16px 18px;
+  background: var(--white);
+}
+.room-opt-label {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 6px;
+}
+.room-opt-text { font-size: 12.5px; color: var(--mauve); line-height: 1.55; }
 
 /* PROS LIST */
 .pros-list {
@@ -567,7 +669,7 @@ body {
   .info-grid { grid-template-columns: 1fr; }
   .activity-grid { grid-template-columns: 1fr; }
   .included-grid { grid-template-columns: 1fr; }
-  .header-script { font-size: 34px; }
+  .header-script { font-size: 46px; }
   .option-name { font-size: 19px; }
 }
 </style>
@@ -577,48 +679,54 @@ body {
 <!-- HEADER -->
 <div class="header">
   <div class="header-logo"><svg xmlns="http://www.w3.org/2000/svg" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 1170 937"><g fill-rule="nonzero"><path d="m750.884 590.685c58.996 88.334 220.919 33.253 316.17-55.692l-42.325-21.359s87.344-67.784 126.611-117.874l-56.33-15.851s50.107-107.556 60.372-166.702c0 0-143.691 57.506-182.878 85.276 0 0-.327-60.3-10.884-72.631 0 0-79.205 84.821-116.109 141.358l-9.878-41.341s-158.02 155.13-84.749 264.816z" fill="#67923d"></path><path d="m954.93 489.52c-26.797 5.409-53.588 10.814-80.391 16.217 25.154-24.499 49.919-49.432 74.511-74.406 22.219-3.894 44.448-7.776 66.677-11.669 11.098-1.943 8.496-19.205-2.596-17.267-14.344 2.514-28.682 5.024-43.035 7.526 18.035-18.369 36.015-36.682 54.032-54.777 7.854-7.889-3.015-21.572-10.95-13.599-34.5 34.656-68.883 70.124-103.766 105.207 9.198-22.948 18.406-45.895 27.603-68.843 4.196-10.452-12.118-16.682-16.315-6.219-13.664 34.066-27.317 68.134-40.98 102.189-.436 1.079-.602 2.099-.63 3.078-11.983 11.831-24.054 23.563-36.223 35.176-.017.003-.044.006-.067.014-3.922.797-6.101 3.498-6.8 6.551-5.451 5.157-10.926 10.273-16.41 15.377 7.521-22.654 15.037-45.315 22.557-67.958 3.539-10.65-12.753-16.938-16.315-6.219-10.709 32.255-21.413 64.505-32.121 96.749-.145.426-.199.828-.277 1.239-22.753 20.354-45.937 40.099-69.751 58.887-8.843 6.971 2.113 20.565 10.95 13.599 40.355-31.838 78.956-66.349 116.551-102.122 35.445-7.153 70.896-14.299 106.347-21.457 11.013-2.223 8.445-19.503-2.601-17.273z" fill="#5d730e"></path><path d="m433.303 603.388c81.497-68.13 9.367-223.211-89.282-308.372l-16.696 44.372s-76.761-79.571-130.774-113.238l-9.717 57.705s-112.311-38.281-172.216-42.144c0 0 72.585 136.694 104.398 172.677 0 0-59.916 6.792-71.044 18.611 0 0 92.827 69.65 152.996 100.278l-40.043 14.255s171.184 140.469 272.378 55.856z" fill="#67923d"></path><path d="m310.837 411.37c8.252 26.063 16.499 52.12 24.745 78.188-27.055-22.381-54.501-44.329-81.968-66.1-6.255-21.674-12.499-43.358-18.754-65.042-3.122-10.825-20.005-6.386-16.888 4.434 4.038 13.991 8.071 27.977 12.098 41.98-20.197-15.962-40.334-31.874-60.257-47.846-8.685-6.963-21.124 5.311-12.345 12.346 38.156 30.583 77.107 60.964 115.729 91.883-23.802-6.683-47.604-13.377-71.406-20.06-10.842-3.051-15.287 13.838-4.434 16.888 35.336 9.931 70.671 19.852 105.996 29.783 1.119.318 2.15.373 3.127.296 13.048 10.645 26.008 21.388 38.858 32.241.006.016.011.044.022.066 1.213 3.813 4.132 5.69 7.243 6.057 5.712 4.867 11.385 9.761 17.047 14.667-23.33-5.048-46.665-10.091-69.985-15.139-10.968-2.375-15.472 14.497-4.433 16.889 33.218 7.188 66.429 14.37 99.636 21.558.439.099.845.11 1.262.143 22.677 20.438 44.795 41.37 66.029 63.033 7.879 8.043 20.219-4.308 12.345-12.346-35.983-36.707-74.434-71.384-114.033-104.925-10.914-34.474-21.821-68.953-32.74-103.433-3.391-10.71-20.296-6.304-16.894 4.439z" fill="#5d730e"></path><path d="m590.213 356.113s-122.893-264.848 201.75-327.481c0 0 87.818 229.825-201.75 327.481z" fill="#ec929a"></path><path d="m616.328 254.366c7.169-30.933 23.299-59.82 45.573-82.573-9.217 34.768-18.178 69.535-27.395 104.303 18.434-33.234 38.916-65.189 61.703-95.611-6.913 31.189-17.41 61.866-31.236 90.754 26.115-29.144 50.182-60.332 71.432-93.31-18.946 77.46-73.224 145.717-144.912 181.507-5.376-52.918 2.049-106.859 21.507-156.454-.256 17.128.768 34.512 3.328 51.384z" fill="#d83e43"></path><path d="m588.677 351.767s194.325-218.065 381.225 54.197c0-.256-176.147 171.793-381.225-54.197z" fill="#ec929a"></path><path d="m692.368 335.15c31.492-5.624 64.263-2.556 93.963 8.692-35.588 5.624-71.176 10.993-106.764 16.617 37.892 3.579 75.528 9.714 112.396 18.406-31.491 6.136-63.751 8.692-95.754 7.414 37.124 12.271 75.528 21.73 114.188 28.121-78.856 13.549-163.09-8.948-224.28-60.332 46.341-25.82 99.083-40.648 152.08-42.693-15.873 6.647-31.235 14.572-45.829 23.775z" fill="#d83e43"></path><path d="m571.228 348.316s149.008 251.298-167.698 346.143c0 .255-110.604-219.855 167.698-346.143z" fill="#ec929a"></path><path d="m561.89 454.536c-4.096 31.7-17.154 61.866-37.124 86.664 5.633-35.535 11.265-71.07 16.642-106.604-14.85 35.023-32.26 68.768-51.718 101.491 3.585-31.956 11.01-63.144 22.019-93.311-23.043 31.7-43.781 65.19-61.703 99.957 11.009-78.994 58.374-152.364 125.71-195.056 10.497 52.151 8.705 106.603-5.633 157.732-1.024-17.384-3.84-34.256-8.193-50.873z" fill="#d83e43"></path><path d="m579.972 363.527s-204.566 208.606-378.153-72.348c0 0 184.34-163.357 378.153 72.348z" fill="#ec929a"></path><path d="m475.513 375.286c-31.492 4.091-64.263-.511-93.45-13.293 35.844-3.835 71.687-7.67 107.531-11.249-37.636-5.368-75.016-13.293-111.372-23.775 31.748-4.601 64.007-5.624 96.011-2.812-36.612-14.06-74.248-25.308-112.653-33.745 79.369-9.714 162.322 16.873 221.208 71.069-47.621 23.775-100.875 35.791-154.128 35.279 16.129-5.879 31.747-13.037 46.853-21.474z" fill="#d83e43"></path><path d="m575.876 356.369s-286.495-58.287-144.656-356.369c.256 0 237.594 65.701 144.656 356.369z" fill="#ec929a"></path><path d="m509.564 275.074c-20.738-24.287-34.563-54.197-39.684-85.641 22.531 27.865 45.317 55.986 67.848 83.851-15.874-34.512-29.444-70.047-40.453-106.348 21.25 24.03 39.428 50.618 54.534 78.994-7.937-38.347-18.946-76.182-33.028-112.739 51.206 61.099 73.993 145.462 60.423 223.944-45.829-27.098-85.001-65.189-113.42-109.927 13.825 10.482 28.419 19.941 43.78 27.866z" fill="#d83e43"></path><path d="m580.484 360.97s292.384-3.068 216.088 318.278c.256 0-245.787-14.572-216.088-318.278z" fill="#ec929a"></path><path d="m662.669 426.671c25.347 19.429 45.061 45.76 56.582 75.415-27.907-22.497-56.07-45.249-83.977-67.746 22.787 30.422 43.525 62.377 61.959 95.611-25.859-19.173-49.157-41.159-69.896-65.7 15.874 35.79 34.564 70.302 55.814 103.28-62.983-49.084-102.923-126.544-106.251-206.305 50.437 16.872 96.778 45.76 133.902 83.851-15.361-7.669-31.491-13.805-48.133-18.406z" fill="#d83e43"></path><path d="m582.788 430.761c20.739 4.346 42.501-3.068 59.911-15.083 27.139-18.662 46.853-49.595 47.621-82.573s-19.714-66.468-50.949-77.205c-21.763-7.413-46.085-3.579-68.104 2.812-23.298 6.903-46.853 17.895-60.934 37.58-16.386 22.752-17.154 54.964-3.073 78.994 10.497 18.151 28.163 31.189 46.085 42.182 8.961 5.624 18.69 10.992 29.443 13.293z" fill="#f9c461"></path><path d="m532.863 327.225c-.256.511-.256.767-.512 1.278-1.024 3.068 1.28 7.158 4.352 7.925 3.585.767 6.657-1.022 7.937-4.346.256-.511.256-.767.512-1.278 1.024-3.068-1.28-7.158-4.352-7.925-3.585-.767-6.913 1.023-7.937 4.346z" fill="#f09852"></path><path d="m583.3 391.903c-.256.511-.256.767-.512 1.278-1.024 3.068 1.281 7.158 4.353 7.925 3.584.767 6.657-1.022 7.937-4.346.256-.511.256-.767.512-1.278 1.024-3.068-1.28-7.158-4.353-7.925-3.584-1.022-6.912 1.023-7.937 4.346z" fill="#f09852"></path><path d="m573.571 371.707c8.193 0 8.193-12.782 0-12.782-8.192 0-8.192 12.782 0 12.782z" fill="#f09852"></path><path d="m621.449 416.445c8.192 0 8.192-12.782 0-12.782-8.193 0-8.193 12.782 0 12.782z" fill="#f09852"></path><path d="m668.558 351c-.512-.256-.768-.256-1.28-.511-3.073-1.023-7.169 1.278-7.937 4.346-.768 3.579 1.024 6.646 4.352 7.925.512.255.768.255 1.28.511 3.073 1.023 7.169-1.278 7.937-4.346 1.024-3.835-1.024-6.902-4.352-7.925z" fill="#f09852"></path><path d="m547.969 394.715c.512.256.768.256 1.28.511 2.304.767 5.376.256 7.425-1.022 2.048-1.278 3.84-3.323 4.352-5.624 1.28-5.369-1.536-9.97-6.657-11.76-.512-.256-.768-.256-1.28-.511-2.304-.767-5.376-.256-7.425 1.022-2.048 1.279-3.84 3.324-4.352 5.625-1.28 5.368 1.536 9.97 6.657 11.759z" fill="#f09852"></path><path d="m581.508 347.932c12.29 0 12.29-19.173 0-19.173-12.289 0-12.289 19.173 0 19.173z" fill="#f09852"></path><path d="m626.057 367.361c12.289 0 12.289-19.173 0-19.173s-12.289 19.173 0 19.173z" fill="#f09852"></path><path d="m671.374 330.548c12.289 0 12.289-19.173 0-19.173-12.545 0-12.545 19.173 0 19.173z" fill="#f09852"></path><path d="m628.617 379.632c-.256.511-.256.767-.512 1.278-.768 2.301-.256 5.369 1.024 7.414 1.281 2.045 3.329 3.835 5.633 4.346 5.377 1.278 9.985-1.534 11.777-6.647.256-.511.256-.767.512-1.278.768-2.301.256-5.369-1.024-7.414s-3.328-3.834-5.632-4.346c-5.377-1.278-9.985 1.534-11.778 6.647z" fill="#f09852"></path><path d="m523.39 372.219c12.289 0 12.289-19.174 0-19.174-12.545 0-12.545 19.174 0 19.174z" fill="#f09852"></path><g fill="#5d730e"><path d="m50.156 728.258 37.085 180.032c1.52 7.251 3.242 12.069 5.167 14.454 1.926 2.385 3.699 3.673 5.32 3.864v5.724c-2.027-.381-4.509-.62-7.447-.715-2.939-.096-5.877-.143-8.816-.143-3.951 0-7.65.047-11.095.143-3.445.095-6.231.334-8.359.715v-5.724c5.167-.382 8.461-2.051 9.879-5.009 1.419-2.958 1.115-9.302-.912-19.034l-28.27-142.251 2.432-3.72-26.446 129.371c-2.127 10.304-3.141 18.365-3.039 24.185.101 5.82 1.266 9.97 3.495 12.451 2.23 2.48 5.472 3.816 9.728 4.007v5.724c-2.837-.381-5.801-.62-8.892-.715-3.09-.096-5.952-.143-8.587-.143-2.533 0-4.686.047-6.459.143-1.774.095-3.42.334-4.94.715v-5.724c2.027-.954 4.104-3.196 6.231-6.726 2.128-3.53 4.053-9.589 5.776-18.175l35.717-173.449zm18.542 121.643v5.725h-45.292l1.52-5.725z"></path><path d="m219.774 729.689v5.724c-3.445.191-6.054.907-7.827 2.147-1.774 1.24-2.964 3.53-3.572 6.869-.608 3.34-.912 8.539-.912 15.599v141.965c0 6.869.304 12.021.912 15.456s1.798 5.724 3.572 6.869c1.773 1.145 4.382 1.908 7.827 2.29v5.724c-2.331-.381-5.244-.62-8.739-.715-3.496-.096-7.017-.143-10.563-.143-3.952 0-7.65.047-11.096.143-3.445.095-6.231.334-8.359.715v-5.724c3.445-.382 6.054-1.145 7.828-2.29 1.773-1.145 2.963-3.434 3.571-6.869s.912-8.587.912-15.456v-157.421l.608.859-37.237 188.332h-2.432l-38.301-185.756v151.124c0 6.869.33 12.26.988 16.171.659 3.912 1.976 6.679 3.952 8.301 1.976 1.621 4.94 2.623 8.891 3.005v5.724c-1.824-.381-4.205-.62-7.143-.715-2.938-.096-5.725-.143-8.359-.143-2.534 0-5.092.047-7.676.143-2.584.095-4.737.334-6.459.715v-5.724c3.445-.382 6.054-1.384 7.827-3.005 1.773-1.622 2.964-4.389 3.572-8.301.608-3.911.912-9.302.912-16.171v-139.103c0-7.06-.304-12.259-.912-15.599-.608-3.339-1.799-5.629-3.572-6.869s-4.382-1.956-7.827-2.147v-5.724c1.722.191 3.875.382 6.459.572 2.584.191 5.142.287 7.676.287 2.229 0 4.534-.096 6.915-.287 2.381-.19 4.382-.381 6.004-.572l34.501 171.159-2.584 2.29 34.197-172.59h7.144c3.546 0 7.067-.096 10.563-.287 3.495-.19 6.408-.381 8.739-.572z"></path><path d="m281.329 725.682c9.626 0 18.061 4.102 25.306 12.307s12.868 19.988 16.87 35.348c4.003 15.361 6.004 34.013 6.004 55.956 0 21.371-2.052 40.071-6.156 56.099-4.103 16.029-9.803 28.527-17.098 37.495-7.296 8.968-15.655 13.452-25.078 13.452-9.626 0-18.061-4.102-25.306-12.307s-12.868-20.035-16.871-35.491c-4.002-15.456-6.003-34.06-6.003-55.813 0-21.371 2.077-40.071 6.231-56.099 4.155-16.028 9.854-28.527 17.099-37.495s15.579-13.452 25.002-13.452zm-.608 5.152c-6.586 0-12.311 4.293-17.175 12.88-4.863 8.586-8.638 20.417-11.323 35.491s-4.027 32.534-4.027 52.378c0 20.226 1.494 37.829 4.483 52.808 2.989 14.978 7.042 26.523 12.159 34.632 5.117 8.11 10.766 12.164 16.947 12.164 6.586 0 12.311-4.293 17.174-12.879 4.864-8.587 8.638-20.465 11.324-35.635 2.685-15.169 4.027-32.581 4.027-52.235 0-20.417-1.494-38.067-4.483-52.95-2.99-14.884-7.017-26.38-12.083-34.49-5.067-8.109-10.741-12.164-17.023-12.164z"></path><path d="m342.732 729.689c2.128.191 4.914.382 8.359.572 3.445.191 6.84.287 10.183.287 4.763 0 9.322-.096 13.679-.287 4.357-.19 7.448-.286 9.271-.286 12.261 0 21.431 4.771 27.51 14.311 6.08 9.541 9.119 21.371 9.119 35.491 0 5.725-.607 11.831-1.823 18.318-1.216 6.488-3.319 12.594-6.308 18.318-2.989 5.725-7.067 10.447-12.235 14.168-5.167 3.721-11.703 5.582-19.606 5.582h-14.591v-5.725h13.071c7.194 0 12.691-2.146 16.491-6.44 3.799-4.293 6.383-10.017 7.751-17.173 1.368-7.155 2.052-15.122 2.052-23.899 0-15.074-1.9-26.762-5.7-35.062s-10.31-12.451-19.53-12.451c-4.661 0-7.701 1.622-9.119 4.866-1.419 3.244-2.128 9.827-2.128 19.749v141.965c0 6.869.304 12.021.912 15.456s1.798 5.724 3.571 6.869c1.774 1.145 4.383 1.908 7.828 2.29v5.724c-2.331-.381-5.244-.62-8.74-.715-3.495-.096-7.016-.143-10.563-.143-3.951 0-7.65.047-11.095.143-3.445.095-6.231.334-8.359.715v-5.724c3.445-.382 6.054-1.145 7.827-2.29s2.964-3.434 3.572-6.869.912-8.587.912-15.456v-141.965c0-7.06-.304-12.259-.912-15.599-.608-3.339-1.799-5.629-3.572-6.869s-4.382-1.956-7.827-2.147zm24.166 101.608c5.471.382 9.778.811 12.919 1.288s5.699.906 7.675 1.288c1.976.381 3.876.859 5.7 1.431 6.789 2.099 11.677 5.963 14.667 11.592 2.989 5.629 5.192 14.358 6.611 26.189l3.8 29.194c1.013 8.396 2.052 14.454 3.115 18.175 1.064 3.721 2.711 5.486 4.94 5.295 1.723-.191 3.166-1.24 4.332-3.148 1.165-1.908 2.406-4.484 3.723-7.728l2.28 3.148c-2.128 5.916-4.331 10.447-6.611 13.596-2.28 3.148-5.497 4.722-9.651 4.722-3.75 0-7.043-2.099-9.88-6.296-2.837-4.198-4.965-12.403-6.383-24.615l-3.344-28.622c-.912-8.205-1.95-15.313-3.116-21.324-1.165-6.01-2.786-10.733-4.863-14.167-2.077-3.435-5.142-5.152-9.195-5.152h-16.415z"></path><path d="m517.062 729.689c-.406 6.678-.684 13.166-.836 19.463s-.228 11.067-.228 14.311c0 3.435.05 6.726.152 9.874.101 3.149.202 5.773.304 7.872h-3.496c-.608-11.258-1.469-20.179-2.584-26.762-1.114-6.583-3.014-11.258-5.699-14.025-2.686-2.767-6.713-4.15-12.083-4.15h-12.615c-3.445 0-6.055.525-7.828 1.574-1.773 1.05-2.963 3.244-3.571 6.583-.608 3.34-.912 8.539-.912 15.599v141.965c0 6.869.304 12.021.912 15.456s1.798 5.677 3.571 6.726 4.383 1.574 7.828 1.574h11.095c6.383 0 11.221-1.622 14.515-4.865 3.293-3.244 5.674-8.539 7.143-15.886 1.469-7.346 2.558-17.316 3.268-29.91h3.495c-.304 5.152-.456 12.022-.456 20.608 0 3.626.076 8.825.228 15.599s.431 13.786.836 21.037c-5.167-.381-10.993-.62-17.478-.715-6.485-.096-12.261-.143-17.327-.143h-12.083c-5.015 0-10.36.047-16.035.143-5.674.095-10.993.334-15.958.715v-5.724c3.445-.382 6.054-1.145 7.827-2.29s2.964-3.434 3.572-6.869.912-8.587.912-15.456v-141.965c0-7.06-.304-12.259-.912-15.599-.608-3.339-1.799-5.629-3.572-6.869s-4.382-1.956-7.827-2.147v-5.724c4.965.191 10.284.382 15.958.572 5.675.191 11.02.287 16.035.287h12.083c4.661 0 9.955-.048 15.883-.143 5.927-.096 11.222-.334 15.883-.716zm-26.142 97.887v5.724h-27.814v-5.724zm4.407-37.781c-.405 10.876-.582 19.177-.532 24.901.051 5.725.076 10.972.076 15.742 0 4.771.051 10.018.152 15.742.102 5.725.355 14.025.76 24.901h-3.495c-.406-6.106-.887-12.069-1.444-17.888-.558-5.82-1.773-10.59-3.648-14.311-1.874-3.721-5.041-5.582-9.499-5.582v-5.724c4.458 0 7.574-2.194 9.347-6.583s2.913-9.541 3.42-15.456c.506-5.915.962-11.162 1.368-15.742z"></path><path d="m571.625 729.689c2.128.191 4.914.382 8.359.572 3.445.191 6.84.287 10.184.287 4.762 0 9.321-.096 13.678-.287 4.357-.19 7.448-.286 9.272-.286 12.26 0 21.43 5.248 27.509 15.742 6.08 10.495 9.12 24.043 9.12 40.643 0 6.87-.608 14.073-1.824 21.61s-3.319 14.502-6.308 20.894-7.067 11.592-12.235 15.599c-5.167 4.007-11.703 6.011-19.606 6.011h-14.591v-5.725h13.071c7.194 0 12.691-2.576 16.491-7.728 3.799-5.152 6.383-11.926 7.751-20.321 1.368-8.396 2.052-17.46 2.052-27.191 0-18.127-1.9-31.675-5.7-40.643-3.799-8.968-10.309-13.453-19.53-13.453-4.661 0-7.701 1.622-9.119 4.866-1.419 3.244-2.128 9.827-2.128 19.749v141.965c0 6.869.38 12.021 1.14 15.456s2.254 5.724 4.483 6.869c2.23 1.145 5.472 1.908 9.728 2.29v5.724c-2.635-.381-5.979-.62-10.032-.715-4.053-.096-8.156-.143-12.31-.143-3.952 0-7.651.047-11.096.143-3.445.095-6.231.334-8.359.715v-5.724c3.445-.382 6.054-1.145 7.827-2.29 1.774-1.145 2.964-3.434 3.572-6.869s.912-8.587.912-15.456v-141.965c0-7.06-.304-12.259-.912-15.599-.608-3.339-1.798-5.629-3.572-6.869-1.773-1.24-4.382-1.956-7.827-2.147z"></path><path d="m697.015 728.258 37.085 180.032c1.52 7.251 3.242 12.069 5.167 14.454 1.926 2.385 3.699 3.673 5.32 3.864v5.724c-2.027-.381-4.509-.62-7.447-.715-2.939-.096-5.877-.143-8.816-.143-3.951 0-7.65.047-11.095.143-3.445.095-6.231.334-8.359.715v-5.724c5.167-.382 8.46-2.051 9.879-5.009s1.115-9.302-.912-19.034l-28.27-142.251 2.432-3.72-26.446 129.371c-2.127 10.304-3.141 18.365-3.039 24.185.101 5.82 1.266 9.97 3.495 12.451 2.23 2.48 5.472 3.816 9.728 4.007v5.724c-2.838-.381-5.801-.62-8.892-.715-3.09-.096-5.953-.143-8.587-.143-2.533 0-4.686.047-6.459.143-1.774.095-3.42.334-4.94.715v-5.724c2.026-.954 4.104-3.196 6.231-6.726 2.128-3.53 4.053-9.589 5.776-18.175l35.717-173.449zm18.542 121.643v5.725h-45.292l1.52-5.725z"></path><path d="m747.019 729.689c2.128.191 4.914.382 8.359.572 3.445.191 6.839.287 10.183.287 4.762 0 9.322-.096 13.679-.287 4.357-.19 7.447-.286 9.271-.286 12.261 0 21.431 4.771 27.51 14.311 6.08 9.541 9.119 21.371 9.119 35.491 0 5.725-.608 11.831-1.824 18.318-1.215 6.488-3.318 12.594-6.307 18.318-2.989 5.725-7.067 10.447-12.235 14.168s-11.703 5.582-19.606 5.582h-14.591v-5.725h13.071c7.194 0 12.691-2.146 16.49-6.44 3.8-4.293 6.384-10.017 7.752-17.173 1.368-7.155 2.052-15.122 2.052-23.899 0-15.074-1.9-26.762-5.7-35.062s-10.31-12.451-19.53-12.451c-4.661 0-7.701 1.622-9.12 4.866-1.418 3.244-2.127 9.827-2.127 19.749v141.965c0 6.869.304 12.021.911 15.456.608 3.435 1.799 5.724 3.572 6.869s4.382 1.908 7.828 2.29v5.724c-2.331-.381-5.244-.62-8.74-.715-3.495-.096-7.017-.143-10.563-.143-3.952 0-7.65.047-11.095.143-3.445.095-6.231.334-8.359.715v-5.724c3.445-.382 6.054-1.145 7.827-2.29s2.964-3.434 3.572-6.869.912-8.587.912-15.456v-141.965c0-7.06-.304-12.259-.912-15.599-.608-3.339-1.799-5.629-3.572-6.869s-4.382-1.956-7.827-2.147zm24.166 101.608c5.471.382 9.778.811 12.919 1.288s5.699.906 7.675 1.288c1.976.381 3.876.859 5.7 1.431 6.788 2.099 11.677 5.963 14.666 11.592s5.193 14.358 6.612 26.189l3.8 29.194c1.013 8.396 2.051 14.454 3.115 18.175s2.711 5.486 4.94 5.295c1.722-.191 3.166-1.24 4.331-3.148 1.166-1.908 2.407-4.484 3.724-7.728l2.28 3.148c-2.128 5.916-4.332 10.447-6.611 13.596-2.28 3.148-5.497 4.722-9.652 4.722-3.749 0-7.042-2.099-9.879-6.296-2.837-4.198-4.965-12.403-6.383-24.615l-3.344-28.622c-.912-8.205-1.951-15.313-3.116-21.324-1.165-6.01-2.786-10.733-4.863-14.167-2.078-3.435-5.143-5.152-9.196-5.152h-16.414z"></path><path d="m888.215 728.258 37.085 180.032c1.52 7.251 3.242 12.069 5.168 14.454 1.925 2.385 3.698 3.673 5.319 3.864v5.724c-2.026-.381-4.509-.62-7.447-.715-2.939-.096-5.877-.143-8.815-.143-3.952 0-7.65.047-11.096.143-3.445.095-6.231.334-8.359.715v-5.724c5.168-.382 8.461-2.051 9.879-5.009 1.419-2.958 1.115-9.302-.912-19.034l-28.269-142.251 2.432-3.72-26.446 129.371c-2.128 10.304-3.141 18.365-3.04 24.185s1.267 9.97 3.496 12.451c2.229 2.48 5.471 3.816 9.727 4.007v5.724c-2.837-.381-5.801-.62-8.891-.715-3.091-.096-5.953-.143-8.588-.143-2.533 0-4.686.047-6.459.143-1.773.095-3.42.334-4.94.715v-5.724c2.027-.954 4.104-3.196 6.232-6.726s4.053-9.589 5.775-18.175l35.717-173.449zm18.543 121.643v5.725h-45.293l1.52-5.725z"></path><path d="m976.976 729.689v5.724c-3.445.191-6.054.907-7.828 2.147-1.773 1.24-2.963 3.53-3.571 6.869-.608 3.34-.912 8.539-.912 15.599v141.965c0 6.869.304 12.021.912 15.456s1.798 5.724 3.571 6.869c1.774 1.145 4.383 1.908 7.828 2.29v5.724c-2.331-.381-5.244-.62-8.739-.715-3.496-.096-7.017-.143-10.564-.143-3.951 0-7.65.047-11.095.143-3.445.095-6.231.334-8.359.715v-5.724c3.445-.382 6.054-1.145 7.827-2.29 1.774-1.145 2.964-3.434 3.572-6.869s.912-8.587.912-15.456v-141.965c0-7.06-.304-12.259-.912-15.599-.608-3.339-1.798-5.629-3.572-6.869-1.773-1.24-4.382-1.956-7.827-2.147v-5.724c2.128.191 4.914.382 8.359.572 3.445.191 7.144.287 11.095.287 3.547 0 7.068-.096 10.564-.287 3.495-.19 6.408-.381 8.739-.572z"></path><path d="m1022.27 726.541c5.066 0 8.917 1.097 11.551 3.291 2.635 2.194 4.965 4.627 6.992 7.299 1.216 1.335 2.203 2.337 2.963 3.005s1.495 1.002 2.204 1.002c1.621 0 2.736-4.198 3.344-12.594h3.496c-.102 3.244-.228 7.108-.38 11.592s-.254 10.399-.304 17.746c-.051 7.346-.076 17.03-.076 29.051h-3.496c-.304-9.159-1.368-17.937-3.192-26.332-1.824-8.396-4.483-15.265-7.979-20.608s-8.081-8.014-13.755-8.014c-5.37 0-9.803 3.053-13.299 9.159s-5.243 14.12-5.243 24.042c0 8.587 1.165 15.79 3.495 21.61 2.331 5.82 5.446 11.067 9.347 15.742s8.132 9.684 12.691 15.026c5.269 6.106 9.956 12.165 14.059 18.175 4.104 6.011 7.346 12.642 9.727 19.893 2.382 7.25 3.572 16.028 3.572 26.332 0 12.212-1.469 22.325-4.407 30.339-2.939 8.014-6.84 14.025-11.703 18.032-4.864 4.007-10.234 6.01-16.111 6.01-5.37 0-9.626-1.145-12.767-3.434-3.141-2.29-5.826-4.675-8.055-7.156-2.23-2.671-3.952-4.007-5.168-4.007-1.621 0-2.736 4.198-3.344 12.594h-3.495c.202-4.007.329-8.73.379-14.168.051-5.438.102-12.546.152-21.323.051-8.778.076-19.845.076-33.202h3.496c.405 11.449 1.545 22.134 3.42 32.057 1.874 9.922 4.762 17.888 8.663 23.899s9.094 9.016 15.579 9.016c4.965 0 9.499-3.005 13.603-9.016 4.103-6.011 6.155-15.694 6.155-29.051 0-11.64-2.178-21.276-6.535-28.908-4.357-7.633-10.082-15.456-17.175-23.47-4.762-5.534-9.22-11.163-13.375-16.887-4.154-5.725-7.472-12.355-9.955-19.893-2.482-7.537-3.724-16.648-3.724-27.333 0-11.258 1.343-20.561 4.028-27.907s6.206-12.784 10.563-16.314 9.018-5.295 13.983-5.295z"></path><path d="m1121.82 725.682c9.626 0 18.061 4.102 25.306 12.307s12.868 19.988 16.87 35.348c4.003 15.361 6.004 34.013 6.004 55.956 0 21.371-2.052 40.071-6.155 56.099-4.104 16.029-9.804 28.527-17.099 37.495s-15.655 13.452-25.078 13.452c-9.626 0-18.061-4.102-25.306-12.307s-12.868-20.035-16.871-35.491c-4.002-15.456-6.003-34.06-6.003-55.813 0-21.371 2.077-40.071 6.231-56.099 4.155-16.028 9.854-28.527 17.099-37.495s15.579-13.452 25.002-13.452zm-.608 5.152c-6.586 0-12.311 4.293-17.175 12.88-4.863 8.586-8.638 20.417-11.323 35.491s-4.027 32.534-4.027 52.378c0 20.226 1.494 37.829 4.483 52.808 2.989 14.978 7.042 26.523 12.159 34.632 5.117 8.11 10.766 12.164 16.947 12.164 6.586 0 12.311-4.293 17.175-12.879 4.863-8.587 8.637-20.465 11.323-35.635 2.685-15.169 4.027-32.581 4.027-52.235 0-20.417-1.494-38.067-4.483-52.95-2.989-14.884-7.017-26.38-12.083-34.49-5.067-8.109-10.741-12.164-17.023-12.164z"></path></g></g></svg></div>
-  <div class="header-script">The Friendsmoon</div>
+  <div class="header-script">Wedding Warmup</div>
   <div class="header-title">Allegra &amp; Aaron · Costa Rica · January 3–7, 2027</div>
   <p class="header-intro">
-    We're getting married — and before the big day, we're stealing four nights in Costa Rica with our favorite people. Two volcanoes, a turquoise river, hot springs, jungle adventures, and a whole lot of time together. Here's everything you need to know to come celebrate with us.
+    Dear Family &amp; Friends,<br><br>
+    We are so grateful to spend a few days together, off the beaten path, before our big day. Call it a joint bachelor party, a friendsmoon, or a wedding warmup, from lake hiking to rainforest glamping, this will be a trip we remember for the rest of our lives.<br><br>
+    Here's everything you need to know; we can't wait to hear from you soon.<br><br>
+    With love,<br>
+    Ally &amp; Aaron
   </p>
+</div>
+
+<div class="hero-overlap">
+  <div class="vls-photo" style="padding:0;border-radius:12px;overflow:hidden;">
+    <div class="photo-placeholder"><span>Photo of Allegra &amp; Aaron</span></div>
+  </div>
 </div>
 
 <div class="page">
 
-  <!-- ===================== 01 — THE INVITATION ===================== -->
+  <!-- ===================== 01 — THE JOURNEY ===================== -->
   <div class="section-label">
     <div class="section-label-line"></div>
-    <div class="section-label-text">01 — The Invitation</div>
-    <div class="section-label-line"></div>
-  </div>
-  <p class="section-intro">
-    Most people do a bachelor and bachelorette party. We'd rather bring our closest friends and family somewhere unforgettable instead. So we're hosting a <em>Friendsmoon</em> — four nights in Costa Rica, the week of our wedding, before everyone heads to the coast for the big day. Think adventure by day, long dinners by night, and the whole group in one place. This page lays out the plan, the two places we'll stay, and exactly what it costs.
-  </p>
-  <div class="vls-photo" style="padding:0;border-radius:10px;overflow:hidden;">
-    <div class="photo-placeholder"><span>Hero photo — Arenal volcano / Río Celeste</span></div>
-  </div>
-
-  <!-- ===================== 02 — THE JOURNEY ===================== -->
-  <div class="section-label">
-    <div class="section-label-line"></div>
-    <div class="section-label-text">02 — The Journey</div>
+    <div class="section-label-text">01 — The Journey</div>
     <div class="section-label-line"></div>
   </div>
   <p class="section-intro">
     We'll experience two completely different sides of Costa Rica over four nights — first the adventure-and-volcano energy of Arenal, then the wild, glamping-in-the-rainforest calm of Río Celeste — before the group travels on to the wedding at El Mangroove.
   </p>
-  <div class="info-grid">
-    <div class="info-item"><div class="info-label">Nights 1–2 · Jan 3–5</div><div class="info-value">Arenal Heights Villas — La Fortuna (Arenal Volcano)</div></div>
-    <div class="info-item"><div class="info-label">Nights 3–4 · Jan 5–7</div><div class="info-value">Auralta — Río Celeste (Tented Camp)</div></div>
-    <div class="info-item"><div class="info-label">Arrive</div><div class="info-value">Sunday, Jan 3 — fly into Liberia (LIR), aim to land by noon</div></div>
-    <div class="info-item"><div class="info-label">Onward</div><div class="info-value">Thursday, Jan 7 — group transfer to the wedding at El Mangroove</div></div>
+  <div class="vls-photo" style="padding:0;border-radius:10px;overflow:hidden;">
+    <div class="photo-placeholder"><span>Hero photo — Arenal volcano / Río Celeste</span></div>
+  </div>
+  <div class="itinerary">
+    <div class="itin-stop">
+      <div class="itin-dates">Jan 3–5 · @ Arenal Heights</div>
+      <div class="itin-place">Adventures near Arenal Volcano, in La Fortuna</div>
+      <div class="itin-detail"><strong>Sunday, Jan 3:</strong> Fly into LIR before 12:00 pm</div>
+    </div>
+    <div class="itin-stop">
+      <div class="itin-dates">Jan 5–7 · @ Río Celeste</div>
+      <div class="itin-place">Glamping and Relaxation before the big day</div>
+      <div class="itin-detail"><strong>Thursday, Jan 7:</strong> Group bus to the wedding</div>
+    </div>
   </div>
 
   <!-- ===================== 03 — ARENAL HEIGHTS ===================== -->
   <div class="section-label">
     <div class="section-label-line"></div>
-    <div class="section-label-text">03 — Where We Stay · Nights 1–2</div>
+    <div class="section-label-text">02 — Where We Stay · Nights 1–2</div>
     <div class="section-label-line"></div>
   </div>
   <div class="option-card">
@@ -628,20 +736,24 @@ body {
     <div class="option-body">
       <div class="option-location">LA FORTUNA · ARENAL VOLCANO</div>
       <div class="option-name">Arenal Heights Villas</div>
-      <div class="option-tagline">A private cluster of modern villas at the foot of the volcano — ours for the first two nights.</div>
+      <div class="option-subtitle">Jan 3 – 5 · Nights 1–2</div>
+      <a class="map-link" href="https://www.google.com/maps/place/Arenal+Heights+Villas/@10.5038771,-84.7022263,1130m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8fa00931910af37f:0xd6a6819506e966f3!8m2!3d10.5038771!4d-84.7022263!16s%2Fg%2F11sf3_1ryb" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>View on Google Maps</a>
+      <div class="option-tagline">A private cluster of modern villas at the foot of the volcano.</div>
       <div class="info-grid">
         <div class="info-item"><div class="info-label">The vibe</div><div class="info-value">Adventure base camp — volcano, hot springs, lake, and town all minutes away</div></div>
         <div class="info-item"><div class="info-label">Each villa</div><div class="info-value">Private pool &amp; jacuzzi, full kitchen, terrace with direct Arenal views</div></div>
         <div class="info-item"><div class="info-label">Together</div><div class="info-value">Villas side by side on one private property — the group has the run of it</div></div>
         <div class="info-item"><div class="info-label">Town</div><div class="info-value">La Fortuna a 7-minute drive for shops, cafés &amp; restaurants</div></div>
       </div>
-      <div class="pros-list">
-        <div class="pros-label">Why we love it</div>
-        <ul>
-          <li>Everyone close together, but with room to spread out and your own space</li>
-          <li>Private pools and jacuzzis for slow mornings and late nights</li>
-          <li>Right in the heart of Arenal — the adventure capital of Costa Rica</li>
-        </ul>
+      <div class="room-options">
+        <div class="room-opt">
+          <div class="room-opt-label">Shared</div>
+          <div class="room-opt-text">A bed in a shared villa room, with friends just down the hall.</div>
+        </div>
+        <div class="room-opt">
+          <div class="room-opt-label">Private</div>
+          <div class="room-opt-text">Your own room in the villa for you (and your plus-one).</div>
+        </div>
       </div>
     </div>
   </div>
@@ -649,7 +761,7 @@ body {
   <!-- ===================== 04 — AURALTA ===================== -->
   <div class="section-label">
     <div class="section-label-line"></div>
-    <div class="section-label-text">04 — Where We Stay · Nights 3–4</div>
+    <div class="section-label-text">03 — Where We Stay · Nights 3–4</div>
     <div class="section-label-line"></div>
   </div>
   <div class="option-card">
@@ -659,29 +771,22 @@ body {
     <div class="option-body">
       <div class="option-location">RÍO CELESTE · TENORIO VOLCANO</div>
       <div class="option-name">Auralta Río Celeste</div>
-      <div class="option-tagline">A luxury tented camp on a private rainforest reserve, beside the famous turquoise river.</div>
+      <div class="option-subtitle">Jan 5 – 7 · Nights 3–4</div>
+      <div class="option-tagline">A brand new luxury tented camp on a private rainforest reserve, beside the famous turquoise river.</div>
       <div class="info-grid">
         <div class="info-item"><div class="info-label">The vibe</div><div class="info-value">Glamping done at a five-star level — wild, serene, completely immersed in nature</div></div>
         <div class="info-item"><div class="info-label">The setting</div><div class="info-value">14-hectare native forest, 700m of private Río Celeste riverfront, volcano views</div></div>
         <div class="info-item"><div class="info-label">On site</div><div class="info-value">Restaurant, bar, infinity pool, spa &amp; massage</div></div>
+        <div class="info-item"><div class="info-label">Dining</div><div class="info-value">Very remote, so all meals at the hotel restaurant</div></div>
         <div class="info-item"><div class="info-label">Nearby</div><div class="info-value">10 min to the Río Celeste waterfall &amp; Tenorio National Park</div></div>
       </div>
-      <div class="pros-list">
-        <div class="pros-label">Why we love it</div>
-        <ul>
-          <li>A total change of pace — the calm, wild counterpoint to Arenal</li>
-          <li>Tents with forest-and-volcano views, en-suite baths, and (on some) private jacuzzis</li>
-          <li>The whole camp is ours — just our group, the rainforest, and the river</li>
-        </ul>
-      </div>
-      <div class="suggestion-box"><p><strong>Good to know —</strong> the camp is gloriously remote, so all meals here are at the hotel restaurant (and they're wonderful). It's all included in your package below.</p></div>
     </div>
   </div>
 
   <!-- ===================== 05 — WHAT'S INCLUDED ===================== -->
   <div class="section-label">
     <div class="section-label-line"></div>
-    <div class="section-label-text">05 — What's Included</div>
+    <div class="section-label-text">04 — What's Included</div>
     <div class="section-label-line"></div>
   </div>
   <p class="section-intro">
@@ -718,11 +823,11 @@ body {
   <!-- ===================== 06 — CHOOSE YOUR PACKAGE ===================== -->
   <div class="section-label">
     <div class="section-label-line"></div>
-    <div class="section-label-text">06 — Choose Your Package</div>
+    <div class="section-label-text">05 — Choose Your Accommodations</div>
     <div class="section-label-line"></div>
   </div>
   <p class="section-intro">
-    Here's the part we need from you. The two packages are <em>identical</em> in every way except your room — same activities, meals, transport, and group. The only choice is how you'd like to sleep. <strong>Tents are limited, so the sooner you choose, the better.</strong>
+    Here's the part we need from you. The two packages are <em>identical</em> in every way — same activities, meals, transport, group, and villa stay in Arenal. The only real difference is your tent at Auralta: a shared Deluxe tent or your own private Suite. <strong>Tents are limited, so the sooner you choose, the better.</strong>
   </p>
 
   <div class="activity-grid">
@@ -760,7 +865,7 @@ body {
   <!-- ===================== 07 — THE EXPERIENCE / ITINERARY ===================== -->
   <div class="section-label">
     <div class="section-label-line"></div>
-    <div class="section-label-text">07 — The Week, Day by Day</div>
+    <div class="section-label-text">06 — The Week, Day by Day</div>
     <div class="section-label-line"></div>
   </div>
   <p class="section-intro">
@@ -816,12 +921,9 @@ body {
   <!-- ===================== 08 — HOW TO RESERVE ===================== -->
   <div class="section-label">
     <div class="section-label-line"></div>
-    <div class="section-label-text">08 — How to Reserve</div>
+    <div class="section-label-text">07 — What We Need From You</div>
     <div class="section-label-line"></div>
   </div>
-  <p class="section-intro">
-    Spots are limited and rooms are first come, first served. Here's how to lock yours in:
-  </p>
   <div class="step-list">
     <div class="step-item">
       <div class="step-head">Choose Your Package</div>
@@ -842,7 +944,7 @@ body {
     <div class="photo-placeholder"><span>Closing image — the group / the volcano at sunset</span></div>
   </div>
   <p class="section-intro" style="text-align:center;">
-    We genuinely can't wait to share this with you. It's going to be one for the books. <br><strong>See you in Costa Rica.</strong><br>— Allegra &amp; Aaron
+    We know what a commitment we're asking of you, and we don't take that lightly. <br>We truly can't wait to celebrate our love with you all, very soon.<br>— Ally &amp; Aaron
   </p>
 
   <!-- FOOTER -->
