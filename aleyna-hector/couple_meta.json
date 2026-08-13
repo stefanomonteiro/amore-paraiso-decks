@@ -19,10 +19,10 @@
       "desc": "The activity options I researched for your week, with pricing."
     },
     "finances": {
-      "desc": "Payments made, amounts due, and what's coming up."
+      "hidden": true
     },
     "guests_paid": {
-      "desc": "Which guests have paid for which services."
+      "hidden": true
     },
     "extra": [
       {
