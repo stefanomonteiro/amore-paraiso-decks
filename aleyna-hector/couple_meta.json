@@ -3,13 +3,33 @@
   "wedding_date": "2026-12-07",
   "location": "Villa Diosa del Mar, Junquillal",
   "guest": {
-    "itinerary":  { "desc": "Your day-by-day plan for the wedding week." },
-    "transport":  { "desc": "Airport transfers and shuttles — options and how to book." },
-    "activities": { "desc": "Tours and experiences to enjoy near Junquillal." }
+    "itinerary": {
+      "desc": "Your day-by-day plan for the wedding week."
+    },
+    "transport": {
+      "desc": "Airport transfers and shuttles \u2014 options and how to book."
+    },
+    "activities": {
+      "desc": "Tours and experiences to enjoy near Junquillal."
+    }
   },
   "couple": {
-    "activities": { "desc": "Research & presentations I prepared for you." },
-    "finances":   { "desc": "Payments made, amounts due, and what's coming up." },
-    "guests_paid":{ "desc": "Which guests have paid for which services." }
+    "activities": {
+      "href": "./activities/",
+      "desc": "The activity options I researched for your week, with pricing."
+    },
+    "finances": {
+      "desc": "Payments made, amounts due, and what's coming up."
+    },
+    "guests_paid": {
+      "desc": "Which guests have paid for which services."
+    },
+    "extra": [
+      {
+        "title": "Your Wedding Week",
+        "href": "./itinerary/",
+        "desc": "A proposed day-by-day plan for 5 to 12 December."
+      }
+    ]
   }
 }
