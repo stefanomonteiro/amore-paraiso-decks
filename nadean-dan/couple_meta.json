@@ -34,5 +34,8 @@
       "href": "./guest-bookings/",
       "desc": "Who has booked and paid — transfers and activities, always current."
     }
+  },
+  "internal": {
+    "itinerary": "/nadean-dan/nd-internal-itinerary/"
   }
 }
