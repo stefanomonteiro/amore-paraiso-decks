@@ -95,7 +95,7 @@
     <div class="count" id="count"></div>
     <div>
       <button class="btn-ghost active" id="f-up" onclick="setView('upcoming')">Upcoming</button>
-      <button class="btn-ghost" id="f-all" onclick="setView('all')">Show past</button>
+      <button class="btn-ghost" id="f-all" onclick="setView('past')">Past</button>
     </div>
   </div>
 
@@ -371,19 +371,22 @@ function render(){
   const today=todayStr();
   const sched=document.getElementById('schedule');
   sched.innerHTML='';
-  let rows=BOOKINGS.slice();
-  if(view==='upcoming') rows=rows.filter(b=>b.date>=today);
-  rows.sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));
+  const isPast=view==='past', dir=isPast?-1:1;
+  let rows=BOOKINGS.slice().filter(b=>isPast? b.date<today : b.date>=today);
+  rows.sort((a,b)=>dir*(a.date+a.time).localeCompare(b.date+b.time));
 
   document.getElementById('count').textContent=
-    rows.length+(rows.length===1?' transfer':' transfers')+(view==='upcoming'?' upcoming':' total');
+    rows.length+(rows.length===1?' transfer':' transfers')+(isPast?' completed':' upcoming');
 
-  if(!rows.length){sched.innerHTML='<div class="empty">No upcoming transfers — all caught up.</div>';return;}
+  if(!rows.length){
+    sched.innerHTML='<div class="empty">'+(isPast?'No past transfers yet.':'No upcoming transfers — all caught up.')+'</div>';
+    return;
+  }
 
   const byDate={};
   rows.forEach(b=>{(byDate[b.date]=byDate[b.date]||[]).push(b);});
 
-  Object.keys(byDate).sort().forEach(date=>{
+  Object.keys(byDate).sort((a,b)=>dir*a.localeCompare(b)).forEach(date=>{
     const rel=relLabel(date,today);
     const isCol=!!collapsed[date];
     const day=document.createElement('div');
@@ -407,7 +410,7 @@ function render(){
 function setView(v){
   view=v;
   document.getElementById('f-up').classList.toggle('active',v==='upcoming');
-  document.getElementById('f-all').classList.toggle('active',v==='all');
+  document.getElementById('f-all').classList.toggle('active',v==='past');
   render();
 }
 
