@@ -213,12 +213,12 @@ const BOOKINGS = [
     to:"El Mangroove (Playa Panama)",
     groups:[
       { airline:"JetBlue", flight:"B6 1157", when:"Arrives 11:57",
-        passengers:["Matt Cross"] },
+        passengers:["Matt Cross","Victor Tuccy"] },
       { airline:"United", flight:"UA 1512", when:"Arrives 12:10",
-        passengers:["Brent Allen","Kendall Cramer"] }
+        passengers:["Brent Allen","Kendall Cramer","Austin Ferritto"] }
     ],
     phone:"+1 847 915 8988",
-    notes:"Two flights, 13 minutes apart. Brent Allen waits 30 minutes maximum, leave at 12:55."
+    notes:"5 passengers, two flights 13 minutes apart. Brent Allen waits 30 minutes maximum, leave at 12:55."
   },
   {
     date:"2026-09-24", time:"14:00", type:"arrival",
@@ -239,16 +239,26 @@ const BOOKINGS = [
     to:"LIR — Daniel Oduber (Liberia)",
     groups:[
       { airline:"United", flight:"UA 1516", when:"Departs 13:20",
-        passengers:["Kyle Hupf","Peyton Hupf"] },
-      { airline:"JetBlue", flight:"B6 1158", when:"Departs 14:06",
-        passengers:["Matt Cross","Janae Prosa","Tyler Prosa"] },
-      { airline:"American", flight:"AA 594", when:"Departs 14:47",
-        passengers:["Kyle Risinger"] },
+        passengers:["Kyle Hupf","Peyton Hupf","Austin Ferritto"] },
       { airline:"Delta", flight:"flight number to confirm", when:"Departs 13:15",
         passengers:["Amber Fargen","Sue Grassman"] }
     ],
-    phone:"+1 847 471 1444",
-    notes:"Four flights, all eight leave together at 11:00. Amber Fargen and Sue Grassman flight number still being confirmed."
+    phone:"+1 303 518 5770",
+    notes:"5 passengers, the two earlier flights. Second van follows at 11:45 for the later flights."
+  },
+  {
+    date:"2026-09-28", time:"11:45", type:"return",
+    wedding:"NaDean & Daniel",
+    from:"El Mangroove (Playa Panama)",
+    to:"LIR — Daniel Oduber (Liberia)",
+    groups:[
+      { airline:"JetBlue", flight:"B6 1158", when:"Departs 14:06",
+        passengers:["Matt Cross","Victor Tuccy","Janae Prosa","Tyler Prosa"] },
+      { airline:"American", flight:"AA 594", when:"Departs 14:47",
+        passengers:["Kyle Risinger"] }
+    ],
+    phone:"+1 847 946 7161",
+    notes:"5 passengers, the two later flights. Second van of the day, first one leaves at 11:00."
   },
   {
     date:"2026-09-29", time:"10:50", type:"return",
