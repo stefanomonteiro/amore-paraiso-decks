@@ -15,8 +15,7 @@
   },
   "couple": {
     "activities": {
-      "href": "./activities/",
-      "desc": "The activity options I researched for your week, with pricing."
+      "hidden": true
     },
     "finances": {
       "hidden": true
