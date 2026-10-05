@@ -1,0 +1,29 @@
+{
+  "names": "Allegra & Aaron",
+  "wedding_date": "2027-01-09",
+  "location": "El Mangroove, Playa Panamá",
+  "guest": {
+    "itinerary": {
+      "desc": "Your day-by-day plan for the wedding week."
+    },
+    "transport": {
+      "desc": "Airport transfers and shuttles — options and how to book."
+    },
+    "activities": {
+      "desc": "Tours and experiences to enjoy near Playa Panamá."
+    }
+  },
+  "couple": {
+    "activities": {
+      "desc": "Research & presentations I prepared for you (friendsmoon, wedding-week activities)."
+    },
+    "finances": {
+      "href": "./finances/",
+      "desc": "Payments made, amounts due, and what's coming up."
+    },
+    "guests_paid": {
+      "href": "./finances/#guests",
+      "desc": "Which guests have paid for the Wedding Warmup."
+    }
+  }
+}
