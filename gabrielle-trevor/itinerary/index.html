@@ -79,6 +79,17 @@ h1{
   font-family:'PlayfairDisplay',Georgia,serif;font-style:italic;font-size:.95rem;
 }
 
+.day.wedding{background:linear-gradient(180deg,#F3D7D3 0%,#fdf9f8 130%);border-color:var(--rose)}
+.day.wedding .day-head{background:transparent;border-bottom:1px solid rgba(231,157,155,.45)}
+.wed-body{text-align:center;padding:1.7rem 1.2rem 1.9rem}
+.wed-flower{width:44px;margin:0 auto .4rem}
+.wed-flower svg{width:100%;height:auto;display:block}
+.wed-script{font-family:'Creattion',cursive;font-size:3rem;line-height:1.05;color:#d87a77;margin:.1rem 0 .15rem}
+.wed-names{font-family:'PlayfairDisplay',Georgia,serif;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);margin-bottom:1rem}
+.wed-rule{width:44px;height:1px;background:var(--rose);border:0;margin:0 auto 1rem}
+.wed-loc{font-size:.85rem;color:var(--muted);letter-spacing:.05em}
+@media (max-width:430px){.wed-script{font-size:2.4rem}}
+
 @media (max-width:430px){
   body{padding:2rem 1rem 3rem}
   h1{font-size:1.7rem}
@@ -91,7 +102,7 @@ h1{
   <div class="wrap">
     <header>
       <h1>Gabrielle &amp; Trevor</h1>
-      <p class="sub">Your Costa Rica Itinerary</p>
+      <p class="sub">Your Wedding Week Itinerary</p>
       <hr class="rule">
     </header>
     <section class="day">
@@ -100,8 +111,7 @@ h1{
         <span class="date">October 14</span>
       </div>
       <ul class="acts">
-        <li class="act"><span class="time">12:00 PM</span><span class="body"><span class="title">Arrival — Delta DL1937</span><span class="loc">San José (SJO)</span></span></li>
-        <li class="act"><span class="time"></span><span class="body"><span class="title">Villa check-in</span><span class="loc">Casa Pura Estates, Esterillos</span></span></li>
+        <li class="act"><span class="time"></span><span class="body"><span class="title">Gabrielle &amp; Trevor arrive</span><span class="loc">San José (SJO) → Casa Pura Estates, Esterillos</span></span></li>
       </ul>
     </section>
     <section class="day">
@@ -110,26 +120,28 @@ h1{
         <span class="date">October 15</span>
       </div>
       <ul class="acts">
-        <li class="act"><span class="time"></span><span class="body"><span class="title">Vista Los Sueños Adventure Day — zipline, ATV &amp; waterfalls</span></span></li>
+        <li class="act"><span class="time">9:00 AM</span><span class="body"><span class="title">Adventure Day · Zipline, ATV &amp; Waterfalls</span><span class="loc">Vista Los Sueños · pickup at the villas · back by 2:00 PM</span></span></li>
       </ul>
     </section>
-    <section class="day">
+    <section class="day wedding">
       <div class="day-head">
         <span class="dow">Friday</span>
         <span class="date">October 16</span>
       </div>
-      <ul class="acts">
-        <li class="act"><span class="allday">All day</span><span class="body"><span class="title">Wedding Day</span></span></li>
-      </ul>
+      <div class="wed-body">
+        <div class="wed-flower"><svg style="width:100%;height:auto;display:block;" xmlns="http://www.w3.org/2000/svg" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 3201 2894"><g fill-rule="nonzero"><path d="m151.7 11.2s-48 103.6 78.8 128.1c0 0 34.3-89.9-78.8-128.1z" fill="#ec929a" transform="matrix(10.66784 0 0 -10.651871577 -.0005 1603.11723695)"></path><path d="m161.9 108.3c2.8 12.1 9.1 23.4 17.8 32.3-3.6-13.6-7.1-27.2-10.7-40.8 7.2 13 15.2 25.5 24.1 37.4-2.7-12.2-6.8-24.2-12.2-35.5 10.2 11.4 19.6 23.6 27.9 36.5-7.4-30.3-28.6-57-56.6-71-2.1 20.7.8 41.8 8.4 61.2-.1-6.7.3-13.5 1.3-20.1z" fill="#d83e43" transform="matrix(10.66784 0 0 -10.651871577 -.0005 2213.46770145)"></path><path d="m151.1 140.7s75.9 85.3 148.9-21.2c0 .1-68.8-67.2-148.9 21.2z" fill="#ec929a" transform="matrix(10.66784 0 0 -10.651871577 -.0005 2964.41696345)"></path><path d="m191.6 158.1c12.3 2.2 25.1 1 36.7-3.4-13.9-2.2-27.8-4.3-41.7-6.5 14.8-1.4 29.5-3.8 43.9-7.2-12.3-2.4-24.9-3.4-37.4-2.9 14.5-4.8 29.5-8.5 44.6-11-30.8-5.3-63.7 3.5-87.6 23.6 18.1 10.1 38.7 15.9 59.4 16.7-6.2-2.6-12.2-5.7-17.9-9.3z" fill="#d83e43" transform="matrix(10.66784 0 0 -10.651871577 -.0005 3080.52973445)"></path><path d="m148.4 272.6s58.2-98.3-65.5-135.4c0-.1-43.2 86 65.5 135.4z" fill="#ec929a" transform="matrix(10.66784 0 0 -10.651871577 -43.9019953 4355.01991295)"></path><path d="m142.2 170.5c-1.6-12.4-6.7-24.2-14.5-33.9 2.2 13.9 4.4 27.8 6.5 41.7-5.8-13.7-12.6-26.9-20.2-39.7 1.4 12.5 4.3 24.7 8.6 36.5-9-12.4-17.1-25.5-24.1-39.1 4.3 30.9 22.8 59.6 49.1 76.3 4.1-20.4 3.4-41.7-2.2-61.7-.4 6.8-1.5 13.4-3.2 19.9z" fill="#d83e43" transform="matrix(10.66784 0 0 -10.651871577 -16.669 3710.04897395)"></path><path d="m147.7 131.6s-79.9-81.6-147.7 28.3c0 0 72 63.9 147.7-28.3z" fill="#ec929a" transform="matrix(10.66784 0 0 -10.651871577 -.0005 2916.49502595)"></path><path d="m106.9 118.4c-12.3-1.6-25.1.2-36.5 5.2 14 1.5 28 3 42 4.4-14.7 2.1-29.3 5.2-43.5 9.3 12.4 1.8 25 2.2 37.5 1.1-14.3 5.5-29 9.9-44 13.2 31 3.8 63.4-6.6 86.4-27.8-18.6-9.3-39.4-14-60.2-13.8 6.3 2.3 12.4 5.1 18.3 8.4z" fill="#d83e43" transform="matrix(10.66784 0 0 -10.651871577 -.0005 2824.88494995)"></path><path d="m146.1 0s-111.9 22.8-56.5 139.4c.1 0 92.8-25.7 56.5-139.4z" fill="#ec929a" transform="matrix(10.66784 0 0 -10.651871577 -.0005 1484.87089795)"></path><path d="m120.2 84.2c-8.1 9.5-13.5 21.2-15.5 33.5 8.8-10.9 17.7-21.9 26.5-32.8-6.2 13.5-11.5 27.4-15.8 41.6 8.3-9.4 15.4-19.8 21.3-30.9-3.1 15-7.4 29.8-12.9 44.1 20-23.9 28.9-56.9 23.6-87.6-17.9 10.6-33.2 25.5-44.3 43 5.4-4.1 11.1-7.8 17.1-10.9z" fill="#d83e43" transform="matrix(10.66784 0 0 -10.651871577 -.0005 2043.03228895)"></path><path d="m147.9 264.5s114.2 1.2 84.4-124.5c.1 0-96 5.7-84.4 124.5z" fill="#ec929a" transform="matrix(10.66784 0 0 -10.651871577 -.0005 4321.46622245)"></path><path d="m180 196.4c9.9-7.6 17.6-17.9 22.1-29.5-10.9 8.8-21.9 17.7-32.8 26.5 8.9-11.9 17-24.4 24.2-37.4-10.1 7.5-19.2 16.1-27.3 25.7 6.2-14 13.5-27.5 21.8-40.4-24.6 19.2-40.2 49.5-41.5 80.7 19.7-6.6 37.8-17.9 52.3-32.8-6 3-12.3 5.4-18.8 7.2z" fill="#d83e43" transform="matrix(10.66784 0 0 -10.651871577 -.0005 3869.83321495)"></path><path d="m148.8 98.9c8.1-1.7 16.6 1.2 23.4 5.9 10.6 7.3 18.3 19.4 18.6 32.3s-7.7 26-19.9 30.2c-8.5 2.9-18 1.4-26.6-1.1-9.1-2.7-18.3-7-23.8-14.7-6.4-8.9-6.7-21.5-1.2-30.9 4.1-7.1 11-12.2 18-16.5 3.5-2.2 7.3-4.3 11.5-5.2z" fill="#f9c461" transform="matrix(10.66784 0 0 -10.651871577 -.0005 2848.32086095)"></path><g fill="#f09852"><path d="m129.3 129.9c-.1-.2-.1-.3-.2-.5-.4-1.2.5-2.8 1.7-3.1 1.4-.3 2.6.4 3.1 1.7.1.2.1.3.2.5.4 1.2-.5 2.8-1.7 3.1-1.4.3-2.7-.4-3.1-1.7z" transform="matrix(10.66784 0 0 -10.651871577 -.0005 2747.12639745)"></path><path d="m149 155.1c-.1-.2-.1-.3-.2-.5-.4-1.2.5-2.8 1.7-3.1 1.4-.3 2.6.4 3.1 1.7.1.2.1.3.2.5.4 1.2-.5 2.8-1.7 3.1-1.4.4-2.7-.4-3.1-1.7z" transform="matrix(10.66784 0 0 -10.651871577 -.0005 3285.03556095)"></path><path d="m145.2 140.4c3.2 0 3.2 5 0 5s-3.2-5 0-5z" transform="matrix(10.66784 0 0 -10.651871577 -.0005 3044.30908395)"></path><path d="m163.9 157.9c3.2 0 3.2 5 0 5s-3.2-5 0-5z" transform="matrix(10.66784 0 0 -10.651871577 -.0005 3417.13342345)"></path><path d="m182.3 141.9c-.2.1-.3.1-.5.2-1.2.4-2.8-.5-3.1-1.7-.3-1.4.4-2.6 1.7-3.1.2-.1.3-.1.5-.2 1.2-.4 2.8.5 3.1 1.7.4 1.5-.4 2.7-1.7 3.1z" transform="matrix(10.66784 0 0 -10.651871577 -.0005 2974.00135095)"></path><path d="m135.2 147.4c.2-.1.3-.1.5-.2.9-.3 2.1-.1 2.9.4s1.5 1.3 1.7 2.2c.5 2.1-.6 3.9-2.6 4.6-.2.1-.3.1-.5.2-.9.3-2.1.1-2.9-.4s-1.5-1.3-1.7-2.2c-.5-2.1.6-3.9 2.6-4.6z" transform="matrix(10.66784 0 0 -10.651871577 -.0005 3214.74449645)"></path><path d="m148.3 128.6c4.8 0 4.8 7.5 0 7.5s-4.8-7.5 0-7.5z" transform="matrix(10.66784 0 0 -10.651871577 -.0005 2819.55102995)"></path><path d="m165.7 136.2c4.8 0 4.8 7.5 0 7.5s-4.8-7.5 0-7.5z" transform="matrix(10.66784 0 0 -10.651871577 -.0005 2981.46883895)"></path><path d="m183.4 121.8c4.8 0 4.8 7.5 0 7.5-4.9 0-4.9-7.5 0-7.5z" transform="matrix(10.66784 0 0 -10.651871577 -.0005 2674.68509645)"></path><path d="m166.7 151c-.1-.2-.1-.3-.2-.5-.3-.9-.1-2.1.4-2.9s1.3-1.5 2.2-1.7c2.1-.5 3.9.6 4.6 2.6.1.2.1.3.2.5.3.9.1 2.1-.4 2.9s-1.3 1.5-2.2 1.7c-2.1.5-3.9-.6-4.6-2.6z" transform="matrix(10.66784 0 0 -10.651871577 -.0005 3190.24180145)"></path><path d="m125.6 138.1c4.8 0 4.8 7.5 0 7.5-4.9 0-4.9-7.5 0-7.5z" transform="matrix(10.66784 0 0 -10.651871577 -.0005 3021.93995695)"></path></g></g></svg></div>
+        <div class="wed-script">Wedding Day</div>
+        <div class="wed-names">Gabrielle &amp; Trevor say &ldquo;I do&rdquo;</div>
+        <hr class="wed-rule">
+        <div class="wed-loc">Casa Pura Estates · Esterillos</div>
+      </div>
     </section>
     <section class="day">
       <div class="day-head">
         <span class="dow">Saturday</span>
         <span class="date">October 17</span>
       </div>
-      <ul class="acts">
-        <li class="act"><span class="time"></span><span class="body"><span class="title">Catamaran cruise (optional group outing)</span></span></li>
-      </ul>
+      <p class="free">Free day</p>
     </section>
     <section class="day">
       <div class="day-head">
@@ -146,7 +158,7 @@ h1{
         <span class="date">October 19</span>
       </div>
       <ul class="acts">
-        <li class="act"><span class="time">1:15 PM</span><span class="body"><span class="title">Departure — Delta DL1756</span><span class="loc">San José (SJO)</span></span></li>
+        <li class="act"><span class="time"></span><span class="body"><span class="title">Gabrielle &amp; Trevor depart</span><span class="loc">San José (SJO)</span></span></li>
       </ul>
     </section>
   </div>
