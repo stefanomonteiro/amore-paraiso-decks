@@ -35,8 +35,5 @@
       "desc": "Who has booked and paid — transfers and activities, always current."
     }
   },
-  "internal": {
-    "itinerary": "/nadean-dan/nd-internal-itinerary/",
-    "math": "https://payments.amoreparaiso.com/#c-nadean-and-daniel"
-  }
+  "payments_name": "NaDean & Daniel"
 }

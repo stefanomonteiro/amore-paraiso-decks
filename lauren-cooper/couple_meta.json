@@ -24,8 +24,5 @@
     "guests_paid": {
       "desc": "Which guests have paid for which services."
     }
-  },
-  "internal": {
-    "math": "https://payments.amoreparaiso.com/#c-lauren-and-cooper"
   }
 }
