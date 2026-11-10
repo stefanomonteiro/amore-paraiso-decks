@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Wedding Warmup Activities</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --blush: #F3D7D3; --blushSoft: #FBF0EE; --rose: #E79D9B; --roseDeep: #C97573;
+  --mauve: #504242; --grey55: #6B6060; --grey99: #9A9191; --line: #E8E1E0; --white: #FFFFFF;
+}
+html, body { height: 100%; }
+body {
+  font-family: 'Avenir', 'Avenir Next', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300; color: var(--mauve); background: var(--blushSoft);
+  font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased;
+}
+.app { max-width: 520px; margin: 0 auto; min-height: 100%; display: flex; flex-direction: column; padding: 0 16px; }
+
+.top { padding: 20px 0 8px; display: flex; align-items: center; gap: 12px; }
+.back { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: var(--white); color: var(--mauve); display: grid; place-items: center; cursor: pointer; flex: none; }
+.back.off { visibility: hidden; }
+.dots { flex: 1; display: flex; gap: 6px; }
+.dots span { flex: 1; height: 4px; border-radius: 4px; background: var(--line); transition: background .25s; }
+.dots span.on { background: var(--rose); }
+.brand { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--grey99); text-align: center; padding: 4px 0 0; }
+
+.step { display: none; padding: 16px 0 24px; animation: in .28s ease; }
+.step.active { display: block; }
+.step.intro.active { display: flex; flex-direction: column; justify-content: center; text-align: center; flex: 1; padding-bottom: 48px; }
+.step.intro .field { text-align: left; }
+@keyframes in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.kicker { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--roseDeep); font-weight: 500; }
+h1, h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; line-height: 1.2; }
+h1 { font-size: 32px; margin: 6px 0 12px; }
+h2 { font-size: 26px; margin: 6px 0 8px; }
+.lead { color: var(--grey55); font-size: 16px; margin-bottom: 20px; }
+
+.who { font-size: 15px; font-weight: 500; margin: 18px 0 10px; display: flex; align-items: center; gap: 8px; }
+.who .badge { width: 28px; height: 28px; border-radius: 50%; background: var(--blush); display: grid; place-items: center; font-size: 13px; font-weight: 500; }
+.who .ok { margin-left: auto; color: var(--roseDeep); display: none; }
+.who.picked .ok { display: block; }
+
+.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.tile {
+  font: inherit; color: var(--mauve); text-align: left; cursor: pointer;
+  background: var(--white); border: 1.5px solid var(--line); border-radius: 14px;
+  padding: 14px 12px 12px; min-height: 104px; display: flex; flex-direction: column; gap: 8px;
+  transition: border-color .15s, background .15s, transform .1s;
+  -webkit-tap-highlight-color: transparent;
+}
+.tile:active { transform: scale(.98); }
+.tile svg { width: 28px; height: 28px; stroke: var(--roseDeep); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.tile b { font-weight: 500; font-size: 15px; line-height: 1.25; }
+.tile small { font-size: 12.5px; color: var(--grey99); line-height: 1.3; }
+.tile[aria-pressed="true"] { border-color: var(--rose); background: var(--blush); }
+.tile[aria-pressed="true"] small { color: var(--grey55); }
+
+.with { display: none; margin-top: 10px; }
+.with.show { display: block; }
+.with label { font-size: 14px; color: var(--grey55); display: block; margin-bottom: 6px; }
+input[type=text], input[type=email], textarea {
+  width: 100%; font: inherit; font-size: 16px; color: var(--mauve);
+  border: 1.5px solid var(--line); border-radius: 12px; padding: 12px 14px; background: var(--white);
+}
+textarea { min-height: 120px; resize: vertical; }
+input:focus, textarea:focus { outline: none; border-color: var(--rose); }
+.field { margin-bottom: 14px; }
+.field label { display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; }
+
+.summary { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 6px 16px; margin: 20px 0 8px; }
+.summary .row { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+.summary .row:last-child { border-bottom: 0; }
+.summary .row span:first-child { color: var(--grey99); }
+.summary .row span:last-child { text-align: right; font-weight: 500; }
+.summary .name { font-family: 'Playfair Display', Georgia, serif; font-size: 18px; padding: 12px 0 0; }
+
+.bar { position: sticky; bottom: 0; padding: 12px 0 calc(16px + env(safe-area-inset-bottom)); background: linear-gradient(to top, var(--blushSoft) 70%, rgba(251,240,238,0)); margin-top: auto; }
+.bar.off { display: none; }
+.btn { width: 100%; font: inherit; font-size: 16px; font-weight: 500; color: var(--white); background: var(--mauve); border: 0; border-radius: 14px; padding: 16px; cursor: pointer; transition: opacity .2s; }
+.btn:disabled { opacity: .35; cursor: default; }
+.err { color: #B0413E; font-size: 14px; text-align: center; min-height: 20px; padding-top: 8px; }
+.hp { position: absolute; left: -9999px; }
+
+.done { text-align: center; padding-top: 18vh; }
+.done .circle { width: 72px; height: 72px; border-radius: 50%; background: var(--blush); display: grid; place-items: center; margin: 0 auto 20px; }
+.done .circle svg { width: 34px; height: 34px; stroke: var(--roseDeep); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top">
+    <button class="back off" id="back" type="button" aria-label="Back">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="dots" id="dots"><span></span><span></span><span></span><span></span></div>
+  </div>
+  <div class="brand">Ally &amp; Aaron &middot; Wedding Warmup</div>
+
+  <section class="step intro active" data-step="0">
+    <h1 id="hello">Hi!</h1>
+    <p class="lead" id="intro">Ally and Aaron would love to know which activities you would like to join, so we can confirm everything with the tour companies. Please fill this in one per person.</p>
+    <div id="about" hidden>
+      <div class="field"><label for="name">Your name</label><input type="text" id="name" autocomplete="name"></div>
+      <div class="field"><label for="email">Your email</label><input type="email" id="email" autocomplete="email"></div>
+    </div>
+    <p class="lead" style="margin-bottom:0">Two quick questions, about a minute.</p>
+  </section>
+
+  <section class="step" data-step="1">
+    <div class="kicker">Monday, January 4</div>
+    <h2>Mountain adventure</h2>
+    <p class="lead">The whole group heads out together in the morning. Drive your own ATV, share one, or ride in a 4x4 with a professional driver. Rather skip it? Monta&ntilde;a de Fuego has hiking trails and pools.</p>
+    <div id="mondayPeople"></div>
+  </section>
+
+  <section class="step" data-step="2">
+    <div class="kicker">Tuesday, January 5</div>
+    <h2>Rafting</h2>
+    <p class="lead">A morning on the river with lunch, then we continue on to Auralta.</p>
+    <div id="tuesdayPeople"></div>
+  </section>
+
+  <section class="step" data-step="3">
+    <div class="kicker">Almost done</div>
+    <h2>Anything we should know?</h2>
+    <p class="lead">Food allergies, pregnancy, or anything else. Optional.</p>
+    <textarea id="notes" maxlength="1500" placeholder="Type here"></textarea>
+    <div class="summary" id="summary"></div>
+    <input type="text" class="hp" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+  </section>
+
+  <section class="step done" data-step="4">
+    <div class="circle"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <h2>Thank you!</h2>
+    <p class="lead">We have your choices. See you in Costa Rica!</p>
+  </section>
+
+  <div class="bar" id="bar">
+    <button class="btn" id="next" type="button">Let's start</button>
+    <div class="err" id="err" role="alert"></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  var ICON = {
+    atv: '<svg viewBox="0 0 24 24"><circle cx="6" cy="16" r="3"/><circle cx="18" cy="16" r="3"/><path d="M9 16h6M6 13l3-5h5l3 5M11 8V5h3"/></svg>',
+    two: '<svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="16.5" cy="9" r="2.5"/><path d="M3.5 19c.5-3.2 2.8-5 5.5-5s5 1.8 5.5 5M14 14.3c.8-.4 1.6-.6 2.5-.6 2.4 0 4 1.6 4.5 4.3"/></svg>',
+    car: '<svg viewBox="0 0 24 24"><path d="M3 15v-3l2-5h14l2 5v3"/><path d="M3 15h18v3H3z"/><circle cx="7.5" cy="18.5" r="1.5"/><circle cx="16.5" cy="18.5" r="1.5"/><path d="M5.5 12h13"/></svg>',
+    leaf: '<svg viewBox="0 0 24 24"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14z"/><path d="M5 19c3-4 6-7 10-10"/></svg>',
+    raft: '<svg viewBox="0 0 24 24"><path d="M3 17c1.5 1 3 1 4.5 0s3-1 4.5 0 3 1 4.5 0 3-1 4.5 0"/><path d="M5 13h14l-1.5 2.5h-11z"/><path d="M14 13l3-8M15.6 7.5l2.4 1"/></svg>',
+    rest: '<svg viewBox="0 0 24 24"><path d="M4 17h16M6 17c0-3.5 2.7-6 6-6s6 2.5 6 6"/><path d="M12 4v3M5.6 6.6l1.8 1.8M18.4 6.6l-1.8 1.8"/></svg>'
+  };
+  var MONDAY = [
+    { v: 'Individual ATV', t: 'My own ATV', s: 'You drive', i: 'atv' },
+    { v: 'Shared ATV', t: 'Shared ATV', s: 'Two people, one ATV', i: 'two' },
+    { v: '4x4 with a professional driver', t: '4x4 with driver', s: 'Sit back, still with the group', i: 'car' },
+    { v: 'Hotel hiking and pools', t: 'Stay at the hotel', s: 'Trails and pools', i: 'leaf' }
+  ];
+  var TUESDAY = [
+    { v: 'Rafting', t: 'Rafting', s: 'Count me in', i: 'raft' },
+    { v: 'No rafting', t: 'Skip rafting', s: 'I will sit this one out', i: 'rest' }
+  ];
+
+  // Party from the link: ?g=<base64url of "Name|email" or "Name1|email|Name2">
+  var names = [], email = '';
+  try {
+    var g = new URLSearchParams(location.search).get('g');
+    if (g) {
+      var b = g.replace(/-/g, '+').replace(/_/g, '/');
+      while (b.length % 4) b += '=';
+      var p = decodeURIComponent(escape(atob(b))).split('|').map(function (x) { return x.trim(); });
+      if (p[0] && EMAIL.test(p[1] || '')) { names = [p[0]].concat(p[2] ? [p[2]] : []); email = p[1]; }
+    }
+  } catch (e) {}
+  var known = names.length > 0;
+  if (!known) names = [''];
+  var couple = names.length > 1;
+  var first = function (n) { return (n || '').split(' ')[0]; };
+  var answers = names.map(function () { return { monday: '', tuesday: '', partner: '' }; });
+  var $ = function (id) { return document.getElementById(id); };
+
+  if (known) {
+    $('hello').textContent = 'Hi ' + names.map(first).join(' and ') + '!';
+    if (couple) $('intro').textContent = 'Ally and Aaron would love to know which activities you would like to join, so we can confirm everything with the tour companies. You each get your own choice.';
+  } else {
+    $('about').hidden = false;
+  }
+
+  function buildDay(containerId, key, options) {
+    var box = $(containerId);
+    names.forEach(function (n, i) {
+      var wrap = document.createElement('div');
+      if (couple) {
+        var who = document.createElement('div');
+        who.className = 'who';
+        who.innerHTML = '<span class="badge"></span><span class="nm"></span><svg class="ok" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+        who.querySelector('.badge').textContent = first(n).charAt(0).toUpperCase();
+        who.querySelector('.nm').textContent = first(n);
+        wrap.appendChild(who);
+      }
+      var tiles = document.createElement('div');
+      tiles.className = 'tiles';
+      options.forEach(function (o) {
+        var btn = document.createElement('button');
+        btn.type = 'button'; btn.className = 'tile'; btn.setAttribute('aria-pressed', 'false');
+        btn.innerHTML = ICON[o.i] + '<b></b><small></small>';
+        btn.querySelector('b').textContent = o.t;
+        btn.querySelector('small').textContent = o.s;
+        btn.addEventListener('click', function () {
+          answers[i][key] = o.v;
+          tiles.querySelectorAll('.tile').forEach(function (t) { t.setAttribute('aria-pressed', t === btn ? 'true' : 'false'); });
+          if (couple) wrap.querySelector('.who').classList.add('picked');
+          if (key === 'monday') updateWith();
+          refresh();
+        });
+        tiles.appendChild(btn);
+      });
+      wrap.appendChild(tiles);
+      if (key === 'monday') {
+        var w = document.createElement('div');
+        w.className = 'with';
+        w.innerHTML = '<label>Sharing with? <span style="color:var(--grey99)">(optional)</span></label><input type="text" autocomplete="off">';
+        w.querySelector('input').addEventListener('input', function (e) { answers[i].partner = e.target.value.trim(); });
+        wrap.appendChild(w);
+      }
+      box.appendChild(wrap);
+    });
+  }
+  buildDay('mondayPeople', 'monday', MONDAY);
+  buildDay('tuesdayPeople', 'tuesday', TUESDAY);
+
+  // "Sharing with?" shows only when it is not obvious: a solo guest, or one of a couple sharing with someone else.
+  function updateWith() {
+    var both = couple && answers.every(function (a) { return a.monday === 'Shared ATV'; });
+    $('mondayPeople').querySelectorAll('.with').forEach(function (w, i) {
+      var shared = answers[i].monday === 'Shared ATV';
+      w.classList.toggle('show', shared && !both);
+      if (both) answers[i].partner = names[1 - i];
+      else if (!shared) { answers[i].partner = ''; w.querySelector('input').value = ''; }
+      else answers[i].partner = w.querySelector('input').value.trim();
+    });
+  }
+
+  var step = 0, LAST = 3;
+  var labels = ["Let's start", 'Next', 'Next', 'Send my choices'];
+
+  function valid(s) {
+    if (s === 0) return known || !!($('name').value.trim() && EMAIL.test($('email').value.trim()));
+    if (s === 1) return answers.every(function (a) { return a.monday; });
+    if (s === 2) return answers.every(function (a) { return a.tuesday; });
+    return true;
+  }
+
+  function refresh() {
+    $('next').textContent = labels[step] || '';
+    $('next').disabled = !valid(step);
+    $('back').classList.toggle('off', step === 0 || step > LAST);
+    $('dots').querySelectorAll('span').forEach(function (d, i) { d.classList.toggle('on', i <= step); });
+  }
+
+  function show(s) {
+    step = s;
+    document.querySelectorAll('.step').forEach(function (el) { el.classList.toggle('active', +el.dataset.step === s); });
+    if (s === LAST) buildSummary();
+    $('err').textContent = '';
+    $('bar').classList.toggle('off', s > LAST);
+    refresh();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function label(list, v) { for (var k = 0; k < list.length; k++) if (list[k].v === v) return list[k].t; return v; }
+
+  function buildSummary() {
+    var box = $('summary'); box.innerHTML = '';
+    var who = known ? names : [$('name').value.trim()];
+    who.forEach(function (n, i) {
+      if (couple) { var h = document.createElement('div'); h.className = 'name'; h.textContent = first(n); box.appendChild(h); }
+      var mon = label(MONDAY, answers[i].monday);
+      if (answers[i].partner) mon += ', with ' + first(answers[i].partner);
+      [['Monday', mon], ['Tuesday', label(TUESDAY, answers[i].tuesday)]].forEach(function (r) {
+        var row = document.createElement('div'); row.className = 'row';
+        var a = document.createElement('span'); a.textContent = r[0];
+        var c = document.createElement('span'); c.textContent = r[1];
+        row.appendChild(a); row.appendChild(c); box.appendChild(row);
+      });
+    });
+  }
+
+  $('name').addEventListener('input', refresh);
+  $('email').addEventListener('input', refresh);
+  $('back').addEventListener('click', function () { if (step > 0) show(step - 1); });
+
+  $('next').addEventListener('click', function () {
+    if (!valid(step)) return;
+    if (step < LAST) { show(step + 1); return; }
+    var who = known ? names : [$('name').value.trim()];
+    var to = known ? email : $('email').value.trim();
+    var btn = $('next'); btn.disabled = true; btn.textContent = 'Sending...';
+    fetch('/api/survey', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        wedding: 'allegra-aaron', email: to,
+        people: who.map(function (n, i) { return { name: n, monday: answers[i].monday, partner: answers[i].partner, tuesday: answers[i].tuesday }; }),
+        notes: $('notes').value.trim(), hp: $('hp').value
+      })
+    }).then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+      .then(function (res) { if (!res || !res.ok) throw new Error('fail'); show(4); })
+      .catch(function () {
+        $('err').textContent = 'Sorry, that did not go through. Please try again in a moment.';
+        btn.disabled = false; btn.textContent = labels[LAST];
+      });
+  });
+
+  refresh();
+})();
+</script>
+</body>
+</html>
