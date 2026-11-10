@@ -7,10 +7,11 @@
       "desc": "Your day-by-day plan for the wedding week."
     },
     "transport": {
-      "desc": "Airport transfers and shuttles \u2014 options and how to book."
+      "desc": "Airport transfers and shuttles: options and how to book."
     },
     "activities": {
-      "desc": "Tours and experiences to enjoy near Junquillal."
+      "href": "/things-to-do/tamarindo/?w=aleyna-hector",
+      "desc": "Tours and experiences around Tamarindo to add to your week."
     }
   },
   "couple": {
