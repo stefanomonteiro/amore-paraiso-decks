@@ -427,6 +427,11 @@ body {
 .fcard-foot .fcard-more { margin:0; }
 .rcard-foot { margin-top:auto; text-align:right; padding-top:8px; }
 .rcard-foot .price { font-size:13.5px; }
+.sheet-prices { margin:4px 0 18px; border-top:0.5px solid var(--greyBB, #bbb); padding-top:12px; }
+.sheet-prices .sp-title { font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--rose); margin-bottom:8px; }
+.sheet-prices ul { list-style:none; margin:0; padding:0; }
+.sheet-prices li { display:flex; justify-content:space-between; gap:12px; font-size:13px; line-height:1.45; padding:5px 0; border-bottom:0.5px solid rgba(0,0,0,.06); }
+.sheet-prices li span:last-child { font-family:'PlayfairDisplay',Georgia,serif; color:var(--rose); white-space:nowrap; }
 .price-note { max-width:760px; margin: 28px auto 8px; padding:0 24px; font-size:11.5px; color:var(--grey99); line-height:1.6; text-align:center; }
 
 .fcard-img { overflow:hidden; }
@@ -440,7 +445,7 @@ body {
 </head>
 <body>
 
-<!-- Amore Paraíso — El Mangroove area page -->
+<!-- Amore Paraíso, El Mangroove area page -->
 
 <!-- HERO -->
 <div class="hero">
@@ -489,10 +494,10 @@ body {
       <div class="fcard-body">
         <div class="fcard-name">Rincón de la Vieja Adventures</div>
         <div class="meta">Canopy · Tubing · Horseback · Hot Springs</div>
-        <p>Canopy zipline, river tubing, and horseback riding on the active volcano — finishing with hot springs and a mud bath. A full day of adventure and renewal.</p>
+        <p>Canopy zipline, river tubing, and horseback riding on the active volcano, finishing with hot springs and a mud bath. A full day of adventure and renewal.</p>
         <div class="fcard-foot">
           <span class="fcard-more">View details</span>
-          <span class="price"><small>approx</small> $265</span>
+          <span class="price"><small>approx</small> $290 <span class="price-unit">+ tax</span></span>
         </div>
       </div>
     </div>
@@ -507,7 +512,7 @@ body {
         <p>An all-in-one Guanacaste day: a zipline circuit with an ocean-view 'superman' line, an animal sanctuary &amp; botanical garden, and a hands-on coffee, chocolate &amp; sugar-cane experience.</p>
         <div class="fcard-foot">
           <span class="fcard-more">View details</span>
-          <span class="price"><small>approx</small> $225</span>
+          <span class="price"><small>approx</small> $255 <span class="price-unit">+ tax</span></span>
         </div>
       </div>
     </div>
@@ -519,10 +524,10 @@ body {
       <div class="fcard-body">
         <div class="fcard-name">Sunset Catamaran</div>
         <div class="meta">Shared Sunset Sail · Snorkel · Open Bar</div>
-        <p>A relaxed shared catamaran sail out of the Papagayo gulf at golden hour — swim, snorkel, and enjoy an open bar and snacks as the sun sets. Hotel pickup from El Mangroove.</p>
+        <p>A relaxed shared catamaran sail out of the Papagayo gulf at golden hour. Swim, snorkel, and enjoy an open bar and snacks as the sun sets. Transport from El Mangroove included.</p>
         <div class="fcard-foot">
           <span class="fcard-more">View details</span>
-          <span class="price"><small>approx</small> $115</span>
+          <span class="price"><small>approx</small> $160 <span class="price-unit">+ tax</span></span>
         </div>
       </div>
     </div>
@@ -534,10 +539,10 @@ body {
       <div class="fcard-body">
         <div class="fcard-name">Fishing Experience (Inshore / Offshore)</div>
         <div class="meta">Sport Fishing · Marlin · Mahi-mahi · Sailfish</div>
-        <p>Head out for inshore or offshore fishing along the rich Pacific coast — marlin, mahi-mahi, tuna, and sailfish, with gear and snacks aboard.</p>
+        <p>Head out for inshore or offshore fishing along the rich Pacific coast: marlin, mahi-mahi, tuna, and sailfish, with gear and snacks aboard.</p>
         <div class="fcard-foot">
           <span class="fcard-more">View details</span>
-          <span class="price"><span class="price-unit">Price on request</span></span>
+          
         </div>
       </div>
     </div>
@@ -552,7 +557,7 @@ body {
         <p>Swim at the wide Llanos del Cortés waterfall, meet sloths and rainforest wildlife, and enjoy coffee &amp; chocolate at a local farm.</p>
         <div class="fcard-foot">
           <span class="fcard-more">View details</span>
-          <span class="price"><small>approx</small> $180</span>
+          <span class="price"><small>approx</small> $200 <span class="price-unit">+ tax</span></span>
         </div>
       </div>
     </div>
@@ -564,10 +569,10 @@ body {
       <div class="fcard-body">
         <div class="fcard-name">Miravalles Adventure &amp; Hot Springs</div>
         <div class="meta">Las Hornillas Crater · Hanging Bridges · Horseback · Hot Springs</div>
-        <p>Walk the active Las Hornillas crater with bubbling mud pots and fumaroles, ride horseback, cross hanging bridges, and soak in volcanic thermal pools.</p>
+        <p>Walk the active Las Hornillas crater with bubbling mud pots and fumaroles, take an optional horseback ride, cross hanging bridges, and soak in volcanic thermal pools.</p>
         <div class="fcard-foot">
           <span class="fcard-more">View details</span>
-          <span class="price"><small>approx</small> $200</span>
+          <span class="price"><small>approx</small> $225 <span class="price-unit">+ tax</span></span>
         </div>
       </div>
     </div>
@@ -576,7 +581,7 @@ body {
   <div class="banner">
     <div class="banner-label">A Local Tip</div>
     <div class="banner-title">The gulf is calmest at dawn</div>
-    <p>Papagayo's water is glassiest in the morning, before the afternoon breeze picks up — so the best snorkeling and the smoothest sails are early. Save the volcano days for when you're ready to roam inland; the coast will still be here when you get back.</p>
+    <p>Papagayo's water is glassiest in the morning, before the afternoon breeze picks up, so the best snorkeling and the smoothest sails are early. Save the volcano days for when you're ready to roam inland; the coast will still be here when you get back.</p>
   </div>
 
   <!-- CATEGORY: GREAT FOR FAMILIES -->
@@ -585,7 +590,7 @@ body {
     <div class="section-label-text">Great for Families</div>
     <div class="section-label-line"></div>
   </div>
-  <p class="section-intro">Gentle, all-ages days the little ones will love — animals up close, easy boat rides, and waterfall swims.</p>
+  <p class="section-intro">Gentle, all-ages days the little ones will love: animals up close, easy boat rides, and waterfall swims.</p>
   <div class="rail-hint">swipe<svg class="ic ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M14 6.5 19.5 12 14 17.5"/></svg></div>
   <div class="rail">
     <div class="rcard" data-tour="Diamante Eco Adventure">
@@ -593,7 +598,7 @@ body {
         <div class="heart" data-heart="Diamante Eco Adventure"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
       <div class="rcard-body"><div class="rcard-name">Diamante Eco Adventure</div><div class="meta">Animals + jungle course</div>
-        <div class="rcard-foot"><span class="price"><small>approx</small> $225</span></div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $255 <span class="price-unit">+ tax</span></span></div>
       </div>
     </div>
     <div class="rcard" data-tour="Palo Verde Wildlife Safari Boat Tour">
@@ -601,7 +606,7 @@ body {
         <div class="heart" data-heart="Palo Verde Wildlife Safari Boat Tour"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
       <div class="rcard-body"><div class="rcard-name">Palo Verde Wildlife Safari Boat Tour</div><div class="meta">Wildlife boat safari</div>
-        <div class="rcard-foot"><span class="price"><small>approx</small> $205</span></div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $225 <span class="price-unit">+ tax</span></span></div>
       </div>
     </div>
     <div class="rcard" data-tour="Blue River &amp; Sloths Spotting Park">
@@ -609,7 +614,7 @@ body {
         <div class="heart" data-heart="Blue River &amp; Sloths Spotting Park"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
       <div class="rcard-body"><div class="rcard-name">Blue River &amp; Sloths Spotting Park</div><div class="meta">Sloths & blue river</div>
-        <div class="rcard-foot"><span class="price"><small>approx</small> $185</span></div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $205 <span class="price-unit">+ tax</span></span></div>
       </div>
     </div>
     <div class="rcard" data-tour="Llanos del Cortés, Sloths &amp; Coffee Workshop">
@@ -617,7 +622,7 @@ body {
         <div class="heart" data-heart="Llanos del Cortés, Sloths &amp; Coffee Workshop"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
       <div class="rcard-body"><div class="rcard-name">Llanos del Cortés, Sloths &amp; Coffee Workshop</div><div class="meta">Waterfall swim + sloths</div>
-        <div class="rcard-foot"><span class="price"><small>approx</small> $180</span></div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $200 <span class="price-unit">+ tax</span></span></div>
       </div>
     </div>
     <div class="rcard" data-tour="Sunset Catamaran">
@@ -625,7 +630,7 @@ body {
         <div class="heart" data-heart="Sunset Catamaran"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
       <div class="rcard-body"><div class="rcard-name">Sunset Catamaran</div><div class="meta">Easy sunset sail</div>
-        <div class="rcard-foot"><span class="price"><small>approx</small> $115</span></div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $160 <span class="price-unit">+ tax</span></span></div>
       </div>
     </div>
     <div class="rcard" data-tour="Snorkeling Adventure">
@@ -633,7 +638,73 @@ body {
         <div class="heart" data-heart="Snorkeling Adventure"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
       <div class="rcard-body"><div class="rcard-name">Snorkeling Adventure</div><div class="meta">Gentle snorkel</div>
-        <div class="rcard-foot"><span class="price"><span class="price-unit">Price on request</span></span></div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORY: SAIL &amp; CRUISE -->
+  <div class="section-label">
+    <div class="section-label-line"></div>
+    <div class="section-label-text">Sail &amp; Cruise</div>
+    <div class="section-label-line"></div>
+  </div>
+  <div class="rail-hint">swipe<svg class="ic ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M14 6.5 19.5 12 14 17.5"/></svg></div>
+  <div class="rail">
+    <div class="rcard" data-tour="Sunset Catamaran">
+      <div class="rcard-img"><img class="rcard-photo" src="images/03-sunset-catamaran.webp" alt="Sunset Catamaran" loading="lazy">
+        <div class="heart" data-heart="Sunset Catamaran"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="rcard-body"><div class="rcard-name">Sunset Catamaran</div><div class="meta">Evening (~5 hrs)</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $160 <span class="price-unit">+ tax</span></span></div>
+      </div>
+    </div>
+    <div class="rcard" data-tour="Morning Catamaran">
+      <div class="rcard-img"><img class="rcard-photo" src="../tamarindo/images/morning-catamaran.webp" alt="Morning Catamaran" loading="lazy">
+        <div class="heart" data-heart="Morning Catamaran"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="rcard-body"><div class="rcard-name">Morning Catamaran</div><div class="meta">Morning (~4 hrs)</div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $125 <span class="price-unit">+ tax</span></span></div>
+      </div>
+    </div>
+    <div class="rcard" data-tour="Private Catamaran Charter">
+      <div class="rcard-img"><img class="rcard-photo" src="images/07-private-catamaran.webp" alt="Private Catamaran Charter" loading="lazy">
+        <div class="heart" data-heart="Private Catamaran Charter"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="rcard-body"><div class="rcard-name">Private Catamaran Charter</div><div class="meta">66 ft catamaran · Up to 25+ guests</div>
+        <div class="rcard-foot"><span class="price"><small>from approx</small> $2,890 <span class="price-unit">/ boat + tax</span></span></div>
+      </div>
+    </div>
+    <div class="rcard" data-tour="Private Sailing Catamaran">
+      <div class="rcard-img"><img class="rcard-photo" src="images/23-sailing-catamaran.jpg" alt="Private Sailing Catamaran" loading="lazy">
+        <div class="heart" data-heart="Private Sailing Catamaran"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="rcard-body"><div class="rcard-name">Private Sailing Catamaran</div><div class="meta">Up to 25 guests · Half or full day</div>
+        <div class="rcard-foot"><span class="price"><small>from approx</small> $1,515 <span class="price-unit">/ boat + tax</span></span></div>
+      </div>
+    </div>
+    <div class="rcard" data-tour="Private Yacht for Smaller Groups">
+      <div class="rcard-img"><img class="rcard-photo" src="../tamarindo/images/boat-day.webp" alt="Private Yacht for Smaller Groups" loading="lazy">
+        <div class="heart" data-heart="Private Yacht for Smaller Groups"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="rcard-body"><div class="rcard-name">Private Yacht for Smaller Groups</div><div class="meta">Up to 20 guests · Half or full day</div>
+        <div class="rcard-foot"><span class="price"><small>from approx</small> $1,260 <span class="price-unit">/ boat + tax</span></span></div>
+      </div>
+    </div>
+    <div class="rcard" data-tour="Private Power Yacht">
+      <div class="rcard-img"><img class="rcard-photo" src="../tamarindo/images/power-yacht.webp" alt="Private Power Yacht" loading="lazy">
+        <div class="heart" data-heart="Private Power Yacht"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="rcard-body"><div class="rcard-name">Private Power Yacht</div><div class="meta">51 ft yacht · Up to 35 guests</div>
+        <div class="rcard-foot"><span class="price"><small>from approx</small> $2,100 <span class="price-unit">/ boat + tax</span></span></div>
+      </div>
+    </div>
+    <div class="rcard" data-tour="Luxury Mega Yacht">
+      <div class="rcard-img"><img class="rcard-photo" src="../tamarindo/images/mega-yacht.webp" alt="Luxury Mega Yacht" loading="lazy">
+        <div class="heart" data-heart="Luxury Mega Yacht"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
+      </div>
+      <div class="rcard-body"><div class="rcard-name">Luxury Mega Yacht</div><div class="meta">105 ft superyacht · Half or full day</div>
+        <div class="rcard-foot"><span class="price"><small>from approx</small> $6,300 <span class="price-unit">/ boat + tax</span></span></div>
       </div>
     </div>
   </div>
@@ -646,28 +717,12 @@ body {
   </div>
   <div class="rail-hint">swipe<svg class="ic ic-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M14 6.5 19.5 12 14 17.5"/></svg></div>
   <div class="rail">
-    <div class="rcard" data-tour="Private Catamaran Charter">
-      <div class="rcard-img"><img class="rcard-photo" src="images/07-private-catamaran.webp" alt="Private Catamaran Charter" loading="lazy">
-        <div class="heart" data-heart="Private Catamaran Charter"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
-      </div>
-      <div class="rcard-body"><div class="rcard-name">Private Catamaran Charter</div><div class="meta">Half or full day</div>
-        <div class="rcard-foot"><span class="price"><small>approx</small> $2,500 <span class="price-unit">/ group</span></span></div>
-      </div>
-    </div>
-    <div class="rcard" data-tour="Sunset Catamaran">
-      <div class="rcard-img"><img class="rcard-photo" src="images/03-sunset-catamaran.webp" alt="Sunset Catamaran" loading="lazy">
-        <div class="heart" data-heart="Sunset Catamaran"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
-      </div>
-      <div class="rcard-body"><div class="rcard-name">Sunset Catamaran</div><div class="meta">Evening (~5 hrs)</div>
-        <div class="rcard-foot"><span class="price"><small>approx</small> $115</span></div>
-      </div>
-    </div>
     <div class="rcard" data-tour="Snorkeling Adventure">
       <div class="rcard-img"><img class="rcard-photo" src="images/08-snorkeling.webp" alt="Snorkeling Adventure" loading="lazy">
         <div class="heart" data-heart="Snorkeling Adventure"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
       <div class="rcard-body"><div class="rcard-name">Snorkeling Adventure</div><div class="meta">About 3 hours</div>
-        <div class="rcard-foot"><span class="price"><span class="price-unit">Price on request</span></span></div>
+        
       </div>
     </div>
     <div class="rcard" data-tour="Fishing Experience (Inshore / Offshore)">
@@ -675,7 +730,7 @@ body {
         <div class="heart" data-heart="Fishing Experience (Inshore / Offshore)"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
       <div class="rcard-body"><div class="rcard-name">Fishing Experience (Inshore / Offshore)</div><div class="meta">Half or full day</div>
-        <div class="rcard-foot"><span class="price"><span class="price-unit">Price on request</span></span></div>
+        
       </div>
     </div>
   </div>
@@ -693,7 +748,7 @@ body {
         <div class="heart" data-heart="Diamante Eco Adventure"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
       <div class="rcard-body"><div class="rcard-name">Diamante Eco Adventure</div><div class="meta">Full day</div>
-        <div class="rcard-foot"><span class="price"><small>approx</small> $225</span></div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $255 <span class="price-unit">+ tax</span></span></div>
       </div>
     </div>
     <div class="rcard" data-tour="Off Road Side by Side">
@@ -701,7 +756,7 @@ body {
         <div class="heart" data-heart="Off Road Side by Side"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
       <div class="rcard-body"><div class="rcard-name">Off Road Side by Side</div><div class="meta">Half day</div>
-        <div class="rcard-foot"><span class="price"><small>approx</small> $380</span></div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $550 <span class="price-unit">/ vehicle + tax</span></span></div>
       </div>
     </div>
     <div class="rcard" data-tour="Exploring ATV Ride">
@@ -709,7 +764,7 @@ body {
         <div class="heart" data-heart="Exploring ATV Ride"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
       <div class="rcard-body"><div class="rcard-name">Exploring ATV Ride</div><div class="meta">Half day</div>
-        <div class="rcard-foot"><span class="price"><small>approx</small> $115</span></div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $130 <span class="price-unit">+ tax</span></span></div>
       </div>
     </div>
     <div class="rcard" data-tour="Thrilling Rafting Experience">
@@ -717,7 +772,7 @@ body {
         <div class="heart" data-heart="Thrilling Rafting Experience"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
       <div class="rcard-body"><div class="rcard-name">Thrilling Rafting Experience</div><div class="meta">Full day (2h on river)</div>
-        <div class="rcard-foot"><span class="price"><small>approx</small> $210</span></div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $230 <span class="price-unit">+ tax</span></span></div>
       </div>
     </div>
     <div class="rcard" data-tour="Cerro Pelado &amp; Catarata la Piedra del Indio">
@@ -725,7 +780,7 @@ body {
         <div class="heart" data-heart="Cerro Pelado &amp; Catarata la Piedra del Indio"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
       <div class="rcard-body"><div class="rcard-name">Cerro Pelado &amp; Catarata la Piedra del Indio</div><div class="meta">Full day</div>
-        <div class="rcard-foot"><span class="price"><small>approx</small> $210</span></div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $210 <span class="price-unit">+ tax</span></span></div>
       </div>
     </div>
   </div>
@@ -743,7 +798,7 @@ body {
         <div class="heart" data-heart="Rincón de la Vieja Adventures"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
       <div class="rcard-body"><div class="rcard-name">Rincón de la Vieja Adventures</div><div class="meta">Full day</div>
-        <div class="rcard-foot"><span class="price"><small>approx</small> $265</span></div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $290 <span class="price-unit">+ tax</span></span></div>
       </div>
     </div>
     <div class="rcard" data-tour="Rincón de la Vieja Hiking, Waterfall &amp; Hot Springs">
@@ -751,7 +806,7 @@ body {
         <div class="heart" data-heart="Rincón de la Vieja Hiking, Waterfall &amp; Hot Springs"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
       <div class="rcard-body"><div class="rcard-name">Rincón de la Vieja Hiking, Waterfall &amp; Hot Springs</div><div class="meta">Full day</div>
-        <div class="rcard-foot"><span class="price"><small>approx</small> $220</span></div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $245 <span class="price-unit">+ tax</span></span></div>
       </div>
     </div>
     <div class="rcard" data-tour="Rincón Thermal &amp; Adventure">
@@ -759,7 +814,7 @@ body {
         <div class="heart" data-heart="Rincón Thermal &amp; Adventure"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
       <div class="rcard-body"><div class="rcard-name">Rincón Thermal &amp; Adventure</div><div class="meta">Full day</div>
-        <div class="rcard-foot"><span class="price"><small>approx</small> $215</span></div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $240 <span class="price-unit">+ tax</span></span></div>
       </div>
     </div>
     <div class="rcard" data-tour="Miravalles Adventure &amp; Hot Springs">
@@ -767,7 +822,7 @@ body {
         <div class="heart" data-heart="Miravalles Adventure &amp; Hot Springs"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
       <div class="rcard-body"><div class="rcard-name">Miravalles Adventure &amp; Hot Springs</div><div class="meta">Full day</div>
-        <div class="rcard-foot"><span class="price"><small>approx</small> $200</span></div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $225 <span class="price-unit">+ tax</span></span></div>
       </div>
     </div>
     <div class="rcard" data-tour="La Leona Waterfalls Hidden Gem &amp; Hot Spring">
@@ -775,7 +830,7 @@ body {
         <div class="heart" data-heart="La Leona Waterfalls Hidden Gem &amp; Hot Spring"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
       <div class="rcard-body"><div class="rcard-name">La Leona Waterfalls Hidden Gem &amp; Hot Spring</div><div class="meta">Full day</div>
-        <div class="rcard-foot"><span class="price"><small>approx</small> $215</span></div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $240 <span class="price-unit">+ tax</span></span></div>
       </div>
     </div>
     <div class="rcard" data-tour="Palo Verde Wildlife Safari Boat Tour">
@@ -783,7 +838,7 @@ body {
         <div class="heart" data-heart="Palo Verde Wildlife Safari Boat Tour"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
       <div class="rcard-body"><div class="rcard-name">Palo Verde Wildlife Safari Boat Tour</div><div class="meta">Full day (boat ~1h20)</div>
-        <div class="rcard-foot"><span class="price"><small>approx</small> $205</span></div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $225 <span class="price-unit">+ tax</span></span></div>
       </div>
     </div>
     <div class="rcard" data-tour="Blue River &amp; Sloths Spotting Park">
@@ -791,7 +846,7 @@ body {
         <div class="heart" data-heart="Blue River &amp; Sloths Spotting Park"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
       <div class="rcard-body"><div class="rcard-name">Blue River &amp; Sloths Spotting Park</div><div class="meta">Full day</div>
-        <div class="rcard-foot"><span class="price"><small>approx</small> $185</span></div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $205 <span class="price-unit">+ tax</span></span></div>
       </div>
     </div>
     <div class="rcard" data-tour="Heliconias, Sloths &amp; Coffee Workshop">
@@ -799,7 +854,7 @@ body {
         <div class="heart" data-heart="Heliconias, Sloths &amp; Coffee Workshop"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
       <div class="rcard-body"><div class="rcard-name">Heliconias, Sloths &amp; Coffee Workshop</div><div class="meta">Full day</div>
-        <div class="rcard-foot"><span class="price"><small>approx</small> $185</span></div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $205 <span class="price-unit">+ tax</span></span></div>
       </div>
     </div>
     <div class="rcard" data-tour="Llanos del Cortés, Sloths &amp; Coffee Workshop">
@@ -807,7 +862,7 @@ body {
         <div class="heart" data-heart="Llanos del Cortés, Sloths &amp; Coffee Workshop"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
       <div class="rcard-body"><div class="rcard-name">Llanos del Cortés, Sloths &amp; Coffee Workshop</div><div class="meta">Full day</div>
-        <div class="rcard-foot"><span class="price"><small>approx</small> $180</span></div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $200 <span class="price-unit">+ tax</span></span></div>
       </div>
     </div>
     <div class="rcard" data-tour="Blue Zone Cultural Experience">
@@ -815,7 +870,7 @@ body {
         <div class="heart" data-heart="Blue Zone Cultural Experience"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
       <div class="rcard-body"><div class="rcard-name">Blue Zone Cultural Experience</div><div class="meta">Full day</div>
-        <div class="rcard-foot"><span class="price"><small>approx</small> $245</span></div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $245 <span class="price-unit">+ tax</span></span></div>
       </div>
     </div>
     <div class="rcard" data-tour="Full Day Cloud Forest Experience - Monteverde">
@@ -823,7 +878,7 @@ body {
         <div class="heart" data-heart="Full Day Cloud Forest Experience - Monteverde"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
       <div class="rcard-body"><div class="rcard-name">Full Day Cloud Forest Experience - Monteverde</div><div class="meta">Full day (early start)</div>
-        <div class="rcard-foot"><span class="price"><small>approx</small> $260</span></div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $295 <span class="price-unit">+ tax</span></span></div>
       </div>
     </div>
     <div class="rcard" data-tour="La Fortuna Sloths &amp; Hanging Bridges &amp; Waterfall &amp; Hot Springs">
@@ -831,12 +886,12 @@ body {
         <div class="heart" data-heart="La Fortuna Sloths &amp; Hanging Bridges &amp; Waterfall &amp; Hot Springs"><svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg></div>
       </div>
       <div class="rcard-body"><div class="rcard-name">La Fortuna Sloths &amp; Hanging Bridges &amp; Waterfall &amp; Hot Springs</div><div class="meta">Full day (early start)</div>
-        <div class="rcard-foot"><span class="price"><small>approx</small> $360</span></div>
+        <div class="rcard-foot"><span class="price"><small>approx</small> $400 <span class="price-unit">+ tax</span></span></div>
       </div>
     </div>
   </div>
 
-  <div class="price-note">All prices are approximate, per person unless marked “/ group”, and exclude 13% tax. Transport, timing, and final pricing are confirmed when you send your list — nothing is booked yet.</div>
+  <div class="price-note">All prices are approximate, per person unless marked “/ boat” or “/ vehicle”, and exclude 13% tax (shown as “+ tax”). Transport, timing, and final pricing are confirmed when you send your list, nothing is booked yet.</div>
 
   <!-- FOOTER -->
   <div class="footer">
@@ -857,7 +912,8 @@ body {
   <div class="sheet-body">
     <div class="sheet-name" id="sheetName">Tour Name</div>
     <div class="meta" id="sheetMeta">Half Day · Adventure · All Ages</div>
-    <p id="sheetDesc">Fuller description — three to four lines. What the experience is, what makes it special, who it suits. Written warmly, no prices.</p>
+    <p id="sheetDesc">Fuller description, three to four lines. What the experience is, what makes it special, who it suits. Written warmly, no prices.</p>
+    <div class="sheet-prices" id="sheetPrices"></div>
     <div class="facts">
       <div class="fact" id="factDuration"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.2"/><path d="M12 7.5V12l3 2"/></svg><span id="factDurationText">Half day</span></div>
       <div class="fact" id="factAudience"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="9" r="3"/><path d="M3.5 19c.6-3 2.9-4.5 5.5-4.5s4.9 1.5 5.5 4.5"/><circle cx="17" cy="10" r="2.3"/><path d="M16.5 14.6c2.1.3 3.6 1.6 4 3.9"/></svg><span id="factAudienceText">All ages</span></div>
@@ -878,7 +934,7 @@ body {
   <!-- FORM STATE (default). Hidden and replaced by the thank-you state on a successful send. -->
   <div class="basket-body" id="basketForm">
     <div class="basket-title">Your Interests</div>
-    <div class="basket-sub">I'll check availability and get back to you — nothing is booked yet.</div>
+    <div class="basket-sub">I'll check availability and get back to you, nothing is booked yet.</div>
     <div id="basketItems"></div>
     <div class="field-row">
       <div class="field"><label>Your Name</label><input id="fName" type="text" autocomplete="name" placeholder="Full name"></div>
@@ -896,11 +952,11 @@ body {
     <div class="basket-fine">No payment · No commitment · I reply within 72 hours</div>
   </div>
 
-  <!-- THANK-YOU STATE (swapped in on success — no redirect). -->
+  <!-- THANK-YOU STATE (swapped in on success, no redirect). -->
   <div class="basket-body basket-thanks" id="basketThanks" hidden>
     <svg class="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>
-    <h3>Got it — your list is on its way to me.</h3>
-    <p>I'll check availability and reply within 72 hours. Nothing is booked or charged yet — this just tells me what caught your eye.</p>
+    <h3>Got it, your list is on its way to me.</h3>
+    <p>I'll check availability and reply within 72 hours. Nothing is booked or charged yet, this just tells me what caught your eye.</p>
   </div>
 </div>
 
@@ -915,7 +971,7 @@ body {
 <script>
 (function(){
   /* ==========================================================================
-     CONFIG — the ONE thing to set per area page.
+     CONFIG, the ONE thing to set per area page.
      ========================================================================== */
   var CONFIG = {
     AREA_SLUG: 'el-mangroove',          // TEMPLATE: set to the area slug, e.g. 'esterillos'
@@ -927,36 +983,41 @@ body {
   };
   var STORAGE_KEY = 'ap_interest_' + CONFIG.AREA_SLUG;
 
-  /* TOURS — per-tour detail-sheet data, keyed by the EXACT tour title (must match
+  /* TOURS, per-tour detail-sheet data, keyed by the EXACT tour title (must match
      the card's data-tour / data-heart). TEMPLATE: the area build replaces this
      object. Each entry: { meta, desc, duration, audience, activity, transport }.
      - transport: short string shown in the transport pill. Use the transport PRICE
        when known (e.g. "+$25 per person from Esterillos"), "Included" when the tour's
-       rack already covers it, or "Not included — quoted separately" when unclear.
+       rack already covers it, or "Not included, quoted separately" when unclear.
        Displayed card prices NEVER include transport (see Pricing_and_Presentation_Rules.md).
      Any missing field is simply hidden in the sheet. NEVER include price/provider/notes. */
   var TOURS = {
-    'Rincón de la Vieja Adventures': { meta:'Canopy · Tubing · Horseback · Hot Springs', desc:'A full day of adventure, nature, and renewal at Rincón de la Vieja National Park. Soar through the forest canopy on a zipline, ride the winding canyon waters on a river tubing run, then explore the dry tropical forest on horseback. End the day soaking in natural hot springs with a therapeutic mud bath. Includes a traditional Costa Rican lunch and round-trip transport.', duration:'Full day', audience:'Active adults & teens', activity:'Moderate–active', transport:'Round-trip transport from El Mangroove included' , img:'images/01-rincon-adventures.webp' },
+    'Rincón de la Vieja Adventures': { meta:'Canopy · Tubing · Horseback · Hot Springs', desc:'A full day of adventure, nature, and renewal at Rincón de la Vieja National Park. Soar through the forest canopy on a zipline, ride the winding canyon waters on a river tubing run, then explore the dry tropical forest on horseback. End the day soaking in natural hot springs with a therapeutic mud bath. Includes a traditional Costa Rican lunch and round-trip transport.', duration:'Full day', audience:'Active adults & teens', activity:'Moderate to active', transport:'Round-trip transport from El Mangroove included' , img:'images/01-rincon-adventures.webp' },
     'Diamante Eco Adventure': { meta:'Ziplines · Superman Line · Animal Sanctuary · Coffee & Chocolate', desc:'Guanacaste\'s best-known adventure park, all in one day. Fly a multi-cable zipline circuit including a signature ocean-view \'superman\' line, meet rescued wildlife at Diamante\'s Animal Sanctuary and stroll the botanical garden, then get hands-on with a coffee, chocolate & sugar-cane cultural experience. Includes round-trip transport.', duration:'Full day', audience:'All ages', activity:'Moderate', transport:'Round-trip transport from El Mangroove included', img:'images/02-diamante.webp' },
-    'Private Catamaran Charter': { meta:'Private Sailing · Snorkeling · Hidden Beaches · Open Bar', desc:'A catamaran exclusively for your group on the calm Gulf of Papagayo. Cruise to quiet beaches and reefs to swim and snorkel, with food and an open bar aboard. Choose a morning (8am–12pm) from approx. $2,500/group, a sunset (1:30pm–after sunset) from approx. $3,600/group, or an all-day from approx. $6,100/group. Hotel pickup from El Mangroove is available; group pricing scales with headcount and larger parties add multiple boats.', duration:'Half or full day', audience:'All ages', activity:'Easy', transport:'Hotel pickup from El Mangroove available' , img:'images/07-private-catamaran.webp' },
+    'Private Catamaran Charter': { meta:'Private 66 ft Catamaran · Snorkeling · Open Bar · Lunch', desc:'Your own 66 ft catamaran and crew on the calm Gulf of Papagayo, boarding right in front of El Mangroove. Snorkel and swim, with an open bar and lunch on board, for a morning (8am to 12pm), a sunset (1:30pm until after sunset) or the whole day. The largest private boat here, and the one for big wedding groups; groups above the sizes listed are quoted separately.', duration:'Half or full day', audience:'All ages', activity:'Easy', transport:'Boards in front of El Mangroove, no transfer needed', options:[['Morning, up to 25 guests','$2,890 per boat'],['Sunset, up to 30 guests','$4,200 per boat'],['All day, up to 40 guests','$7,140 per boat']], img:'images/07-private-catamaran.webp' },
     'La Fortuna Sloths & Hanging Bridges & Waterfall & Hot Springs': { meta:'Sloths · Hanging Bridges · La Fortuna Waterfall · Hot Springs', desc:'A full private day trip to La Fortuna and Arenal. Begin with a guided rainforest walk spotting sloths, plus a coffee & cultural experience, then cross the Mistico Arenal hanging bridges high over the canopy. Visit the iconic La Fortuna Waterfall before ending the day relaxing in natural hot springs. Includes entrance fees, light breakfast & lunch, and round-trip transport.', duration:'Full day (early start)', audience:'All ages', activity:'Moderate', transport:'Round-trip transport from El Mangroove included' , img:'images/22-la-fortuna.webp' },
     'Blue Zone Cultural Experience': { meta:'Barra Honda Caves · Nicoya Blue Zone · Ancestral Lunch', desc:'A cultural day in the Nicoya Peninsula, one of the world\'s five Blue Zones. Descend into the limestone caves and ancient rock formations of Barra Honda National Park, then share a traditional ancestral lunch of maize-based dishes and learn to craft artisanal corn snacks baked in a wood-fired clay oven. Includes park entry, safety equipment, guide, and round-trip transport.', duration:'Full day', audience:'All ages', activity:'Moderate (some caving)', transport:'Round-trip transport from El Mangroove included' , img:'images/20-blue-zone.webp' },
-    'Sunset Catamaran': { meta:'Shared Sunset Sail · Snorkel · Open Bar', desc:'A shared/public sunset catamaran cruise (about 5 hours) sailing the Papagayo gulf at golden hour — swim and snorkel off the boat, then relax on deck with an open bar and snacks as the sky lights up. Departs from the Playas del Coco area with hotel pickup from El Mangroove; runs with a minimum of 10 guests. Prefer the boat to yourselves? A private catamaran charter is also available.', duration:'Evening (~5 hrs)', audience:'All ages', activity:'Easy', transport:'Hotel pickup from El Mangroove available' , img:'images/03-sunset-catamaran.webp' },
-    'Snorkeling Adventure': { meta:'Snorkeling · Reefs · Tropical Fish', desc:'Discover the marine life of Costa Rica\'s Pacific coast on a guided snorkeling trip departing from the Papagayo area. Explore crystal-clear water teeming with tropical fish and vibrant reefs, with drinks, snacks, and snorkeling equipment provided. Suits all levels. Pricing depends on your pickup and group.', duration:'About 3 hours', audience:'All ages', activity:'Easy', transport:'Transport based on pickup location' , img:'images/08-snorkeling.webp' },
-    'Fishing Experience (Inshore / Offshore)': { meta:'Sport Fishing · Marlin · Mahi-mahi · Sailfish', desc:'A deep-sea fishing charter along Costa Rica\'s abundant Pacific coast, for first-timers and seasoned anglers alike. Target marlin, mahi-mahi, tuna, and sailfish, with expert crew, drinks and snacks, and fishing and snorkeling gear aboard. Half-day or full-day options. Pricing depends on boat and duration.', duration:'Half or full day', audience:'All ages', activity:'Moderate', transport:'Transport based on service requested' , img:'images/04-fishing.webp' },
-    'Off Road Side by Side': { meta:'Off-road UTV · Rivers · Forest Trails', desc:'Take the wheel of a side-by-side UTV and ride through rivers, forest trails, and open landscapes — an immersive, action-packed way to explore Costa Rica\'s raw natural beauty. Includes a professional bilingual guide, safety equipment, and round-trip transport.', duration:'Half day', audience:'Adults (driver 18+)', activity:'Moderate', transport:'Round-trip transport from El Mangroove included' , img:'images/10-off-road.webp' },
-    'Exploring ATV Ride': { meta:'ATV · Backcountry Trails', desc:'An ATV ride through backcountry trails and open landscapes near Playas del Coco, Panamá, and Hermosa. A fun, hands-on way to get off the beaten path. Group discounts for parties of six or more. Includes round-trip transport based on pickup location.', duration:'Half day', audience:'Teens & adults', activity:'Moderate', transport:'Round-trip transport from El Mangroove included' , img:'images/11-atv.webp' },
-    'Thrilling Rafting Experience': { meta:'Class III–IV Rafting · Rapids · Lunch', desc:'An adrenaline-filled Class III–IV whitewater rafting run in the heart of Guanacaste. Powerful rapids, beautiful river scenery, certified rafting guides, and quality safety equipment make for a fun, controlled ride. Includes a traditional Costa Rican lunch and snack, and round-trip transport.', duration:'Full day (2h on river)', audience:'Active adults & older kids', activity:'Active', transport:'Round-trip transport from El Mangroove included', img:'images/12-rafting.webp' },
-    'Cerro Pelado & Catarata la Piedra del Indio': { meta:'Hiking · Waterfall · Scenic Views', desc:'A rewarding guided hike to Cerro Pelado\'s viewpoints, followed by a refreshing visit to the Catarata La Piedra del Indio — a great pairing of adventure and nature in the green hills of Guanacaste. Includes a traditional Costa Rican lunch, guide, and round-trip transport.', duration:'Full day', audience:'Active adults', activity:'Active', transport:'Round-trip transport from El Mangroove included' , img:'images/13-cerro-pelado.webp' },
+    'Sunset Catamaran': { meta:'Shared Sunset Sail · Snorkel · Open Bar', desc:'A shared sunset catamaran cruise (about 5 hours) sailing the Papagayo gulf at golden hour. Swim and snorkel off the boat, then relax on deck with an open bar and snacks as the sky lights up. Round-trip transport from El Mangroove is included in the price. It sails with a minimum of 10 guests, so I confirm your date when I check availability. Prefer the boat to yourselves? See the private boats in this section.', duration:'Evening (~5 hrs)', audience:'All ages', activity:'Easy', transport:'Round-trip transport from El Mangroove included', options:[['Shared, transport included','$160 pp']], img:'images/03-sunset-catamaran.webp' },
+    'Morning Catamaran': { meta:'Shared Morning Sail · Snorkel · Open Bar · Lunch', desc:'A shared morning sail on a large catamaran with snorkeling, an open bar and lunch, back by midday, on the calmest water of the day. Round-trip transport from El Mangroove is included in the price. It sails with a minimum number of guests, so I confirm your date when I check availability.', duration:'Morning (~4 hrs)', audience:'All ages', activity:'Easy', transport:'Round-trip transport from El Mangroove included', options:[['Shared, transport included','$125 pp']], img:'../tamarindo/images/morning-catamaran.webp' },
+    'Private Sailing Catamaran': { meta:'Private Catamaran · Smaller Groups · Snorkel · Open Bar', desc:'A private catamaran and crew sized for smaller groups, collecting you from the beach at Playa Panamá, right by El Mangroove. Snorkeling gear, paddle boards and fishing rods on board, with an open bar and light food (a full lunch on the full day). The easiest private boat from the hotel, and the best value for a bachelorette, a family or a group of friends. Prices include 6 guests; up to 25 on board.', duration:'Half day (8am to 12pm) or full day (10am to 6pm)', audience:'All ages', activity:'Easy', transport:'Beach pickup at Playa Panamá, no transfer needed', options:[['Half day, up to 6 guests','$1,515 per boat'],['Half day, each extra guest','$110 pp'],['Full day, up to 6 guests','$2,020 per boat'],['Full day, each extra guest','$140 pp']], img:'images/23-sailing-catamaran.jpg' },
+    'Private Power Yacht': { meta:'51 ft Power Yacht · Premium Bar · Snorkel · Paddleboard', desc:'A steady 51 ft power yacht with captain and crew: lounges, shade, a premium bar and local food, light fishing on the way, then a beach stop to snorkel, paddleboard and swim. A smoother ride than a sailboat, and a step up in comfort. Prices include 10 guests; up to 35 on board. The yacht is based in Flamingo and can collect your group at Papagayo for an extra fee that I quote with your booking.', duration:'Half or full day', audience:'All ages', activity:'Easy', transport:'Yacht pickup at Papagayo is extra, quoted with your booking', options:[['Morning, up to 10 guests','$2,100 per boat'],['Sunset, up to 10 guests','$2,625 per boat'],['Full day, up to 10 guests','$3,675 per boat'],['Each extra guest, up to 35','$160 pp']], img:'../tamarindo/images/power-yacht.webp' },
+    'Luxury Mega Yacht': { meta:'105 ft Superyacht · Jacuzzi · Full Bar · Crew', desc:'A 105 ft Azimut motor yacht for a private half or full day: sun decks and solarium, a jacuzzi, an indoor lounge, a full bar, paddleboards, snorkel gear and fishing rods. Jet skis can be added by the hour. The most luxurious boat on this coast. Prices include 12 guests; up to 35 on board.', duration:'Half or full day', audience:'All ages', activity:'Easy', transport:'Boarding point confirmed with your booking', options:[['Half day, up to 12 guests','$6,300 per boat'],['Full day, up to 12 guests','$8,820 per boat'],['Each extra guest, up to 35','$190 pp']], img:'../tamarindo/images/mega-yacht.webp' },
+    'Private Yacht for Smaller Groups': { meta:'Private Yacht · Cruise · Fish · Snorkel · Paddleboard', desc:'A private yacht charter that mixes everything: cruising the coast to look for dolphins, turtles and rays, light fishing with the captain cooking the catch, then anchoring to snorkel, paddleboard and swim while lunch is prepared on board. Prices include 8 guests; extra guests about $120 to $160 each, up to 20. The yachts sail from Flamingo Marina, so I arrange and quote the transfer with your booking.', duration:'Half or full day', audience:'All ages', activity:'Easy', transport:'Sails from Flamingo Marina; transfer quoted with your booking', options:[['47 ft yacht, half day','$1,260 per boat'],['47 ft yacht, full day','$2,310 per boat'],['50 ft yacht, half day','$1,470 per boat'],['50 ft yacht, full day','$2,625 per boat']], img:'../tamarindo/images/boat-day.webp' },
+    'Snorkeling Adventure': { meta:'Snorkeling · Reefs · Tropical Fish', desc:'Discover the marine life of Costa Rica\'s Pacific coast on a guided snorkeling trip departing from the Papagayo area. Explore crystal-clear water teeming with tropical fish and vibrant reefs, with drinks, snacks, and snorkeling equipment provided. Suits all levels. I quote this one for your group once I know your dates and numbers.', duration:'About 3 hours', audience:'All ages', activity:'Easy', transport:'Transport based on pickup location' , img:'images/08-snorkeling.webp' },
+    'Fishing Experience (Inshore / Offshore)': { meta:'Sport Fishing · Marlin · Mahi-mahi · Sailfish', desc:'A deep-sea fishing charter along Costa Rica\'s abundant Pacific coast, for first-timers and seasoned anglers alike. Target marlin, mahi-mahi, tuna, and sailfish, with expert crew, drinks and snacks, and fishing and snorkeling gear aboard. Half-day or full-day options. I quote this one for your group, since the price depends on the boat and the length of the day.', duration:'Half or full day', audience:'All ages', activity:'Moderate', transport:'Transport based on service requested' , img:'images/04-fishing.webp' },
+    'Off Road Side by Side': { meta:'Off-road UTV · Rivers · Forest Trails', desc:'Take the wheel of a side-by-side UTV and ride through rivers, forest trails, and open landscapes, an immersive, action-packed way to explore Costa Rica\'s raw natural beauty. Priced per vehicle, each seating 1 to 4 people. Includes a professional bilingual guide, safety equipment, and round-trip transport.', duration:'Half day', audience:'Adults (driver 18+)', activity:'Moderate', transport:'Round-trip transport from El Mangroove included' , img:'images/10-off-road.webp' },
+    'Exploring ATV Ride': { meta:'ATV · Backcountry Trails', desc:'An ATV ride through backcountry trails and open landscapes near Playas del Coco, Panamá, and Hermosa. A fun, hands-on way to get off the beaten path. Includes round-trip transport based on pickup location.', duration:'Half day', audience:'Teens & adults', activity:'Moderate', transport:'Round-trip transport from El Mangroove included' , img:'images/11-atv.webp' },
+    'Thrilling Rafting Experience': { meta:'Class III to IV Rafting · Rapids · Lunch', desc:'An adrenaline-filled Class III to IV whitewater rafting run in the heart of Guanacaste. Powerful rapids, beautiful river scenery, certified rafting guides, and quality safety equipment make for a fun, controlled ride. Includes a traditional Costa Rican lunch and snack, and round-trip transport.', duration:'Full day (2h on river)', audience:'Active adults & older kids', activity:'Active', transport:'Round-trip transport from El Mangroove included', img:'images/12-rafting.webp' },
+    'Cerro Pelado & Catarata la Piedra del Indio': { meta:'Hiking · Waterfall · Scenic Views', desc:'A rewarding guided hike to Cerro Pelado\'s viewpoints, followed by a refreshing visit to the Catarata La Piedra del Indio, a great pairing of adventure and nature in the green hills of Guanacaste. Includes a traditional Costa Rican lunch, guide, and round-trip transport.', duration:'Full day', audience:'Active adults', activity:'Active', transport:'Round-trip transport from El Mangroove included' , img:'images/13-cerro-pelado.webp' },
     'Rincón de la Vieja Hiking, Waterfall & Hot Springs': { meta:'Dry-Forest Hike · Oropéndola Waterfall · Fumaroles · Hot Springs', desc:'A balanced day of nature and relaxation at Rincón de la Vieja. Hike the tropical dry forest past volcanic fumaroles and wildlife to the turquoise Oropéndola Waterfall for a refreshing dip, then unwind in the mineral pools of the Río Negro Hot Springs. Includes park entry, hot springs & mud bath, a traditional buffet, guide, and round-trip transport.', duration:'Full day', audience:'Active adults', activity:'Moderate', transport:'Round-trip transport from El Mangroove included' , img:'images/14-rincon-hiking.webp' },
     'Rincón Thermal & Adventure': { meta:'Canopy · Horseback · Water Slide · Hot Springs', desc:'An all-in-one Rincón de la Vieja day combining adventure, culture, and relaxation. Ride horseback and take in a cultural experience, fly the canopy zipline and cool off on a water slide, then relax in natural hot springs. Includes a traditional lunch, guide, and round-trip transport.', duration:'Full day', audience:'All ages', activity:'Moderate', transport:'Round-trip transport from El Mangroove included' , img:'images/15-rincon-thermal.webp' },
-    'Miravalles Adventure & Hot Springs': { meta:'Las Hornillas Crater · Hanging Bridges · Horseback · Hot Springs', desc:'Explore the geothermal wonders of Las Hornillas on the Miravalles volcano — walk an active crater with bubbling mud pots and steaming fumaroles, ride horseback, and cross a scenic hanging-bridges trail. End with a rejuvenating soak in natural thermal pools and a mud bath. Includes a traditional lunch, guide, and round-trip transport.', duration:'Full day', audience:'All ages', activity:'Moderate', transport:'Round-trip transport from El Mangroove included' , img:'images/06-miravalles.webp' },
-    'La Leona Waterfalls Hidden Gem & Hot Spring': { meta:'Canyon Waterfall · Swim · Hot Springs · Mud Bath', desc:'A hidden-gem waterfall hike: trek through lush nature into a dramatic canyon where La Leona pours into vibrant turquoise pools you can swim in. Finish with soothing hot springs and volcanic mud baths. Includes entry fees, safety equipment, a traditional casado lunch, guide, and round-trip transport.', duration:'Full day', audience:'Active adults & older kids', activity:'Moderate–active', transport:'Round-trip transport from El Mangroove included' , img:'images/16-la-leona.webp' },
-    'Palo Verde Wildlife Safari Boat Tour': { meta:'River Safari · Crocodiles · Monkeys · Birds · Sugar-Cane Farm', desc:'A gentle riverboat safari on the Tempisque River through the protected wetlands of Palo Verde, one of Costa Rica\'s richest wildlife areas — spot crocodiles, monkeys, bats, and abundant birdlife. Pair it with a cultural farm visit to learn traditional sugar-cane practices over an authentic lunch. Includes entry fees, guide, and round-trip transport.', duration:'Full day (boat ~1h20)', audience:'All ages', activity:'Easy', transport:'Round-trip transport from El Mangroove included' , img:'images/17-palo-verde.webp' },
-    'Blue River & Sloths Spotting Park': { meta:'Tenorio NP · Blue Lagoon · Waterfall · Sloths · Coffee', desc:'A full day in Tenorio Volcano National Park, home to the striking Blue Lagoon and the Celeste River Waterfall amid lush rainforest. Along the way, spot sloths, frogs, and other wildlife at a spotting park, then finish with a coffee & chocolate tasting at a local farm. Includes park & farm entry, a traditional casado lunch, guide, and round-trip transport.', duration:'Full day', audience:'All ages', activity:'Easy–moderate', transport:'Round-trip transport from El Mangroove included' , img:'images/18-blue-river.webp' },
+    'Miravalles Adventure & Hot Springs': { meta:'Las Hornillas Crater · Hanging Bridges · Horseback · Hot Springs', desc:'Explore the geothermal wonders of Las Hornillas on the Miravalles volcano. Walk an active crater with bubbling mud pots and steaming fumaroles, take an optional horseback ride (anyone who prefers rides up in the van), and cross a scenic hanging-bridges trail. End with a rejuvenating soak in natural thermal pools and a mud bath. Includes a traditional lunch, guide, and round-trip transport.', duration:'Full day', audience:'All ages', activity:'Moderate', transport:'Round-trip transport from El Mangroove included' , img:'images/06-miravalles.webp' },
+    'La Leona Waterfalls Hidden Gem & Hot Spring': { meta:'Canyon Waterfall · Swim · Hot Springs · Mud Bath', desc:'A hidden-gem waterfall hike: trek through lush nature into a dramatic canyon where La Leona pours into vibrant turquoise pools you can swim in. Finish with soothing hot springs and volcanic mud baths. Includes entry fees, safety equipment, a traditional casado lunch, guide, and round-trip transport.', duration:'Full day', audience:'Active adults & older kids', activity:'Moderate to active', transport:'Round-trip transport from El Mangroove included' , img:'images/16-la-leona.webp' },
+    'Palo Verde Wildlife Safari Boat Tour': { meta:'River Safari · Crocodiles · Monkeys · Birds · Sugar-Cane Farm', desc:'A gentle riverboat safari on the Tempisque River through the protected wetlands of Palo Verde, one of Costa Rica\'s richest wildlife areas. Spot crocodiles, monkeys, bats, and abundant birdlife. Pair it with a cultural farm visit to learn traditional sugar-cane practices over an authentic lunch. Includes entry fees, guide, and round-trip transport.', duration:'Full day (boat ~1h20)', audience:'All ages', activity:'Easy', transport:'Round-trip transport from El Mangroove included' , img:'images/17-palo-verde.webp' },
+    'Blue River & Sloths Spotting Park': { meta:'Tenorio NP · Blue Lagoon · Waterfall · Sloths · Coffee', desc:'A full day in Tenorio Volcano National Park, home to the striking Blue Lagoon and the Celeste River Waterfall amid lush rainforest. Along the way, spot sloths, frogs, and other wildlife at a spotting park, then finish with a coffee & chocolate tasting at a local farm. Includes park & farm entry, a traditional casado lunch, guide, and round-trip transport.', duration:'Full day', audience:'All ages', activity:'Easy to moderate', transport:'Round-trip transport from El Mangroove included' , img:'images/18-blue-river.webp' },
     'Heliconias, Sloths & Coffee Workshop': { meta:'Primary Forest · Hanging Bridges · Sloths · Coffee & Chocolate', desc:'A gentle nature day starting with a guided walk through primary tropical forest and the Heliconias hanging bridges, surrounded by towering trees and birdsong. Observe sloths in their natural habitat and learn about their behavior and conservation, then finish with a hands-on coffee & chocolate experience. Includes farm entry, a traditional lunch, guide, and round-trip transport.', duration:'Full day', audience:'All ages', activity:'Easy', transport:'Round-trip transport from El Mangroove included' , img:'images/19-heliconias.webp' },
-    'Llanos del Cortés, Sloths & Coffee Workshop': { meta:'Llanos del Cortés Waterfall · Sloths · Coffee & Chocolate', desc:'Begin at the beautiful Llanos del Cortés Waterfall, a serene spot perfect for swimming and relaxing. Immerse in nature with wildlife encounters — sloths, frogs, and more — then finish with a cultural treat of Costa Rican coffee and chocolate at a local farm. Includes waterfall entry, a traditional lunch, guide, and round-trip transport.', duration:'Full day', audience:'All ages', activity:'Easy', transport:'Round-trip transport from El Mangroove included' , img:'images/05-llanos.webp' },
-    'Full Day Cloud Forest Experience - Monteverde': { meta:'7 Ziplines · Hanging Bridges · Tandem Zip-Bike · Tree Climbing · Tarzan Swing', desc:'A full-day adventure in the misty Monteverde cloud forest at Treetopia Park. Soar 7 ziplines through the canopy, cross hanging bridges high above the forest, and take on unique challenges like the tandem zipline bike, tree climbing, and a Tarzan swing. Includes all attraction entries, a certified bilingual guide, light breakfast & lunch, and round-trip transport.', duration:'Full day (early start)', audience:'All ages', activity:'Moderate–active', transport:'Round-trip transport from El Mangroove included' , img:'images/21-monteverde.webp' }
+    'Llanos del Cortés, Sloths & Coffee Workshop': { meta:'Llanos del Cortés Waterfall · Sloths · Coffee & Chocolate', desc:'Begin at the beautiful Llanos del Cortés Waterfall, a serene spot perfect for swimming and relaxing. Immerse in nature with wildlife encounters: sloths, frogs, and more, then finish with a cultural treat of Costa Rican coffee and chocolate at a local farm. Includes waterfall entry, a traditional lunch, guide, and round-trip transport.', duration:'Full day', audience:'All ages', activity:'Easy', transport:'Round-trip transport from El Mangroove included' , img:'images/05-llanos.webp' },
+    'Full Day Cloud Forest Experience - Monteverde': { meta:'7 Ziplines · Hanging Bridges · Tandem Zip-Bike · Tree Climbing · Tarzan Swing', desc:'A full-day adventure in the misty Monteverde cloud forest at Treetopia Park. Soar 7 ziplines through the canopy, cross hanging bridges high above the forest, and take on unique challenges like the tandem zipline bike, tree climbing, and a Tarzan swing. Includes all attraction entries, a certified bilingual guide, light breakfast & lunch, and round-trip transport.', duration:'Full day (early start)', audience:'All ages', activity:'Moderate to active', transport:'Round-trip transport from El Mangroove included' , img:'images/21-monteverde.webp' }
   };
 
   var HEART_OUTLINE = '<svg class="ic ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.3 4.9 13a4.6 4.6 0 0 1 0-6.5 4.5 4.5 0 0 1 6.4 0l.7.7.7-.7a4.5 4.5 0 0 1 6.4 0 4.6 4.6 0 0 1 0 6.5z"/></svg>';
@@ -1066,6 +1127,18 @@ body {
     var meta = document.getElementById('sheetMeta');
     if (t.meta){ meta.textContent = t.meta; meta.style.display = ''; } else { meta.style.display = 'none'; }
     document.getElementById('sheetDesc').textContent = t.desc || '';
+    var sp = document.getElementById('sheetPrices');
+    if (sp){
+      sp.innerHTML = '';
+      if (t.options && t.options.length){
+        sp.style.display = '';
+        var h = document.createElement('div'); h.className = 'sp-title'; h.textContent = 'Approximate prices, plus 13% tax'; sp.appendChild(h);
+        var ul = document.createElement('ul');
+        t.options.forEach(function(r){ var li = document.createElement('li'); var a = document.createElement('span'); a.textContent = r[0];
+          var b = document.createElement('span'); b.textContent = r[1]; li.appendChild(a); li.appendChild(b); ul.appendChild(li); });
+        sp.appendChild(ul);
+      } else { sp.style.display = 'none'; }
+    }
     setFact('factDuration', 'factDurationText', t.duration);
     setFact('factAudience', 'factAudienceText', t.audience);
     setFact('factActivity', 'factActivityText', t.activity);
@@ -1111,7 +1184,7 @@ body {
       experiences: interests.slice(),
       wedding: weddingSlug,
       area: CONFIG.AREA_SLUG,
-      hp: fHp.value          // honeypot — empty for real users
+      hp: fHp.value          // honeypot, empty for real users
     };
 
     sendBtn.disabled = true;
@@ -1137,11 +1210,11 @@ body {
         return;
       }
       done();
-      setStatus("Couldn't send — please try again in a moment. Your selections are saved.", true);
+      setStatus("Couldn't send, please try again in a moment. Your selections are saved.", true);
     }).catch(function(){
       if (timer) clearTimeout(timer);
       done();
-      setStatus("Couldn't send — please check your connection and try again. Your selections are saved.", true);
+      setStatus("Couldn't send, please check your connection and try again. Your selections are saved.", true);
     });
   }
 
