@@ -81,6 +81,23 @@
   .notes{margin-top:10px; font-size:13.5px; color:#7a6c6a; background:var(--sage-tint); border-radius:8px; padding:8px 11px;}
 
   .empty{text-align:center; padding:60px 20px; color:#b9aaa8; font-family:Georgia,serif; font-size:18px;}
+
+  /* SERVICES overview (all weddings) */
+  .svc-intro{font-size:13.5px; color:#7a6c6a; margin:14px 2px 4px;}
+  .svc-wed{margin-top:22px;}
+  .svc-wed-head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; padding:6px 2px;}
+  .svc-wed-head .n{font-family:Georgia,serif; font-size:19px; font-weight:600; color:var(--mauve);}
+  .svc-wed-head .m{font-size:12.5px; color:#a79896;}
+  .svc{background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 14px; margin-top:8px;}
+  .svc-top{display:flex; justify-content:space-between; align-items:flex-start; gap:10px;}
+  .svc-date{font-family:Georgia,serif; font-weight:700; font-size:15.5px; color:var(--mauve);}
+  .svc-what{font-weight:600; margin-top:2px;}
+  .svc-route{font-size:14px; margin-top:2px;}
+  .svc-pax{font-size:13px; margin-top:4px; color:#7a6c6a;}
+  .pill{font-size:10.5px; text-transform:uppercase; letter-spacing:1.1px; padding:3px 9px; border-radius:999px; white-space:nowrap; color:#fff;}
+  .pill.ok{background:var(--sage);} .pill.tbc{background:var(--rose);} .pill.later{background:#b9aaa8;} .pill.maybe{background:#fff; color:#7a6c6a; border:1px solid #d9cbc9;}
+  .legend{display:flex; gap:12px; flex-wrap:wrap; font-size:12px; color:#7a6c6a; margin:8px 2px 0;}
+  .legend span{display:inline-flex; align-items:center; gap:6px;}
   footer{text-align:center; margin-top:42px; font-size:12px; color:#b9aaa8;}
 </style>
 </head>
@@ -96,6 +113,7 @@
     <div>
       <button class="btn-ghost active" id="f-up" onclick="setView('upcoming')">Upcoming</button>
       <button class="btn-ghost" id="f-all" onclick="setView('past')">Past</button>
+      <button class="btn-ghost" id="f-svc" onclick="setView('services')">All services</button>
     </div>
   </div>
 
@@ -303,6 +321,80 @@ const BOOKINGS = [
   // ── Add more bookings above this line ──
 ];
 
+
+/* =========================================================================
+   SERVICES: overview of every service planned with Nacho, all weddings.
+   Source of truth: Providers/Nacho Tours/Nacho_Services_Ledger.md (main project).
+   No prices here: this page is read by Nacho.
+   status: "ok" Confirmed | "tbc" Planned, to confirm | "later" Coming, details later | "maybe" Possible, not booked
+   show:false keeps a row off the page until Stefano says Nacho can be told.
+   ========================================================================= */
+const SERVICES_UPDATED = "10 November 2026";
+const SERVICES = [
+  {wedding:"Aleyna & Hector", where:"Villa Diosa del Mar, Junquillal", date:"2026-12-05", when:"Flights land 1:53, 2:10 and 3:50 pm",
+   what:"Airport arrival", route:"Liberia airport to Villa Diosa del Mar, Junquillal",
+   pax:"15 (13 adults, 2 small children). Two vans grouped by flight. Numbers per flight and child seats to follow.", status:"tbc", show:true},
+  {wedding:"Aleyna & Hector", where:"Villa Diosa del Mar, Junquillal", date:"2026-12-09", when:"Afternoon",
+   what:"Day transport (catamaran day)", route:"Villa to Tamarindo and back",
+   pax:"All 15 together in the coaster minibus.", status:"tbc", show:true},
+  {wedding:"Aleyna & Hector", where:"Villa Diosa del Mar, Junquillal", date:"2026-12-10", when:"Afternoon, back after dinner",
+   what:"Day transport (surf and dinner in town)", route:"Villa to Tamarindo and back",
+   pax:"All 15 in the coaster. Return time after dinner to confirm.", status:"tbc", show:true},
+  {wedding:"Aleyna & Hector", where:"Villa Diosa del Mar, Junquillal", date:"2026-12-11", when:"Day, back after dinner",
+   what:"Day transport (snorkel day)", route:"Villa to Tamarindo and back",
+   pax:"All 15 in the coaster. Return time after dinner to confirm.", status:"tbc", show:true},
+  {wedding:"Aleyna & Hector", where:"Villa Diosa del Mar, Junquillal", date:"2026-12-12", when:"Flights depart 2:53, 3:25 and 4:50 pm",
+   what:"Airport departure", route:"Villa Diosa del Mar to Liberia airport",
+   pax:"15. Two vans grouped by flight.", status:"tbc", show:true},
+
+  {wedding:"Allegra & Aaron", where:"Warmup trip, then El Mangroove", date:"2027-01-03", when:"Landings so far 2:04, 3:12, 3:29 and 6:37 pm",
+   what:"Airport arrival, warmup trip", route:"Liberia airport to Montaña de Fuego, La Fortuna",
+   pax:"About 26. Vans by landing time. Full flight list once everyone has sent theirs.", status:"tbc", show:true},
+  {wedding:"Allegra & Aaron", where:"Warmup trip, then El Mangroove", date:"2027-01-06", when:"Morning",
+   what:"Hike transfer", route:"Auralta, Río Celeste, to the national park and back",
+   pax:"About 26.", status:"later", show:true},
+  {wedding:"Allegra & Aaron", where:"Warmup trip, then El Mangroove", date:"2027-01-07", when:"Midday, arrive by 2 pm",
+   what:"Transfer to the wedding hotel", route:"Auralta, Río Celeste, to El Mangroove",
+   pax:"About 26, with luggage.", status:"tbc", show:true},
+  {wedding:"Allegra & Aaron", where:"Warmup trip, then El Mangroove", date:"2027-01-10", when:"By flight",
+   what:"Airport departures", route:"El Mangroove to Liberia airport",
+   pax:"Per guest, as they book.", status:"maybe", show:true},
+
+  {wedding:"Melinda & Troy", where:"Wavefront Estate, Potrero", date:"2027-02-20", when:"Wedding day",
+   what:"Wedding-day transport, door to door", route:"Guests' lodging to Wavefront Estate, Potrero, and back",
+   pax:"30 to 50 guests. Route and times to come once set with Erika.", status:"later", show:true},
+
+  {wedding:"Violet & Jared", where:"Pangas Beach Club, Tamarindo", date:"2027-03-10", when:"By flight",
+   what:"Airport arrivals", route:"Liberia airport to Tamarindo", pax:"Up to about 70.", status:"later", show:true},
+  {wedding:"Violet & Jared", where:"Pangas Beach Club, Tamarindo", date:"2027-03-11", when:"From 9:00 am",
+   what:"Golf transport", route:"Tamarindo to Hacienda Pinilla and back", pax:"24 players.", status:"later", show:true},
+  {wedding:"Violet & Jared", where:"Pangas Beach Club, Tamarindo", date:"2027-03-13", when:"Wedding day",
+   what:"Wedding-day shuttle, several pickups", route:"Condos and villas around Tamarindo to Pangas Beach Club, and back", pax:"Up to about 70.", status:"later", show:true},
+  {wedding:"Violet & Jared", where:"Pangas Beach Club, Tamarindo", date:"2027-03-15", when:"By flight",
+   what:"Airport departures", route:"Tamarindo to Liberia airport", pax:"Most guests.", status:"later", show:true},
+  {wedding:"Lauren & Cooper", where:"El Mangroove, Papagayo", date:"2027-02-06", when:"Wedding week, dates to come",
+   what:"Airport transfers and wedding-week transport", route:"Liberia airport to El Mangroove, and back",
+   pax:"About 80 adults and 1 toddler.", status:"maybe", show:true},
+
+  {wedding:"Melinda & Troy", where:"Wavefront Estate, Potrero", date:"2027-02-13", when:"Arrivals 13 to 15 Feb, flights to come",
+   what:"Guest airport transfers", route:"Liberia airport to guests' lodging around Potrero, and back",
+   pax:"30 to 50 guests, booked guest by guest.", status:"maybe", show:true},
+
+  {wedding:"Brianna & Martha", where:"Las Palapas, Hacienda Pinilla", date:"2027-03-17", when:"Around 17 Mar, flights to come",
+   what:"Guest airport arrivals", route:"Liberia airport to Tamarindo Diria",
+   pax:"About 80 guests, two toddlers (car seats).", status:"maybe", show:true},
+  {wedding:"Brianna & Martha", where:"Las Palapas, Hacienda Pinilla", date:"2027-03-19", when:"Wedding day, return after 10 pm",
+   what:"Wedding-day shuttle", route:"Tamarindo Diria to Hacienda Pinilla, and back",
+   pax:"About 80 guests.", status:"maybe", show:true},
+  {wedding:"Brianna & Martha", where:"Las Palapas, Hacienda Pinilla", date:"2027-03-21", when:"Around 21 Mar, by flight",
+   what:"Guest airport departures", route:"Tamarindo Diria to Liberia airport",
+   pax:"About 80 guests.", status:"maybe", show:true},
+
+  {wedding:"Melissa & Nathan", where:"El Mangroove, Papagayo", date:"2027-04-16", when:"Wedding week, dates to come",
+   what:"Airport transfers and wedding-day shuttle", route:"Liberia airport to El Mangroove and back; guests staying outside to El Mangroove by 4 pm on the day",
+   pax:"About 75 guests.", status:"maybe", show:true}
+];
+
 /* ---- SVG icons (no emojis) ---- */
 const IC = {
   chev:'<svg class="ic" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>',
@@ -357,7 +449,35 @@ function card(b){
     '</div></div>';
 }
 
+
+const STATUS_TXT={ok:"Confirmed",tbc:"Planned, to confirm",later:"Coming, details later",maybe:"Possible, not booked"};
+function fmtShort(s){const[y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d).toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',year:'numeric'});}
+function renderServices(){
+  const sched=document.getElementById('schedule');
+  const rows=SERVICES.filter(x=>x.show).sort((a,b)=>a.date.localeCompare(b.date));
+  document.getElementById('count').textContent=rows.length+' services';
+  const order=[], byW={};
+  rows.forEach(x=>{if(!byW[x.wedding]){byW[x.wedding]=[];order.push(x.wedding);} byW[x.wedding].push(x);});
+  let h='<div class="svc-intro">Every service we have planned with you, by wedding. Updated '+esc(SERVICES_UPDATED)+'. Each run moves to Upcoming with names and flights once it is confirmed.</div>'+
+    '<div class="legend"><span><span class="pill ok">Confirmed</span></span><span><span class="pill tbc">Planned, to confirm</span></span><span><span class="pill later">Coming, details later</span></span><span><span class="pill maybe">Possible, not booked</span></span></div>';
+  order.forEach(w=>{
+    const list=byW[w];
+    h+='<div class="svc-wed"><div class="svc-wed-head"><span class="n">'+esc(w)+'</span><span class="m">'+esc(list[0].where)+'</span></div>';
+    list.forEach(x=>{
+      h+='<div class="svc"><div class="svc-top"><div><div class="svc-date">'+fmtShort(x.date)+'</div>'+
+         '<div style="font-size:13px;color:var(--sage);font-weight:600">'+esc(x.when)+'</div></div>'+
+         '<span class="pill '+x.status+'">'+STATUS_TXT[x.status]+'</span></div>'+
+         '<div class="svc-what">'+esc(x.what)+'</div>'+
+         '<div class="svc-route">'+esc(x.route)+'</div>'+
+         '<div class="svc-pax">'+IC.users+' '+esc(x.pax)+'</div></div>';
+    });
+    h+='</div>';
+  });
+  sched.innerHTML=h;
+}
+
 function render(){
+  if(view==='services'){renderServices();return;}
   const today=todayStr();
   const sched=document.getElementById('schedule');
   sched.innerHTML='';
@@ -401,6 +521,7 @@ function setView(v){
   view=v;
   document.getElementById('f-up').classList.toggle('active',v==='upcoming');
   document.getElementById('f-all').classList.toggle('active',v==='past');
+  document.getElementById('f-svc').classList.toggle('active',v==='services');
   render();
 }
 
