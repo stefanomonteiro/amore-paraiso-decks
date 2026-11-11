@@ -141,6 +141,7 @@
                 when = that flight's own time, e.g. "Arrives 11:45" / "Departs 13:00"
      phone    lead contact (optional)
      notes    kids seats, luggage, wait/share, etc. (optional)
+     back     return pickup time and place, day trips only (optional)
    pax total is computed automatically from all groups' passengers.
    ========================================================================= */
 const BOOKINGS = [
@@ -339,9 +340,9 @@ const BOOKINGS = [
     date:"2026-12-09", time:"11:45", type:"trip",
     wedding:"Aleyna & Hector",
     from:"Villa Diosa del Mar, Junquillal",
-    to:"El Chiringuito, Tamarindo (by 13:00), and back",
+    to:"El Chiringuito, Tamarindo (by 13:00), and back", back:"17:45 at El Chiringuito, Tamarindo",
     groups:[
-      { airline:"", flight:"", when:"Catamaran check-in 13:15, sails 13:30 to 17:30. Return pickup 17:45 at El Chiringuito",
+      { airline:"", flight:"", when:"Catamaran check-in 13:15, sails 13:30 to 17:30",
         passengers:["Aleyna Brunner (bride)","Hector Arturo Chong (groom)","Dawn Brunner","Robert Brunner","Hector Mah Chong","Carmen Rodriguez","Juan Chong","Anastasia Brunner","Weston Brunner (child)","Colton Brunner","Jarrett Brunner","Dale Samson","Ani","Niloh (child)","Harrison Plaza"] }
     ],
     phone:"+1 217 419 1823",
@@ -351,9 +352,9 @@ const BOOKINGS = [
     date:"2026-12-10", time:"12:00", type:"trip",
     wedding:"Aleyna & Hector",
     from:"Villa Diosa del Mar, Junquillal",
-    to:"Tamarindo town, and back after dinner",
+    to:"Tamarindo town, and back after dinner", back:"TBC, after dinner in Tamarindo (dinner time to confirm)",
     groups:[
-      { airline:"", flight:"", when:"Lunch in town. Surfers at the Native's Way office by 14:15 (lesson 14:30 to 16:30). Dinner in town, return time to confirm",
+      { airline:"", flight:"", when:"Lunch in town. Surfers at the Native's Way office by 14:15 (lesson 14:30 to 16:30). Dinner in town",
         passengers:["Aleyna Brunner (bride)","Hector Arturo Chong (groom)","Dawn Brunner","Robert Brunner","Hector Mah Chong","Carmen Rodriguez","Juan Chong","Anastasia Brunner","Weston Brunner (child)","Colton Brunner","Jarrett Brunner","Dale Samson","Ani","Niloh (child)","Harrison Plaza"] }
     ],
     phone:"+1 217 419 1823",
@@ -363,9 +364,9 @@ const BOOKINGS = [
     date:"2026-12-11", time:"10:15", type:"trip",
     wedding:"Aleyna & Hector",
     from:"Villa Diosa del Mar, Junquillal",
-    to:"Tamarindo beach (by 11:30), and back",
+    to:"Tamarindo beach (by 11:30), and back", back:"17:15 at Tamarindo beach, or after dinner in town (to confirm)",
     groups:[
-      { airline:"", flight:"", when:"Snorkel boat 12:00 to 17:00. Back from 17:15, or after dinner in town, to confirm",
+      { airline:"", flight:"", when:"Snorkel boat 12:00 to 17:00",
         passengers:["Aleyna Brunner (bride)","Hector Arturo Chong (groom)","Dawn Brunner","Robert Brunner","Hector Mah Chong","Carmen Rodriguez","Juan Chong","Anastasia Brunner","Weston Brunner (child)","Colton Brunner","Jarrett Brunner","Dale Samson","Ani","Niloh (child)","Harrison Plaza"] }
     ],
     phone:"+1 217 419 1823",
@@ -513,6 +514,7 @@ function card(b){
       '<div class="route">'+esc(b.from)+' → '+esc(b.to)+'</div>'+
       '<div class="lbl" style="margin-top:6px">'+IC.users+' '+paxTotal(b)+' passenger'+(paxTotal(b)>1?'s':'')+'</div>'+
       grps+
+      (b.back?'<div class="lbl" style="margin-top:8px">'+IC.up+' Return pickup: '+esc(b.back)+'</div>':'')+
       (b.phone?'<div style="margin-top:8px;font-size:13px">'+IC.phone+' '+esc(b.phone)+'</div>':'')+
       (b.notes?'<div class="notes">'+esc(b.notes)+'</div>':'')+
       statusRow()+
