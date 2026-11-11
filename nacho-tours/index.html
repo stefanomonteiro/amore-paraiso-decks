@@ -72,7 +72,7 @@
     display:inline-block; margin-bottom:1px;}
   .stoptime .dir{font-size:11px; text-transform:uppercase; letter-spacing:1.2px; margin-left:8px;
     padding:2px 8px; border-radius:999px; color:#fff; vertical-align:middle;}
-  .stoptime .dir.arrival{background:var(--sage);} .stoptime .dir.return{background:var(--rose);}
+  .stoptime .dir.arrival{background:var(--sage);} .stoptime .dir.return{background:var(--rose);} .stoptime .dir.trip{background:#9a8f7e;}
   .wed{font-size:11px; text-transform:uppercase; letter-spacing:1.4px; color:var(--sage); font-weight:700; margin-top:6px;}
   .route{font-family:Georgia,serif; font-size:16px; font-weight:600; margin:2px 0 0;}
   .grp{border-left:3px solid var(--blush); padding:4px 0 4px 12px; margin-top:10px;}
@@ -133,7 +133,7 @@
    FIELDS
      date     "YYYY-MM-DD"  service date (sorting + auto-hide past)
      time     "HH:MM"       hotel/airport pickup time for the van (24h)
-     type     "arrival" (airport → hotel) | "return" (hotel → airport)
+     type     "arrival" (airport → hotel) | "return" (hotel → airport) | "trip" (day transport)
      wedding  couple / wedding name
      from     where the driver collects
      to       where the driver delivers
@@ -317,7 +317,78 @@ const BOOKINGS = [
     ],
     phone:"+1 847 732 8428",
     notes:"Private ride, bride and groom only. Do not share. Second unit at the same time as the van above."
-  }
+  },
+  /* ---- Aleyna & Hector, wedding Mon 7 Dec 2026, Villa Diosa del Mar, Junquillal. Planned, to confirm. ---- */
+  {
+    date:"2026-12-05", time:"12:56", type:"arrival",
+    wedding:"Aleyna & Hector",
+    from:"LIR, Daniel Oduber (Liberia)",
+    to:"Villa Diosa del Mar, Junquillal",
+    groups:[
+      { airline:"United", flight:"UA 1120", when:"Arrives 12:56",
+        passengers:["Jarrett Brunner"] },
+      { airline:"Delta", flight:"DL 1781", when:"Arrives 14:10",
+        passengers:["Aleyna Brunner (bride)","Harrison Plaza","Ana","Weston Brunner (child)","Colton Brunner"] },
+      { airline:"American", flight:"AA 887", when:"Arrives 14:53",
+        passengers:["Dawn Brunner","Robert Brunner"] }
+    ],
+    phone:"+1 217 419 1823",
+    notes:"Sign: Aleyna & Hector. Flights in so far, 8 of 15 people. Hector and the rest of the group follow by Nov 23, then we split the vans by flight. Weston is a small child, seat need to follow. Planned, to confirm."
+  },
+  {
+    date:"2026-12-09", time:"11:45", type:"trip",
+    wedding:"Aleyna & Hector",
+    from:"Villa Diosa del Mar, Junquillal",
+    to:"El Chiringuito, Tamarindo (by 13:00), and back",
+    groups:[
+      { airline:"", flight:"", when:"Catamaran check-in 13:15, sails 13:30 to 17:30. Return pickup 17:45 at El Chiringuito",
+        passengers:["Aleyna Brunner (bride)","Hector Arturo Chong (groom)","Dawn Brunner","Robert Brunner","Hector Mah Chong","Carmen Rodriguez","Juan Chong","Anastasia Brunner","Weston Brunner (child)","Colton Brunner","Jarrett Brunner","Dale Samson","Ani","Niloh (child)","Harrison Plaza"] }
+    ],
+    phone:"+1 217 419 1823",
+    notes:"All 15 together in the coaster. Two small children (Weston, Niloh). Planned, to confirm."
+  },
+  {
+    date:"2026-12-10", time:"12:00", type:"trip",
+    wedding:"Aleyna & Hector",
+    from:"Villa Diosa del Mar, Junquillal",
+    to:"Tamarindo town, and back after dinner",
+    groups:[
+      { airline:"", flight:"", when:"Lunch in town. Surfers at the Native's Way office by 14:15 (lesson 14:30 to 16:30). Dinner in town, return time to confirm",
+        passengers:["Aleyna Brunner (bride)","Hector Arturo Chong (groom)","Dawn Brunner","Robert Brunner","Hector Mah Chong","Carmen Rodriguez","Juan Chong","Anastasia Brunner","Weston Brunner (child)","Colton Brunner","Jarrett Brunner","Dale Samson","Ani","Niloh (child)","Harrison Plaza"] }
+    ],
+    phone:"+1 217 419 1823",
+    notes:"All 15 in the coaster. Planned, to confirm."
+  },
+  {
+    date:"2026-12-11", time:"10:15", type:"trip",
+    wedding:"Aleyna & Hector",
+    from:"Villa Diosa del Mar, Junquillal",
+    to:"Tamarindo beach (by 11:30), and back",
+    groups:[
+      { airline:"", flight:"", when:"Snorkel boat 12:00 to 17:00. Back from 17:15, or after dinner in town, to confirm",
+        passengers:["Aleyna Brunner (bride)","Hector Arturo Chong (groom)","Dawn Brunner","Robert Brunner","Hector Mah Chong","Carmen Rodriguez","Juan Chong","Anastasia Brunner","Weston Brunner (child)","Colton Brunner","Jarrett Brunner","Dale Samson","Ani","Niloh (child)","Harrison Plaza"] }
+    ],
+    phone:"+1 217 419 1823",
+    notes:"All 15 in the coaster. Planned, to confirm."
+  },
+  {
+    date:"2026-12-12", time:"TBC", type:"return",
+    wedding:"Aleyna & Hector",
+    from:"Villa Diosa del Mar, Junquillal",
+    to:"LIR, Daniel Oduber (Liberia)",
+    groups:[
+      { airline:"Southwest", flight:"WN 0567", when:"Departs 13:15",
+        passengers:["Harrison Plaza"] },
+      { airline:"Delta", flight:"DL 1784", when:"Departs 15:25",
+        passengers:["Aleyna Brunner (bride)"] },
+      { airline:"American", flight:"AA 898", when:"Departs 15:53",
+        passengers:["Dawn Brunner","Robert Brunner"] },
+      { airline:"No flight", flight:"", when:"Rides to the airport with the group, picks up a rental car",
+        passengers:["Jarrett Brunner"] }
+    ],
+    phone:"+1 217 419 1823",
+    notes:"Flights in so far. Pickup times set once everyone's flights are in (Nov 23), vans split by flight. Planned, to confirm."
+  },
   // ── Add more bookings above this line ──
 ];
 
@@ -331,7 +402,7 @@ const BOOKINGS = [
    ========================================================================= */
 const SERVICES_UPDATED = "11 November 2026";
 const SERVICES = [
-  {wedding:"Aleyna & Hector", where:"Villa Diosa del Mar, Junquillal", date:"2026-12-05", when:"Flights land 1:53, 2:10 and 3:50 pm",
+  {wedding:"Aleyna & Hector", where:"Villa Diosa del Mar, Junquillal", date:"2026-12-05", when:"Flights in so far land 12:56, 2:10 and 2:53 pm",
    what:"Airport arrival", route:"Liberia airport to Villa Diosa del Mar, Junquillal",
    pax:"15 (13 adults, 2 small children). Two vans grouped by flight. Numbers per flight and child seats to follow.", status:"tbc", show:true},
   {wedding:"Aleyna & Hector", where:"Villa Diosa del Mar, Junquillal", date:"2026-12-09", when:"Pickup 11:45 am at the villa. Back from El Chiringuito 5:45 pm",
@@ -343,9 +414,9 @@ const SERVICES = [
   {wedding:"Aleyna & Hector", where:"Villa Diosa del Mar, Junquillal", date:"2026-12-11", when:"Pickup 10:15 am at the villa. Back from 5:15 pm or after dinner, to confirm",
    what:"Day transport (snorkel day)", route:"Villa to Tamarindo and back",
    pax:"All 15 in the coaster. On Tamarindo beach by 11:30 am (boat 12:00 to 5:00 pm).", status:"tbc", show:true},
-  {wedding:"Aleyna & Hector", where:"Villa Diosa del Mar, Junquillal", date:"2026-12-12", when:"Flights depart 2:53, 3:25 and 4:50 pm",
+  {wedding:"Aleyna & Hector", where:"Villa Diosa del Mar, Junquillal", date:"2026-12-12", when:"Flights in so far depart 1:15, 3:25 and 3:53 pm",
    what:"Airport departure", route:"Villa Diosa del Mar to Liberia airport",
-   pax:"15. Two vans grouped by flight.", status:"tbc", show:true},
+   pax:"15. Two vans grouped by flight. Jarrett Brunner rides along for a rental car pickup, no flight that day.", status:"tbc", show:true},
 
   {wedding:"Allegra & Aaron", where:"Warmup trip, then El Mangroove", date:"2027-01-03", when:"Landings so far 2:04, 3:12, 3:29 and 6:37 pm",
    what:"Airport arrival, warmup trip", route:"Liberia airport to Montaña de Fuego, La Fortuna",
@@ -434,11 +505,10 @@ function statusRow(){
 function card(b){
   const isArr=b.type==='arrival', shared=b.groups.length>1;
   const grps=b.groups.map(g=>
-    '<div class="grp"><span class="grp-flight">'+esc(g.airline)+' '+esc(g.flight)+'</span> '+
-      '<span class="grp-when">· '+esc(g.when)+'</span>'+paxUL(g)+'</div>').join('');
-  return '<div class="stop '+b.type+'"><div class="dot">'+(isArr?IC.down:IC.up)+'</div>'+
+    '<div class="grp">'+((g.airline||g.flight)?'<span class="grp-flight">'+esc(g.airline)+' '+esc(g.flight)+'</span> <span class="grp-when">· ':'<span class="grp-when">')+esc(g.when)+'</span>'+paxUL(g)+'</div>').join('');
+  return '<div class="stop '+b.type+'"><div class="dot">'+(isArr?IC.down:(b.type==='trip'?IC.van:IC.up))+'</div>'+
     '<div class="card">'+
-      '<span class="stoptime">'+esc(b.time)+'<span class="dir '+b.type+'">'+(isArr?'Arrival':'Return')+(shared?' · shared':'')+'</span></span>'+
+      '<span class="stoptime">'+esc(b.time)+'<span class="dir '+b.type+'">'+(isArr?'Arrival':(b.type==='trip'?'Day trip':'Return'))+(shared?' · shared':'')+'</span></span>'+
       '<div class="wed">'+esc(b.wedding)+'</div>'+
       '<div class="route">'+esc(b.from)+' → '+esc(b.to)+'</div>'+
       '<div class="lbl" style="margin-top:6px">'+IC.users+' '+paxTotal(b)+' passenger'+(paxTotal(b)>1?'s':'')+'</div>'+
