@@ -319,7 +319,7 @@ const BOOKINGS = [
     phone:"+1 847 732 8428",
     notes:"Private ride, bride and groom only. Do not share. Second unit at the same time as the van above."
   },
-  /* ---- Aleyna & Hector, wedding Mon 7 Dec 2026, Villa Diosa del Mar, Junquillal. Planned, to confirm. ---- */
+  /* ---- Aleyna & Hector, wedding Mon 7 Dec 2026, Villa Diosa del Mar, Junquillal. Confirmed by Nacho 11 Nov. ---- */
   {
     date:"2026-12-05", time:"12:56", type:"arrival",
     wedding:"Aleyna & Hector",
@@ -329,12 +329,12 @@ const BOOKINGS = [
       { airline:"United", flight:"UA 1120", when:"Arrives 12:56",
         passengers:["Jarrett Brunner"] },
       { airline:"Delta", flight:"DL 1781", when:"Arrives 14:10",
-        passengers:["Aleyna Brunner (bride)","Harrison Plaza","Ana","Weston Brunner (child)","Colton Brunner"] },
+        passengers:["Aleyna Brunner (bride)","Harrison Plaza","Anastasia Brunner","Weston Brunner (child, 3, toddler seat)","Colton Brunner"] },
       { airline:"American", flight:"AA 887", when:"Arrives 14:53",
         passengers:["Dawn Brunner","Robert Brunner"] }
     ],
     phone:"+1 217 419 1823",
-    notes:"Sign: Aleyna & Hector. Flights in so far, 8 of 15 people. Hector and the rest of the group follow by Nov 23, then we split the vans by flight. Weston is a small child, seat need to follow. Planned, to confirm."
+    notes:"Sign: Aleyna & Hector. Flights in so far, 8 of 15 people. Hector and the rest of the group follow by Nov 23, then we split the vans by flight. One toddler seat for Weston (age 3), on DL 1781. Confirmed with Nacho Nov 11."
   },
   {
     date:"2026-12-09", time:"11:45", type:"trip",
@@ -346,7 +346,7 @@ const BOOKINGS = [
         passengers:["Aleyna Brunner (bride)","Hector Arturo Chong (groom)","Dawn Brunner","Robert Brunner","Hector Mah Chong","Carmen Rodriguez","Juan Chong","Anastasia Brunner","Weston Brunner (child)","Colton Brunner","Jarrett Brunner","Dale Samson","Ani","Niloh (child)","Harrison Plaza"] }
     ],
     phone:"+1 217 419 1823",
-    notes:"All 15 together in the coaster. Two small children (Weston, Niloh). Planned, to confirm."
+    notes:"All 15 together in the coaster. Two small children (Weston, Niloh). Confirmed with Nacho Nov 11."
   },
   {
     date:"2026-12-10", time:"12:00", type:"trip",
@@ -354,11 +354,11 @@ const BOOKINGS = [
     from:"Villa Diosa del Mar, Junquillal",
     to:"Tamarindo town, and back after dinner", back:"TBC, after dinner in Tamarindo (dinner time to confirm)",
     groups:[
-      { airline:"", flight:"", when:"Lunch in town. Surfers at the Native's Way office by 14:15 (lesson 14:30 to 16:30). Dinner in town",
+      { airline:"", flight:"", when:"Lunch in town. Surfers at the Native's Way office 15 minutes before the lesson (afternoon, exact time to confirm). Dinner in town",
         passengers:["Aleyna Brunner (bride)","Hector Arturo Chong (groom)","Dawn Brunner","Robert Brunner","Hector Mah Chong","Carmen Rodriguez","Juan Chong","Anastasia Brunner","Weston Brunner (child)","Colton Brunner","Jarrett Brunner","Dale Samson","Ani","Niloh (child)","Harrison Plaza"] }
     ],
     phone:"+1 217 419 1823",
-    notes:"All 15 in the coaster. Planned, to confirm."
+    notes:"All 15 in the coaster. Confirmed with Nacho Nov 11."
   },
   {
     date:"2026-12-11", time:"10:15", type:"trip",
@@ -370,7 +370,7 @@ const BOOKINGS = [
         passengers:["Aleyna Brunner (bride)","Hector Arturo Chong (groom)","Dawn Brunner","Robert Brunner","Hector Mah Chong","Carmen Rodriguez","Juan Chong","Anastasia Brunner","Weston Brunner (child)","Colton Brunner","Jarrett Brunner","Dale Samson","Ani","Niloh (child)","Harrison Plaza"] }
     ],
     phone:"+1 217 419 1823",
-    notes:"All 15 in the coaster. Planned, to confirm."
+    notes:"All 15 in the coaster. Confirmed with Nacho Nov 11."
   },
   {
     date:"2026-12-12", time:"TBC", type:"return",
@@ -381,14 +381,14 @@ const BOOKINGS = [
       { airline:"Southwest", flight:"WN 0567", when:"Departs 13:15",
         passengers:["Harrison Plaza"] },
       { airline:"Delta", flight:"DL 1784", when:"Departs 15:25",
-        passengers:["Aleyna Brunner (bride)"] },
+        passengers:["Aleyna Brunner (bride)","Anastasia Brunner","Weston Brunner (child, 3, toddler seat)"] },
       { airline:"American", flight:"AA 898", when:"Departs 15:53",
         passengers:["Dawn Brunner","Robert Brunner"] },
       { airline:"No flight", flight:"", when:"Rides to the airport with the group, picks up a rental car",
         passengers:["Jarrett Brunner"] }
     ],
     phone:"+1 217 419 1823",
-    notes:"Flights in so far. Pickup times set once everyone's flights are in (Nov 23), vans split by flight. Planned, to confirm."
+    notes:"Flights in so far. Pickup times set once everyone's flights are in (Nov 23), vans split by flight. Confirmed with Nacho Nov 11."
   },
   // ── Add more bookings above this line ──
 ];
@@ -401,23 +401,23 @@ const BOOKINGS = [
    status: "ok" Confirmed | "tbc" Planned, to confirm | "later" Coming, details later | "maybe" Possible, not booked
    show:false keeps a row off the page until Stefano says Nacho can be told.
    ========================================================================= */
-const SERVICES_UPDATED = "11 November 2026";
+const SERVICES_UPDATED = "13 November 2026";
 const SERVICES = [
   {wedding:"Aleyna & Hector", where:"Villa Diosa del Mar, Junquillal", date:"2026-12-05", when:"Flights in so far land 12:56, 2:10 and 2:53 pm",
    what:"Airport arrival", route:"Liberia airport to Villa Diosa del Mar, Junquillal",
-   pax:"15 (13 adults, 2 small children). Two vans grouped by flight. Numbers per flight and child seats to follow.", status:"tbc", show:true},
+   pax:"15 (13 adults, 2 small children). Two vans grouped by flight. One toddler seat so far (Weston, 3). Numbers per flight to follow.", status:"ok", show:true},
   {wedding:"Aleyna & Hector", where:"Villa Diosa del Mar, Junquillal", date:"2026-12-09", when:"Pickup 11:45 am at the villa. Back from El Chiringuito 5:45 pm",
    what:"Day transport (catamaran day)", route:"Villa to Tamarindo and back",
-   pax:"All 15 together in the coaster minibus. Drop at El Chiringuito, Tamarindo, by 1:00 pm (catamaran check-in 1:15 pm, sails 1:30 to 5:30 pm).", status:"tbc", show:true},
+   pax:"All 15 together in the coaster minibus. Drop at El Chiringuito, Tamarindo, by 1:00 pm (catamaran check-in 1:15 pm, sails 1:30 to 5:30 pm).", status:"ok", show:true},
   {wedding:"Aleyna & Hector", where:"Villa Diosa del Mar, Junquillal", date:"2026-12-10", when:"Pickup 12:00 pm at the villa. Back after dinner, time to confirm",
    what:"Day transport (surf and dinner in town)", route:"Villa to Tamarindo and back",
-   pax:"All 15 in the coaster. Lunch in town; surfers at the Native's Way office by 2:15 pm (lesson 2:30 pm). Return time after dinner to confirm.", status:"tbc", show:true},
+   pax:"All 15 in the coaster. Lunch in town; surfers at the Native's Way office before the afternoon lesson (exact time to confirm). Return time after dinner to confirm.", status:"ok", show:true},
   {wedding:"Aleyna & Hector", where:"Villa Diosa del Mar, Junquillal", date:"2026-12-11", when:"Pickup 10:15 am at the villa. Back from 5:15 pm or after dinner, to confirm",
    what:"Day transport (snorkel day)", route:"Villa to Tamarindo and back",
-   pax:"All 15 in the coaster. On Tamarindo beach by 11:30 am (boat 12:00 to 5:00 pm).", status:"tbc", show:true},
+   pax:"All 15 in the coaster. On Tamarindo beach by 11:30 am (boat 12:00 to 5:00 pm).", status:"ok", show:true},
   {wedding:"Aleyna & Hector", where:"Villa Diosa del Mar, Junquillal", date:"2026-12-12", when:"Flights in so far depart 1:15, 3:25 and 3:53 pm",
    what:"Airport departure", route:"Villa Diosa del Mar to Liberia airport",
-   pax:"15. Two vans grouped by flight. Jarrett Brunner rides along for a rental car pickup, no flight that day.", status:"tbc", show:true},
+   pax:"15. Two vans grouped by flight. Jarrett Brunner rides along for a rental car pickup, no flight that day.", status:"ok", show:true},
 
   {wedding:"Allegra & Aaron", where:"Warmup trip, then El Mangroove", date:"2027-01-03", when:"Landings so far 2:04, 3:12, 3:29 and 6:37 pm",
    what:"Airport arrival, warmup trip", route:"Liberia airport to Montaña de Fuego, La Fortuna",
