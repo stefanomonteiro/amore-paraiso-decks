@@ -400,34 +400,16 @@ const BOOKINGS = [
    No prices here: this page is read by Nacho.
    status: "ok" Confirmed | "tbc" Planned, to confirm | "later" Coming, details later | "maybe" Possible, not booked
    show:false keeps a row off the page until Stefano says Nacho can be told.
+   Once a service is CONFIRMED it leaves this list (it lives in Upcoming with names and flights). Stefano, 17 Nov 2026.
    ========================================================================= */
-const SERVICES_UPDATED = "13 November 2026"; // redeploy 13 Nov
+const SERVICES_UPDATED = "17 November 2026"; // redeploy 17 Nov
 const SERVICES = [
-  {wedding:"Aleyna & Hector", where:"Villa Diosa del Mar, Junquillal", date:"2026-12-05", when:"Flights in so far land 12:56, 2:10 and 2:53 pm",
-   what:"Airport arrival", route:"Liberia airport to Villa Diosa del Mar, Junquillal",
-   pax:"15 (13 adults, 2 small children). Two vans grouped by flight. One toddler seat so far (Weston, 3). Numbers per flight to follow.", status:"ok", show:true},
-  {wedding:"Aleyna & Hector", where:"Villa Diosa del Mar, Junquillal", date:"2026-12-09", when:"Pickup 11:45 am at the villa. Back from El Chiringuito 5:45 pm",
-   what:"Day transport (catamaran day)", route:"Villa to Tamarindo and back",
-   pax:"All 15 together in the coaster minibus. Drop at El Chiringuito, Tamarindo, by 1:00 pm (catamaran check-in 1:15 pm, sails 1:30 to 5:30 pm).", status:"ok", show:true},
-  {wedding:"Aleyna & Hector", where:"Villa Diosa del Mar, Junquillal", date:"2026-12-10", when:"Pickup 12:00 pm at the villa. Back after dinner, time to confirm",
-   what:"Day transport (surf and dinner in town)", route:"Villa to Tamarindo and back",
-   pax:"All 15 in the coaster. Lunch in town; surfers at the Native's Way office before the afternoon lesson (exact time to confirm). Return time after dinner to confirm.", status:"ok", show:true},
-  {wedding:"Aleyna & Hector", where:"Villa Diosa del Mar, Junquillal", date:"2026-12-11", when:"Pickup 10:15 am at the villa. Back from 5:15 pm or after dinner, to confirm",
-   what:"Day transport (snorkel day)", route:"Villa to Tamarindo and back",
-   pax:"All 15 in the coaster. On Tamarindo beach by 11:30 am (boat 12:00 to 5:00 pm).", status:"ok", show:true},
-  {wedding:"Aleyna & Hector", where:"Villa Diosa del Mar, Junquillal", date:"2026-12-12", when:"Flights in so far depart 1:15, 3:25 and 3:53 pm",
-   what:"Airport departure", route:"Villa Diosa del Mar to Liberia airport",
-   pax:"15. Two vans grouped by flight. Jarrett Brunner rides along for a rental car pickup, no flight that day.", status:"ok", show:true},
-
-  {wedding:"Allegra & Aaron", where:"Warmup trip, then El Mangroove", date:"2027-01-03", when:"Landings so far 2:04, 3:12, 3:29 and 6:37 pm",
+  {wedding:"Allegra & Aaron", where:"Warmup trip, then El Mangroove", date:"2027-01-03", when:"Landings so far 11:24 am, 2:04, 3:12, 3:29 and 6:37 pm",
    what:"Airport arrival, warmup trip", route:"Liberia airport to Montaña de Fuego, La Fortuna",
-   pax:"About 26. Vans by landing time. Full flight list once everyone has sent theirs.", status:"tbc", show:true},
+   pax:"About 26. This day is yours: several vans, grouped by landing time. We send the groups by flight once everyone has sent theirs.", status:"tbc", show:true},
   {wedding:"Allegra & Aaron", where:"Warmup trip, then El Mangroove", date:"2027-01-06", when:"Morning",
    what:"Hike transfer", route:"Auralta, Río Celeste, to the national park and back",
    pax:"About 26.", status:"later", show:true},
-  {wedding:"Allegra & Aaron", where:"Warmup trip, then El Mangroove", date:"2027-01-07", when:"Midday, arrive by 2 pm",
-   what:"Transfer to the wedding hotel", route:"Auralta, Río Celeste, to El Mangroove",
-   pax:"About 26, with luggage.", status:"tbc", show:true},
   {wedding:"Allegra & Aaron", where:"Warmup trip, then El Mangroove", date:"2027-01-10", when:"By flight",
    what:"Airport departures", route:"El Mangroove to Liberia airport",
    pax:"Per guest, as they book.", status:"maybe", show:true},
