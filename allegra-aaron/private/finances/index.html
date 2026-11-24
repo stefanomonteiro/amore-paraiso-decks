@@ -574,15 +574,13 @@ body {
 .progress { height: 6px; background: var(--greyEE); border-radius: 6px; overflow: hidden; margin: 10px 0 4px; }
 .progress > span { display: block; height: 100%; background: var(--sage); border-radius: 6px; }
 .fin-note { font-size: 11px; color: var(--grey99); text-align: center; margin-top: 12px; line-height: 1.6; }
-.tiles3 { grid-template-columns: repeat(3, 1fr); }
-.row-amt.plus { color: #5d7d40; }
 .row.total { background: #fdf9f8; }
 .row.total .row-name { font-family: 'PlayfairDisplay', Georgia, serif; font-size: 15px; }
 .row.total .row-amt { font-family: 'PlayfairDisplay', Georgia, serif; font-size: 18px; }
 .fin-error { text-align: center; color: var(--grey55); font-size: 14px; padding: 60px 0; }
 
 @media (max-width: 640px) {
-  .tiles, .tiles3 { grid-template-columns: 1fr; }
+  .tiles { grid-template-columns: 1fr 1fr; }
   .plan { grid-template-columns: 1fr; }
   .row { grid-template-columns: 1fr auto; row-gap: 6px; }
   .row .row-main { grid-column: 1; grid-row: 1; }
@@ -601,7 +599,7 @@ body {
   <div class="header-script">Wedding Warmup</div>
   <div class="header-title">Finances · Allegra &amp; Aaron · January 3 to 7, 2027</div>
   <p class="header-intro">
-    Everything about the money for your Wedding Warmup in one place: what has come in, and each booking paid or committed against it. I add a line each time something is confirmed.
+    Everything about the money for your Wedding Warmup, in one place: what has been paid, what is due, and where every guest payment goes. I update this page as payments land and as each provider confirms.
   </p>
 </div>
 
@@ -648,7 +646,7 @@ document.querySelectorAll('.slideshow').forEach(function(show) {
 });
 </script>
 
-<script type="application/json" id="fin-data">{"updated": "2026-11-24", "couple": "Allegra & Aaron", "trip": {"name": "Wedding Warmup", "dates": "January 3 to 7, 2027", "travelers": 27}, "due_now": {"title": "Auralta: the two open payments", "lines": [{"label": "30% due July 9", "amount": 15565.5}, {"label": "30% due September 7", "amount": 15565.5}, {"label": "Less Arenal Heights credit", "amount": -1500.0}], "subtotal": 29631.0, "processing": 885.27, "processing_note": "Card processing, same as in June (2.9% + $0.30)", "total": 30516.27, "link": "https://weddings.amoreparaiso.com/item/auralta-rio-celeste-2nd-and-3rd-payments-60/", "link_note": "Card link sent to you by email", "status": "paid"}, "payments_in": [{"date": "2026-06-20", "from": "You (card)", "amount": 6888.0, "status": "paid", "breakdown": [{"label": "Auralta 10% deposit", "amount": 5188.5}, {"label": "Arenal Heights hold", "amount": 1500.0}, {"label": "Card processing", "amount": 199.5}]}, {"date": "2026-10-12", "from": "Brett Salazar & Madi Sacks (Wedding Warmup, card)", "amount": 2750.0, "status": "paid", "order": 47}, {"date": "2026-10-13", "from": "Mika Munch & Nolan Hall (Wedding Warmup, card)", "amount": 2750.0, "status": "paid", "order": 48}, {"date": "2026-10-27", "from": "Camille Zelinger & Kendrick Morris (Wedding Warmup, card)", "amount": 2750.0, "status": "paid", "order": 52}, {"date": "2026-10-29", "from": "You (bank transfer)", "amount": 29631.0, "status": "paid", "breakdown": [{"label": "Auralta 30% due July 9", "amount": 15565.5}, {"label": "Auralta 30% due September 7", "amount": 15565.5}, {"label": "Less Arenal Heights credit", "amount": -1500.0}]}, {"date": "2026-10-29", "from": "Max Fredkin (Wedding Warmup, card)", "amount": 2000.0, "status": "paid", "order": 53}, {"date": "2026-10-30", "from": "Max Siegelman (Wedding Warmup, card)", "amount": 2000.0, "status": "paid", "order": 54}, {"date": "2026-10-30", "from": "Jake Powell & Julia Martins (Wedding Warmup, card)", "amount": 2750.0, "status": "paid", "order": 55}, {"date": "2026-10-31", "from": "Chris Rea & Francesca Gencarella (Wedding Warmup, card)", "amount": 2750.0, "status": "paid", "order": 57}, {"date": "2026-10-31", "from": "Abby Bauer (Wedding Warmup, card)", "amount": 2000.0, "status": "paid", "order": 58}, {"date": "2026-10-31", "from": "Corso Rosati (Wedding Warmup, card)", "amount": 2000.0, "status": "paid", "order": 59}, {"date": "2026-11-01", "from": "Aneesha Gupta & Gautham Maran (Wedding Warmup, card)", "amount": 2750.0, "status": "paid", "order": 60}, {"date": "2026-11-02", "from": "Praniti Sinha & Apricot Tang (Wedding Warmup, card)", "amount": 2750.0, "status": "paid", "order": 61}, {"date": "2026-11-02", "from": "Hriday Bhambhvani & Karly Hampshire (Wedding Warmup, card)", "amount": 2750.0, "status": "paid", "order": 62}, {"date": "2026-11-03", "from": "Nitika Johri & Harrison Waschura (Wedding Warmup, card)", "amount": 2750.0, "status": "paid", "order": 63}, {"date": "2026-11-22", "from": "Max Savage (Wedding Warmup, card)", "amount": 2000.0, "status": "paid", "order": 72}], "credits": [{"date": "2026-09-02", "label": "Arenal Heights refund", "amount": 1500.0, "note": "Villas cancelled inside the free cancellation window. Full amount refunded and applied to your Auralta payment on October 29."}], "hotels": [{"id": "auralta", "name": "Auralta Río Celeste", "where": "Río Celeste · Bijagua", "dates": "January 5 to 7, 2027 · 2 nights", "summary": "Full buyout of all 20 tents, with lunch and dinner for the whole group on both days.", "total": 51885.0, "total_note": "Tax and service included", "breakdown": [{"label": "Accommodation, 20 tents, 2 nights", "amount": 32205.0}, {"label": "Lunches, both days", "amount": 9840.0}, {"label": "Dinners, both days", "amount": 9840.0}], "schedule": [{"label": "10% to confirm", "amount": 5188.5, "due": null, "status": "paid", "paid_on": "2026-06-20", "paid_by": "You", "due_label": "On booking"}, {"label": "30%", "amount": 15565.5, "due": "2026-07-09", "status": "paid", "paid_by": "You", "paid_on": "2026-10-30"}, {"label": "30%", "amount": 15565.5, "due": "2026-09-07", "status": "paid", "paid_by": "You", "paid_on": "2026-10-30"}, {"label": "Final 30%", "amount": 15565.5, "due": "2026-11-06", "status": "paid", "paid_by": "Guest payments", "paid_on": "2026-11-06"}], "terms": ["All payments are non-refundable.", "Cancellation from 119 to 60 days before check-in: 70% of the total. From November 7: 100%.", "All meals are taken at the hotel as part of the buyout."]}, {"id": "mdf", "name": "Montaña de Fuego", "where": "La Fortuna · Arenal", "dates": "January 3 to 5, 2027 · 2 nights", "summary": "22 Superior rooms held under group code R-121579. Breakfast, the hot springs, mud baths, trails and the morning naturalist tour are included.", "rate": "$234 per room, per night, taxes and breakfast included", "total": 7020.0, "total_note": "15 rooms x 2 nights, from your list. All 22 rooms stay held until the final count, due before December 3", "schedule": [{"label": "Rooms blocked, code R-121579", "amount": null, "status": "confirmed", "note": "No deposit required to hold"}, {"label": "Full prepayment", "amount": 7020.0, "due": "2026-12-04", "status": "upcoming", "paid_by": "Guest payments"}], "terms": ["Rooms not needed can be released without penalty until December 3. All 22 rooms stay held until you confirm the final count.", "From December 4 (30 days before check-in), the full amount is charged for any cancellation.", "The hotel reviews the block with us 60 days before check-in (November 4)."], "breakdown": [{"label": "15 rooms x 2 nights x $234", "amount": 7020.0}]}], "services": [{"date": "2027-01-03", "name": "Shuttles, Liberia airport to Montaña de Fuego", "provider": null, "amount": null, "status": "confirming", "terms": null}, {"date": "2027-01-04", "name": "ATV tour", "provider": null, "amount": null, "status": "confirming", "terms": null}, {"date": "2027-01-04", "name": "Hike", "provider": null, "amount": null, "status": "confirming", "terms": null}, {"date": "2027-01-04", "name": "Hot springs at Montaña de Fuego", "provider": "Montaña de Fuego", "amount": null, "status": "included", "terms": "Included in the room rate"}, {"date": "2027-01-05", "name": "Whitewater rafting", "provider": null, "amount": null, "status": "confirming", "terms": null}, {"date": "2027-01-05", "name": "Transfer, Montaña de Fuego to rafting to Auralta", "provider": null, "amount": null, "status": "confirming", "terms": null}, {"date": "2027-01-06", "name": "Río Celeste hike, park tickets and transport", "provider": null, "amount": null, "status": "confirming", "terms": null}, {"date": "2027-01-07", "name": "Transfer, Auralta to El Mangroove", "provider": null, "amount": null, "status": "confirming", "terms": null}], "guests": [{"party": "Aneesha Gupta & Gautham Maran", "type": "Couple", "amount": 2750, "status": "paid", "sent_on": "2026-10-12", "paid_on": "2026-11-01", "order": 60}, {"party": "Brett Salazar & Madi Sacks", "type": "Couple", "amount": 2750, "status": "paid", "sent_on": "2026-10-12", "paid_on": "2026-10-12", "order": 47}, {"party": "Camille Zelinger & Kendrick Morris", "type": "Couple", "amount": 2750, "status": "paid", "sent_on": "2026-10-12", "paid_on": "2026-10-27", "order": 52}, {"party": "Hriday Bhambhvani & Karly Hampshire", "type": "Couple", "amount": 2750, "status": "paid", "sent_on": "2026-10-12", "paid_on": "2026-11-02", "order": 62}, {"party": "Jake Powell & Julia Martins", "type": "Couple", "amount": 2750, "status": "paid", "sent_on": "2026-10-12", "paid_on": "2026-10-30", "order": 55}, {"party": "Max Siegelman", "type": "Single", "amount": 2000, "status": "paid", "sent_on": "2026-10-12", "note": "Riley cannot attend (Max, Oct 27)", "paid_on": "2026-10-30", "order": 54}, {"party": "Mika Munch & Nolan Hall", "type": "Couple", "amount": 2750, "status": "paid", "sent_on": "2026-10-12", "paid_on": "2026-10-13", "order": 48}, {"party": "Nitika Johri & Harrison Waschura", "type": "Couple", "amount": 2750, "status": "paid", "sent_on": "2026-10-12", "paid_on": "2026-11-03", "order": 63}, {"party": "Praniti Sinha & Apricot Tang", "type": "Couple", "amount": 2750, "status": "paid", "sent_on": "2026-10-12", "paid_on": "2026-11-02", "order": 61}, {"party": "Chris Rea & Francesca Gencarella", "type": "Couple", "amount": 2750, "status": "paid", "sent_on": "2026-10-23", "paid_on": "2026-10-31", "order": 57}, {"party": "Abby Bauer", "type": "Single", "amount": 2000, "status": "paid", "sent_on": "2026-10-12", "paid_on": "2026-10-31", "order": 58}, {"party": "Corso Rosati", "type": "Single", "amount": 2000, "status": "paid", "sent_on": "2026-10-12", "paid_on": "2026-10-31", "order": 59}, {"party": "Max Fredkin", "type": "Single", "amount": 2000, "status": "paid", "sent_on": "2026-10-12", "paid_on": "2026-10-29", "order": 53}, {"party": "Max Savage", "type": "Single", "amount": 2000, "status": "paid", "sent_on": "2026-10-12", "paid_on": "2026-11-22", "order": 72}, {"party": "Will Reister", "type": "Single", "amount": null, "status": "tbd", "note": "No hotel charge. Transport and activities to be confirmed with you first"}, {"party": "Lauren Esrig", "type": "Auralta only", "amount": null, "status": "tbd", "note": "Not coming (Ally, Nov 10). Never billed, nothing to refund"}], "guest_note": "Guest prices are all-in, taxes and fees included, and cover accommodation at both hotels (including the Auralta meals), transport and activities. Will and Lauren are not charged for hotel. Card processing (Stripe, 2.9% + $0.30 per payment) comes out of each guest payment, so a $2,750 payment leaves $2,669.95 to spend and a $2,000 payment leaves $1,941.70.", "milestones": [{"date": "2026-11-04", "label": "Montaña de Fuego reviews the room block with us"}, {"date": "2026-12-03", "label": "Last day to release Montaña de Fuego rooms without penalty"}], "card_fee": {"pct": 0.029, "fixed": 0.3, "label": "Card processing (Stripe, 2.9% + $0.30 per payment)"}, "costs": [{"label": "Arenal Heights villa hold", "detail": "Cancelled; refunded in full on Sep 2 (shown above)", "amount": 1500.0, "status": "refunded"}, {"label": "Card processing on your June payment", "detail": "Stripe, 2.9% + $0.30", "amount": 199.5, "status": "paid"}, {"label": "Auralta Río Celeste", "detail": "Jan 5 to 7 · full buyout of 20 tents, lunch and dinner both days, tax and service included", "amount": 51885.0, "status": "paid"}, {"label": "Bus, Auralta to El Mangroove", "detail": "Thu Jan 7, 11 am · 40-seat bus for the group, $840 + tax", "amount": 949.2, "status": "half_paid", "note": "the rest is paid 72 hours before the ride"}, {"label": "Montaña de Fuego", "detail": "Jan 3 to 5 · 15 rooms x 2 nights x $234, taxes and breakfast included", "amount": 7020.0, "status": "to_pay", "note": "due Dec 6 with the final room list"}]}</script>
+<script type="application/json" id="fin-data">{"updated": "2026-11-24", "couple": "Allegra & Aaron", "trip": {"name": "Wedding Warmup", "dates": "January 3 to 7, 2027", "travelers": 27}, "due_now": {"title": "Auralta: the two open payments", "lines": [{"label": "30% due July 9", "amount": 15565.5}, {"label": "30% due September 7", "amount": 15565.5}, {"label": "Less Arenal Heights credit", "amount": -1500.0}], "subtotal": 29631.0, "processing": 885.27, "processing_note": "Card processing, same as in June (2.9% + $0.30)", "total": 30516.27, "link": "https://weddings.amoreparaiso.com/item/auralta-rio-celeste-2nd-and-3rd-payments-60/", "link_note": "Card link sent to you by email", "status": "paid"}, "payments_in": [{"date": "2026-06-20", "from": "You (card)", "amount": 6888.0, "status": "paid", "breakdown": [{"label": "Auralta 10% deposit", "amount": 5188.5}, {"label": "Arenal Heights hold", "amount": 1500.0}, {"label": "Card processing", "amount": 199.5}]}, {"date": "2026-10-12", "from": "Brett Salazar & Madi Sacks (Wedding Warmup, card)", "amount": 2750.0, "status": "paid", "order": 47}, {"date": "2026-10-13", "from": "Mika Munch & Nolan Hall (Wedding Warmup, card)", "amount": 2750.0, "status": "paid", "order": 48}, {"date": "2026-10-27", "from": "Camille Zelinger & Kendrick Morris (Wedding Warmup, card)", "amount": 2750.0, "status": "paid", "order": 52}, {"date": "2026-10-29", "from": "You (bank transfer)", "amount": 29631.0, "status": "paid", "breakdown": [{"label": "Auralta 30% due July 9", "amount": 15565.5}, {"label": "Auralta 30% due September 7", "amount": 15565.5}, {"label": "Less Arenal Heights credit", "amount": -1500.0}]}, {"date": "2026-10-29", "from": "Max Fredkin (Wedding Warmup, card)", "amount": 2000.0, "status": "paid", "order": 53}, {"date": "2026-10-30", "from": "Max Siegelman (Wedding Warmup, card)", "amount": 2000.0, "status": "paid", "order": 54}, {"date": "2026-10-30", "from": "Jake Powell & Julia Martins (Wedding Warmup, card)", "amount": 2750.0, "status": "paid", "order": 55}, {"date": "2026-10-31", "from": "Chris Rea & Francesca Gencarella (Wedding Warmup, card)", "amount": 2750.0, "status": "paid", "order": 57}, {"date": "2026-10-31", "from": "Abby Bauer (Wedding Warmup, card)", "amount": 2000.0, "status": "paid", "order": 58}, {"date": "2026-10-31", "from": "Corso Rosati (Wedding Warmup, card)", "amount": 2000.0, "status": "paid", "order": 59}, {"date": "2026-11-01", "from": "Aneesha Gupta & Gautham Maran (Wedding Warmup, card)", "amount": 2750.0, "status": "paid", "order": 60}, {"date": "2026-11-02", "from": "Praniti Sinha & Apricot Tang (Wedding Warmup, card)", "amount": 2750.0, "status": "paid", "order": 61}, {"date": "2026-11-02", "from": "Hriday Bhambhvani & Karly Hampshire (Wedding Warmup, card)", "amount": 2750.0, "status": "paid", "order": 62}, {"date": "2026-11-03", "from": "Nitika Johri & Harrison Waschura (Wedding Warmup, card)", "amount": 2750.0, "status": "paid", "order": 63}, {"date": "2026-11-22", "from": "Max Savage (Wedding Warmup, card)", "amount": 2000.0, "status": "paid", "order": 72}], "credits": [{"date": "2026-09-02", "label": "Arenal Heights refund", "amount": 1500.0, "note": "Villas cancelled inside the free cancellation window. Full amount refunded and applied to your Auralta payment on October 29."}], "hotels": [{"id": "auralta", "name": "Auralta Río Celeste", "where": "Río Celeste · Bijagua", "dates": "January 5 to 7, 2027 · 2 nights", "summary": "Full buyout of all 20 tents, with lunch and dinner for the whole group on both days.", "total": 51885.0, "total_note": "Tax and service included", "breakdown": [{"label": "Accommodation, 20 tents, 2 nights", "amount": 32205.0}, {"label": "Lunches, both days", "amount": 9840.0}, {"label": "Dinners, both days", "amount": 9840.0}], "schedule": [{"label": "10% to confirm", "amount": 5188.5, "due": null, "status": "paid", "paid_on": "2026-06-20", "paid_by": "You", "due_label": "On booking"}, {"label": "30%", "amount": 15565.5, "due": "2026-07-09", "status": "paid", "paid_by": "You", "paid_on": "2026-10-30"}, {"label": "30%", "amount": 15565.5, "due": "2026-09-07", "status": "paid", "paid_by": "You", "paid_on": "2026-10-30"}, {"label": "Final 30%", "amount": 15565.5, "due": "2026-11-06", "status": "paid", "paid_by": "Guest payments", "paid_on": "2026-11-06"}], "terms": ["All payments are non-refundable.", "Cancellation from 119 to 60 days before check-in: 70% of the total. From November 7: 100%.", "All meals are taken at the hotel as part of the buyout."]}, {"id": "mdf", "name": "Montaña de Fuego", "where": "La Fortuna · Arenal", "dates": "January 3 to 5, 2027 · 2 nights", "summary": "22 Superior rooms held under group code R-121579. Breakfast, the hot springs, mud baths, trails and the morning naturalist tour are included.", "rate": "$234 per room, per night, taxes and breakfast included", "total": 7020.0, "total_note": "15 rooms x 2 nights, from your list. All 22 rooms stay held until the final count and room list, due December 6", "schedule": [{"label": "Rooms blocked, code R-121579", "amount": null, "status": "confirmed", "note": "No deposit required to hold"}, {"label": "Full prepayment", "amount": 7020.0, "due": "2026-12-06", "status": "upcoming", "paid_by": "Guest payments"}], "terms": ["Rooms not needed can be released without penalty until December 3. All 22 rooms stay held until you confirm the final count.", "From December 4 (30 days before check-in), the full amount is charged for any cancellation."], "breakdown": [{"label": "15 rooms x 2 nights x $234", "amount": 7020.0}]}], "services": [{"date": "2027-01-03", "name": "Shuttles, Liberia airport to Montaña de Fuego", "provider": null, "amount": null, "status": "confirming", "terms": null}, {"date": "2027-01-04", "name": "ATV tour", "provider": null, "amount": null, "status": "confirming", "terms": null}, {"date": "2027-01-04", "name": "Night walk", "provider": null, "amount": null, "status": "confirming", "terms": null}, {"date": "2027-01-04", "name": "Hot springs at Montaña de Fuego", "provider": "Montaña de Fuego", "amount": null, "status": "included", "terms": "Included in the room rate"}, {"date": "2027-01-05", "name": "Whitewater rafting", "provider": null, "amount": null, "status": "confirming", "terms": null}, {"date": "2027-01-05", "name": "Transfer, Montaña de Fuego to rafting to Auralta", "provider": null, "amount": null, "status": "confirming", "terms": null}, {"date": "2027-01-06", "name": "Río Celeste hike, park tickets and transport", "provider": null, "amount": null, "status": "confirming", "terms": null}, {"date": "2027-01-07", "name": "Transfer, Auralta to El Mangroove", "provider": "Genuine Costa Rica", "amount": 949.2, "status": "confirmed", "terms": "40-seat bus, 11 am, $840 + tax"}], "guests": [{"party": "Aneesha Gupta & Gautham Maran", "type": "Couple", "amount": 2750, "status": "paid", "sent_on": "2026-10-12", "paid_on": "2026-11-01", "order": 60}, {"party": "Brett Salazar & Madi Sacks", "type": "Couple", "amount": 2750, "status": "paid", "sent_on": "2026-10-12", "paid_on": "2026-10-12", "order": 47}, {"party": "Camille Zelinger & Kendrick Morris", "type": "Couple", "amount": 2750, "status": "paid", "sent_on": "2026-10-12", "paid_on": "2026-10-27", "order": 52}, {"party": "Hriday Bhambhvani & Karly Hampshire", "type": "Couple", "amount": 2750, "status": "paid", "sent_on": "2026-10-12", "paid_on": "2026-11-02", "order": 62}, {"party": "Jake Powell & Julia Martins", "type": "Couple", "amount": 2750, "status": "paid", "sent_on": "2026-10-12", "paid_on": "2026-10-30", "order": 55}, {"party": "Max Siegelman", "type": "Single", "amount": 2000, "status": "paid", "sent_on": "2026-10-12", "note": "Riley cannot attend (Max, Oct 27)", "paid_on": "2026-10-30", "order": 54}, {"party": "Mika Munch & Nolan Hall", "type": "Couple", "amount": 2750, "status": "paid", "sent_on": "2026-10-12", "paid_on": "2026-10-13", "order": 48}, {"party": "Nitika Johri & Harrison Waschura", "type": "Couple", "amount": 2750, "status": "paid", "sent_on": "2026-10-12", "paid_on": "2026-11-03", "order": 63}, {"party": "Praniti Sinha & Apricot Tang", "type": "Couple", "amount": 2750, "status": "paid", "sent_on": "2026-10-12", "paid_on": "2026-11-02", "order": 61}, {"party": "Chris Rea & Francesca Gencarella", "type": "Couple", "amount": 2750, "status": "paid", "sent_on": "2026-10-23", "paid_on": "2026-10-31", "order": 57}, {"party": "Abby Bauer", "type": "Single", "amount": 2000, "status": "paid", "sent_on": "2026-10-12", "paid_on": "2026-10-31", "order": 58}, {"party": "Corso Rosati", "type": "Single", "amount": 2000, "status": "paid", "sent_on": "2026-10-12", "paid_on": "2026-10-31", "order": 59}, {"party": "Max Fredkin", "type": "Single", "amount": 2000, "status": "paid", "sent_on": "2026-10-12", "paid_on": "2026-10-29", "order": 53}, {"party": "Max Savage", "type": "Single", "amount": 2000, "status": "paid", "sent_on": "2026-10-12", "paid_on": "2026-11-22", "order": 72}, {"party": "Will Reister", "type": "Single", "amount": null, "status": "tbd", "note": "No hotel charge. Transport and activities to be confirmed with you first"}, {"party": "Lauren Esrig", "type": "Auralta only", "amount": null, "status": "tbd", "note": "Not coming (Ally, Nov 10). Never billed, nothing to refund"}], "guest_note": "Guest prices are all-in, taxes and fees included, and cover accommodation at both hotels (including the Auralta meals), transport and activities. Will and Lauren are not charged for hotel. Card processing (Stripe, 2.9% + $0.30 per payment) comes out of each guest payment, so a $2,750 payment leaves $2,669.95 to spend and a $2,000 payment leaves $1,941.70.", "milestones": [{"date": "2026-11-04", "label": "Montaña de Fuego reviews the room block with us"}, {"date": "2026-12-03", "label": "Last day to release Montaña de Fuego rooms without penalty"}], "card_fee": {"pct": 0.029, "fixed": 0.3, "label": "Card processing (Stripe, 2.9% + $0.30 per payment)"}, "costs": [{"label": "Auralta Río Celeste", "detail": "Jan 5 to 7 · full buyout, tents and meals", "amount": 51885.0, "status": "paid"}, {"label": "Bus, Auralta to El Mangroove", "detail": "Thu Jan 7, 11 am", "amount": 949.2, "status": "paid"}, {"label": "Montaña de Fuego", "detail": "Jan 3 to 5 · 15 rooms x 2 nights", "amount": 7020.0, "status": "to_pay", "note": "to pay by Dec 6"}]}</script>
 
 <script>
 (function () {
@@ -686,61 +684,156 @@ document.querySelectorAll('.slideshow').forEach(function(show) {
 
   function render(d) {
     document.getElementById('fin-updated').textContent = 'Updated ' + date(d.updated, true);
+    var h = '';
+
+    /* ---- Summary tiles ---- */
+    var confirmedCost = sum(d.hotels, function (x) { return x.total; }) +
+                        sum(d.services, function (x) { return x.amount; });
+    var paidByYou = sum(d.payments_in, function (p) {
+      return sum(p.breakdown || [], function (b) { return /processing/i.test(b.label) ? 0 : b.amount; });
+    });
+    var guestExpected = sum(d.guests, function (g) { return g.amount; });
+    var guestPaid = sum(d.guests, function (g) { return g.status === 'paid' ? g.amount : 0; });
+    /* Card processing (Stripe) on guest payments: actual fee if recorded on the payment, else pct + fixed */
     var CF = d.card_fee || { pct: 0.029, fixed: 0.30 };
     function cardFee(amt) { return Math.round((amt * CF.pct + CF.fixed) * 100) / 100; }
-    function rowFee(p) { return typeof p.fee === 'number' ? p.fee : cardFee(p.amount); }
     var guestRows = d.payments_in.filter(function (p) { return p.order; });
-    var guestParties = d.guests.filter(function (g) { return g.amount; });
-    var guestPaid = sum(guestRows, function (p) { return p.amount; });
-    var guestFees = sum(guestRows, rowFee);
-    var CHIP = { paid: ['paid', 'Paid'], refunded: ['confirmed', 'Refunded'], half_paid: ['upcoming', 'Half paid'], to_pay: ['due', 'To pay'] };
-
-    var inRows = [];
-    d.payments_in.forEach(function (p) {
-      if (p.order) return;
-      var how = /bank/i.test(p.from) ? 'bank transfer' : 'card';
-      inRows.push({ date: p.date, name: 'From you', meta: date(p.date, true) + ' · ' + how, amount: p.amount });
+    function rowFee(p) { return typeof p.fee === 'number' ? p.fee : cardFee(p.amount); }
+    var feesPaid = sum(guestRows, rowFee);
+    var feesExpected = sum(d.guests, function (g) {
+      if (!g.amount) return 0;
+      var r = g.order ? guestRows.filter(function (p) { return p.order === g.order; })[0] : null;
+      return r ? rowFee(r) : cardFee(g.amount);
     });
-    (d.credits || []).forEach(function (c) { inRows.push({ date: c.date, name: c.label, meta: date(c.date, true), amount: c.amount }); });
-    if (guestRows.length) {
-      var last = guestRows.map(function (p) { return p.date; }).sort().pop();
-      inRows.push({ date: last, name: 'Guest payments', meta: guestRows.length + ' of ' + guestParties.length + ' guest parties paid · by card', amount: guestPaid });
-    }
-    inRows.sort(function (a, b) { return a.date < b.date ? -1 : 1; });
-    var totalIn = sum(inRows, function (r) { return r.amount; });
-
+    var guestNet = guestPaid - feesPaid;
+    var due = d.due_now;
+    var totalIn = sum(d.payments_in, function (p) { return p.amount; });
+    var ownFees = sum(d.payments_in, function (p) { return sum(p.breakdown || [], function (b) { return /processing/i.test(b.label) ? b.amount : 0; }); });
     var outRows = (d.costs || []).map(function (c) { return { name: c.label, meta: c.detail + (c.note ? ' · ' + c.note : ''), amount: c.amount, st: c.status }; });
-    if (guestRows.length) outRows.splice(2, 0, { name: 'Card processing on guest payments', meta: 'Stripe, 2.9% + $0.30 on each of the ' + guestRows.length + ' payments', amount: guestFees, st: 'paid' });
-    var totalOut = sum(outRows, function (r) { return r.amount; });
-    var toPay = sum(outRows, function (r) { return r.st === 'to_pay' ? r.amount : r.st === 'half_paid' ? Math.round(r.amount * 50) / 100 : 0; });
-
-    var h = '<div class="tiles tiles3">' +
-      tile('Received', money2(totalIn), 'From you and your guests', false) +
-      tile('Paid and committed', money2(totalOut), money2(toPay) + ' of it still to pay', false) +
-      tile('Balance', money2(totalIn - totalOut), 'For transport and activities', true) +
-      '</div>';
-
-    h += section('01', 'Received');
+    var allFees = Math.round((ownFees + feesPaid) * 100) / 100;
+    var LCHIP = { paid: ['paid', 'Paid'], confirmed: ['upcoming', 'Confirmed'], to_pay: ['due', 'To pay'] };
+    h += section('01', 'Money in and out');
     h += '<div class="rows">';
-    inRows.forEach(function (r) {
-      h += '<div class="row"><div class="row-main"><div class="row-name">' + esc(r.name) + '</div><div class="row-meta">' + esc(r.meta) + '</div></div><span></span>' +
-           '<div class="row-amt plus">' + money2(r.amount) + '</div></div>';
-    });
-    h += '<div class="row total"><div class="row-main"><div class="row-name">Total received</div></div><span></span><div class="row-amt">' + money2(totalIn) + '</div></div>';
-    h += '</div>';
-
-    h += section('02', 'Paid and committed', 'Each booking is added here as it is confirmed, with what it costs.');
-    h += '<div class="rows">';
+    h += '<div class="row total"><div class="row-main"><div class="row-name">Total received</div><div class="row-meta">From you and your guests, less card processing fee</div></div><span></span><div class="row-amt">' + money2(totalIn - allFees) + '</div></div>';
     outRows.forEach(function (r) {
-      var c = CHIP[r.st] || ['upcoming', r.st];
+      var c = LCHIP[r.st] || ['upcoming', r.st];
       h += '<div class="row"><div class="row-main"><div class="row-name">' + esc(r.name) + '</div><div class="row-meta">' + esc(r.meta) + '</div></div>' +
            '<span class="chip ' + c[0] + '">' + esc(c[1]) + '</span><div class="row-amt">' + money2(-r.amount) + '</div></div>';
     });
-    h += '<div class="row total"><div class="row-main"><div class="row-name">Balance</div><div class="row-meta">Received less paid and committed</div></div><span></span><div class="row-amt">' + money2(totalIn - totalOut) + '</div></div>';
+    h += '<div class="row total"><div class="row-main"><div class="row-name">Balance</div></div><span></span><div class="row-amt">' + money2(totalIn - allFees - sum(outRows, function (r) { return r.amount; })) + '</div></div>';
     h += '</div>';
-    h += '<p class="fin-note">Transport and activities are added as each one is booked. Anything left at the end is wired back to you.<br>Questions about anything here? Just reply to my email.</p>';
+
+    /* ---- 01 Due now ---- */
+    var n = 2;
+    if (due && due.status === 'due') {
+      h += section('0' + n++, 'Due now');
+      h += '<div class="due-box"><div class="due-head"><div class="due-title">' + esc(due.title) + '</div>' + chip('due') + '</div>';
+      due.lines.forEach(function (l) {
+        h += '<div class="line' + (l.amount < 0 ? ' minus' : '') + '"><span>' + esc(l.label) + '</span><span class="amt">' + money2(l.amount) + '</span></div>';
+      });
+      h += '<div class="line"><span>Due now</span><span class="amt">' + money2(due.subtotal) + '</span></div>';
+      h += '<div class="line"><span>' + esc(due.processing_note) + '</span><span class="amt">' + money2(due.processing) + '</span></div>';
+      h += '<div class="line total"><span>Total on the card link</span><span class="amt">' + money2(due.total) + '</span></div>';
+      if (due.link) {
+        h += '<a class="pay-btn" href="' + esc(due.link) + '" target="_blank" rel="noopener">' + ICON_CARD + 'Pay by card</a>';
+      } else {
+        h += '<div class="pay-note">' + ICON_MAIL + esc(due.link_note) + '</div>';
+      }
+      h += '</div>';
+    }
+
+    /* ---- Next due dates ---- */
+    var upcoming = [];
+    d.hotels.forEach(function (ht) {
+      ht.schedule.forEach(function (sc) {
+        if (sc.due && sc.status === 'upcoming') upcoming.push({ date: sc.due, name: ht.name + ', ' + sc.label.toLowerCase(), meta: sc.paid_by ? 'From ' + sc.paid_by.toLowerCase() : '', amount: sc.amount, st: 'upcoming' });
+      });
+    });
+    d.services.forEach(function (sv) {
+      if (sv.due && sv.status !== 'paid') upcoming.push({ date: sv.due, name: sv.name, meta: sv.provider || '', amount: sv.amount, st: 'upcoming' });
+    });
+    (d.milestones || []).forEach(function (m) { if (m.date < d.updated) return; upcoming.push({ date: m.date, name: m.label, meta: '', amount: null, st: 'deadline' }); });
+    upcoming.sort(function (a, b) { return a.date < b.date ? -1 : 1; });
+    if (upcoming.length) {
+      h += section('0' + n++, 'Next due dates', 'Upcoming payments and key dates. New ones are added here as each provider confirms.');
+      h += '<div class="rows">';
+      upcoming.forEach(function (u) {
+        h += '<div class="row"><div class="row-main"><div class="row-name"><span class="when">' + esc(date(u.date, true)) + '</span>' + esc(u.name) + '</div>' +
+             (u.meta ? '<div class="row-meta">' + esc(u.meta) + '</div>' : '') + '</div>' +
+             (u.st === 'deadline' ? '<span class="chip deadline">Key date</span>' : chip(u.st)) +
+             '<div class="row-amt' + (u.amount == null ? ' muted' : '') + '">' + (u.amount != null ? money2(u.amount) : '') + '</div></div>';
+      });
+      h += '</div>';
+    }
+
+    /* ---- Hotels ---- */
+    h += section('0' + n++, 'Hotels');
+    d.hotels.forEach(function (ht) {
+      h += '<div class="card"><div class="card-loc">' + esc(ht.where) + '</div><div class="card-name">' + esc(ht.name) + '</div>' +
+           '<div class="card-dates">' + esc(ht.dates) + '</div><p class="card-summary">' + esc(ht.summary) + '</p>';
+      if (ht.rate) h += '<div class="line" style="margin-bottom:6px"><span>Rate</span><span class="amt">' + esc(ht.rate) + '</span></div>';
+      h += '<div class="total-band"><span class="lbl">Total<span class="note">' + esc(ht.total_note || '') + '</span></span><span class="val">' +
+           (ht.total != null ? money2(ht.total) : '<span style="font-size:14px;color:var(--grey99)">To be confirmed</span>') + '</span></div>';
+      if (ht.breakdown) {
+        ht.breakdown.forEach(function (b) { h += '<div class="line"><span>' + esc(b.label) + '</span><span class="amt">' + money2(b.amount) + '</span></div>'; });
+      }
+      h += '<div class="sub-head">Payments</div><div class="rows">';
+      ht.schedule.forEach(function (s) {
+        var meta = [];
+        if (s.due) meta.push('Due ' + date(s.due, true)); else if (s.due_label) meta.push(s.due_label);
+        if (s.paid_on) meta.push('Paid ' + date(s.paid_on, true));
+        if (s.paid_by) meta.push('From ' + s.paid_by.toLowerCase());
+        if (s.note) meta.push(s.note);
+        h += '<div class="row"><div class="row-main"><div class="row-name">' + esc(s.label) + '</div><div class="row-meta">' + esc(meta.join(' · ')) + '</div></div>' +
+             chip(s.status) + '<div class="row-amt' + (s.amount == null ? ' muted' : '') + '">' + (s.amount != null ? money2(s.amount) : '') + '</div></div>';
+      });
+      h += '</div>';
+      if (ht.terms && ht.terms.length) {
+        h += '<ul class="terms">' + ht.terms.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ul>';
+      }
+      h += '</div>';
+    });
+
+    /* ---- Transport & activities ---- */
+    h += section('0' + n++, 'Transport and activities',
+      'Each item shows its amount once the provider has confirmed it. As they are booked you will see the provider, the date and how it is paid.');
+    h += '<div class="rows">';
+    d.services.forEach(function (s) {
+      var meta = [date(s.date, false)];
+      if (s.provider) meta.push(s.provider);
+      if (s.terms) meta.push(s.terms);
+      h += '<div class="row"><div class="row-main"><div class="row-name">' + esc(s.name) + '</div><div class="row-meta">' + esc(meta.join(' · ')) + '</div></div>' +
+           chip(s.status) + '<div class="row-amt' + (s.amount == null ? ' muted' : '') + '">' + (s.amount != null ? money2(s.amount) : '') + '</div></div>';
+    });
+    h += '</div>';
+
+    /* ---- How the money flows ---- */
+    var auraltaFinal = 0;
+    d.hotels.forEach(function (ht) { ht.schedule.forEach(function (s) { if (/guest/i.test(s.paid_by || '') && s.amount) auraltaFinal += s.amount; }); });
+    var guestCosts = auraltaFinal + sum(d.services, function (x) { return x.amount; });
+    h += section('0' + n++, 'How the money flows');
+    h += '<div class="plan">' +
+      '<div class="plan-col"><h4>Paid by you</h4><p>The Auralta deposit in June and the two Auralta payments in October. The Arenal Heights refund went toward the October payment.</p>' +
+        '<div class="line"><span>Auralta 10% deposit, Jun 20 (card)</span><span class="amt">' + money2(5188.5) + '</span></div>' +
+        '<div class="line"><span>Auralta 30% + 30%, Oct 29 (bank transfer)</span><span class="amt">' + money2(29631) + '</span></div>' +
+        '<div class="line"><span>Arenal Heights refund applied</span><span class="amt">' + money2(1500) + '</span></div>' +
+        '<div class="line total"><span>Paid toward Auralta</span><span class="amt">' + money2(paidByYou) + '</span></div>' +
+      '</div>' +
+      '<div class="plan-col"><h4>Paid from guest payments</h4><p>The final Auralta payment, Montaña de Fuego, transport and activities.</p>' +
+        '<div class="line"><span>Guest payments expected</span><span class="amt">' + money2(guestExpected) + '</span></div>' +
+        '<div class="line"><span>' + esc(CF.label || 'Card processing (Stripe)') + '</span><span class="amt">' + money2(-feesExpected) + '</span></div>' +
+        '<div class="line"><span>Committed so far</span><span class="amt">' + money2(-guestCosts) + '</span></div>' +
+        '<div class="line total"><span>Still available</span><span class="amt">' + money2(guestExpected - feesExpected - guestCosts) + '</span></div>' +
+        '<div class="line" style="margin-top:12px"><span>Received from guests so far</span><span class="amt">' + money2(guestPaid) + '</span></div>' +
+        '<div class="line"><span>Card processing on those</span><span class="amt">' + money2(-feesPaid) + '</span></div>' +
+        '<div class="line total"><span>In hand from guests</span><span class="amt">' + money2(guestNet) + '</span></div>' +
+      '</div></div>';
+    h += '<div class="plan-foot">As Montaña de Fuego, transport and activities are confirmed, their cost comes out of the guest payments. Anything left over at the end is wired back to you. If there is a gap, it shows here first.</div>';
+
+    h += '<p class="fin-note">Questions about anything here? Just reply to my email or message me on WhatsApp.</p>';
 
     root.innerHTML = h;
+    if (location.hash) { var el = document.querySelector(location.hash); if (el) el.scrollIntoView(); }
   }
 
   function tile(label, amount, sub, accent) {
