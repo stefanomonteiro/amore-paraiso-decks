@@ -130,8 +130,7 @@ textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3
   <p class="lead">January 3 to 5. Your rooms are the Superior row, rooms 231 to 252, marked on the map below. Place everyone, choose who gets the two king beds, then send it to us and we pass it to the hotel.</p>
   <div class="steps">
     <span><b>1</b>Drag a name to a room</span>
-    <span><b>2</b>Or tap a name, then tap a room or a number on the map</span>
-    <span><b>3</b>Send it to Stefano</span>
+    <span><b>2</b>Send it to Stefano</span>
   </div>
 
   <div class="mapcard">
@@ -244,7 +243,7 @@ textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3
       if (selected === el) { el.classList.remove('sel'); selected = null; refresh(); return; }
       if (selected) selected.classList.remove('sel');
       selected = el; el.classList.add('sel');
-      $('status').innerHTML = '<b></b> selected. Now tap a room or a number on the map.'; $('status').firstChild.textContent = p.n;
+      $('status').innerHTML = '<b></b> selected. Now tap a room.'; $('status').firstChild.textContent = p.n;
     });
     return el;
   }
