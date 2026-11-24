@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Montaña de Fuego Rooms</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="https://amoreparaiso.com/wp-content/uploads/2020/08/Amore_Paraiso_Favicon.svg">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #FBF0EE; --card: #FFFFFF; --ink: #504242; --ink2: #6B5E5E; --ink3: #9A9191;
+  --line: #EFE4E2; --line2: #E3D3D0;
+  --accent: #504242; --accentSoft: #F3D7D3; --rose: #E79D9B; --sage: #86A864; --sageSoft: #EAF1E2;
+  --ok: #86A864; --warn: #C97573;
+  --r: 14px;
+  --shadow: 0 1px 2px rgba(31,42,46,.05), 0 4px 14px rgba(31,42,46,.06);
+}
+body { font-family: 'Avenir', 'Avenir Next', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 300; color: var(--ink); background: var(--bg); font-size: 15.5px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+.app { max-width: 1160px; margin: 0 auto; padding: 32px 20px 140px; }
+.logo { display: block; height: 64px; width: auto; margin-bottom: 18px; }
+.eyebrow { font-size: 11.5px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: #C97573; }
+h1 { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 38px; line-height: 1.15; margin: 8px 0 12px; }
+.lead { color: var(--ink2); max-width: 680px; font-size: 16px; }
+.steps { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+.steps span { background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; font-size: 13px; color: var(--ink2); }
+.steps b { color: var(--ink); font-weight: 600; margin-right: 4px; }
+
+.mapcard { margin-top: 26px; background: var(--card); border-radius: var(--r); box-shadow: var(--shadow); padding: 10px; }
+.map { position: relative; width: 100%; aspect-ratio: 1000 / 690; overflow: hidden; border-radius: 10px; background: #dfe6d6; }
+.map img { position: absolute; left: 0; top: -5.8%; width: 100%; height: auto; display: block; }
+.mk { position: absolute; transform: translate(-50%, -50%); min-width: 30px; height: 22px; padding: 0 6px; border-radius: 999px; background: rgba(255,255,255,.95); border: 2px solid var(--rose); color: var(--ink); font-size: 11px; font-weight: 600; display: grid; place-items: center; cursor: pointer; line-height: 1; white-space: nowrap; transition: transform .12s, background .12s; z-index: 2; font-family: inherit; }
+.mk.taken { background: var(--rose); color: #fff; border-color: #fff; }
+.mk.king::after { content: 'K'; position: absolute; top: -8px; right: -8px; width: 15px; height: 15px; border-radius: 50%; background: var(--sage); color: #fff; font-size: 9px; display: grid; place-items: center; border: 1.5px solid #fff; }
+.mk.hl { transform: translate(-50%, -50%) scale(1.35); z-index: 3; box-shadow: 0 0 0 4px rgba(231,157,155,.45); }
+.maplegend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 12.5px; color: var(--ink2); padding: 10px 6px 2px; }
+.maplegend i { display: inline-block; width: 14px; height: 14px; border-radius: 50%; vertical-align: -2px; margin-right: 6px; border: 2px solid var(--rose); background: #fff; }
+.maplegend i.t { background: var(--rose); border-color: var(--rose); }
+.maplegend i.k { background: var(--sage); border-color: var(--sage); }
+.mapscroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 10px; }
+@media (max-width: 800px) { .map { min-width: 820px; } .maphint { display: block; } }
+.maphint { display: none; font-size: 12.5px; color: var(--ink3); padding: 8px 6px 0; }
+
+.layout { display: grid; grid-template-columns: 290px 1fr; gap: 28px; margin-top: 28px; align-items: start; }
+@media (max-width: 800px) { .layout { grid-template-columns: 1fr; gap: 20px; } }
+.pool { position: sticky; top: 16px; background: var(--card); border-radius: var(--r); padding: 16px; box-shadow: var(--shadow); }
+@media (max-width: 800px) { .pool { top: 0; z-index: 5; max-height: 40vh; overflow: auto; border-radius: 0 0 var(--r) var(--r); margin: 0 -20px; padding: 14px 20px; } }
+.pool .ph { display: flex; justify-content: space-between; align-items: center; }
+.pool h3 { font-size: 14px; font-weight: 600; }
+.count { font-size: 12px; font-weight: 500; background: var(--accentSoft); color: #A9504E; border-radius: 999px; padding: 2px 9px; }
+.count:empty { display: none; }
+.pool .hint { font-size: 13px; color: var(--ink3); margin: 4px 0 12px; }
+.list { min-height: 48px; display: flex; flex-direction: column; gap: 6px; }
+.pool .list { min-height: 64px; border: 1.5px dashed var(--line2); border-radius: 12px; padding: 6px; }
+.pool .list:empty::before { content: 'Everyone has a room'; display: block; text-align: center; color: var(--ink3); font-size: 13px; padding: 14px 0; }
+
+.chip { display: flex; align-items: center; gap: 10px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 8px 10px; cursor: grab; user-select: none; -webkit-user-select: none; touch-action: none; transition: box-shadow .15s, border-color .15s; }
+.chip:hover { border-color: var(--line2); box-shadow: 0 2px 8px rgba(31,42,46,.06); }
+.chip:active { cursor: grabbing; }
+.av { display: flex; flex: none; }
+.av i { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: 11.5px; font-weight: 500; color: #fff; background: #9A8A88; border: 2px solid var(--card); }
+.av i + i { margin-left: -9px; }
+.chip.host .av i { background: #E79D9B; }
+.chip .txt { flex: 1; min-width: 0; }
+.chip .n { display: block; font-weight: 400; font-size: 14px; line-height: 1.3; }
+.chip .tag { font-size: 11px; font-weight: 500; color: #A9504E; background: var(--accentSoft); border-radius: 6px; padding: 1px 6px; margin-left: 4px; vertical-align: 1px; }
+.chip .grip { width: 14px; height: 14px; stroke: var(--ink3); fill: none; stroke-width: 2.4; stroke-linecap: round; flex: none; }
+.chip.sel { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accentSoft); }
+.chip.ghost { opacity: .3; }
+.chip.drag { box-shadow: 0 12px 28px rgba(31,42,46,.18); transform: rotate(1deg); }
+
+.sh { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; }
+.sh h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; font-size: 25px; }
+.pill { font-size: 12px; font-weight: 600; border-radius: 999px; padding: 3px 10px; background: var(--accentSoft); color: #A9504E; }
+.sub { color: var(--ink2); font-size: 13.5px; margin-bottom: 12px; max-width: 680px; }
+.rooms { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+.room { background: var(--card); border-radius: var(--r); padding: 12px; box-shadow: var(--shadow); border-top: 3px solid var(--rose); transition: background .15s, box-shadow .15s; }
+.room.hl { box-shadow: 0 0 0 3px var(--accentSoft), var(--shadow); }
+.room .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.room .head b { font-weight: 500; font-size: 14px; }
+.cap { display: flex; gap: 4px; align-items: center; }
+.cap i { width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
+.cap i.on { background: var(--ink2); }
+.room.full .cap i.on { background: var(--ok); }
+.room .list:empty::before { content: 'Drop here'; display: block; color: var(--ink3); font-size: 13px; text-align: center; padding: 11px; border: 1.5px dashed var(--line2); border-radius: 10px; }
+.room.free { opacity: .82; }
+.bed { margin-top: 10px; display: flex; background: var(--bg); border-radius: 10px; padding: 3px; gap: 3px; }
+.bed[hidden] { display: none; }
+.bed button { flex: 1; font: inherit; font-size: 12.5px; font-weight: 500; border: 0; background: transparent; color: var(--ink2); border-radius: 8px; padding: 6px 4px; cursor: pointer; }
+.bed button[aria-pressed="true"] { background: var(--card); color: var(--ink); box-shadow: 0 1px 3px rgba(31,42,46,.12); }
+.bed button:disabled { opacity: .4; cursor: default; }
+
+.notes { margin-top: 26px; max-width: 680px; }
+.notes label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+textarea, input[type=text] { width: 100%; font: inherit; font-size: 16px; color: var(--ink); border: 1px solid var(--line2); border-radius: 12px; padding: 12px 14px; background: var(--card); }
+textarea { min-height: 100px; resize: vertical; }
+textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accentSoft); }
+
+.bar { position: fixed; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid var(--line); padding: 12px 20px calc(12px + env(safe-area-inset-bottom)); z-index: 10; }
+.bar .in { max-width: 1160px; margin: 0 auto; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.status { flex: 1; font-size: 14px; color: var(--ink2); min-width: 200px; }
+.status b { color: var(--ink); font-weight: 600; }
+.btn { font: inherit; font-size: 13px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: #fff; background: var(--accent); border: 0; border-radius: 12px; padding: 13px 22px; cursor: pointer; transition: filter .15s; }
+.btn:hover { filter: brightness(1.08); }
+.btn.ghost { background: transparent; color: var(--ink2); border: 1px solid var(--line2); }
+.btn:disabled { opacity: .35; cursor: default; filter: none; }
+@media (max-width: 800px) {
+  .logo { height: 52px; }
+  .app { padding: 24px 20px 150px; }
+  h1 { font-size: 30px; }
+  .status { flex-basis: 100%; font-size: 13px; min-width: 0; }
+  .btn { padding: 12px 16px; }
+  #send { flex: 1; }
+}
+.err { color: var(--warn); font-weight: 500; }
+.hp { position: absolute; left: -9999px; }
+.done { display: none; text-align: center; padding: 18vh 20px; }
+.done .circle { width: 72px; height: 72px; border-radius: 50%; background: var(--accentSoft); display: grid; place-items: center; margin: 0 auto 20px; }
+.done .circle svg { width: 34px; height: 34px; stroke: var(--accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.done .lead { margin: 0 auto; }
+</style>
+</head>
+<body>
+<div class="app" id="app">
+  <img class="logo" src="https://amoreparaiso.com/wp-content/uploads/2020/08/Amore_Paraiso_Full_Logo.svg" alt="Amore Paraíso">
+  <div class="eyebrow">Ally &amp; Aaron &middot; Wedding Warmup</div>
+  <h1>Who sleeps where at Montaña de Fuego</h1>
+  <p class="lead">January 3 to 5. Your rooms are the Superior row, rooms 231 to 252, marked on the map below. Place everyone, choose who gets the two king beds, then send it to us and we pass it to the hotel.</p>
+  <div class="steps">
+    <span><b>1</b>Drag a name to a room</span>
+    <span><b>2</b>Or tap a name, then tap a room or a number on the map</span>
+    <span><b>3</b>Send it to Stefano</span>
+  </div>
+
+  <div class="mapcard">
+    <div class="mapscroll"><div class="map" id="map">
+      <img src="map.webp" alt="Map of Montaña de Fuego with room numbers">
+    </div></div>
+    <p class="maphint">Swipe the map sideways to see the whole row.</p>
+    <div class="maplegend">
+      <span><i></i>Free room</span>
+      <span><i class="t"></i>Someone placed</span>
+      <span><i class="k"></i>King bed</span>
+    </div>
+  </div>
+
+  <div class="layout">
+    <aside class="pool">
+      <div class="ph"><h3>Not placed yet</h3><span class="count" id="poolCount"></span></div>
+      <p class="hint">Drop a name here to take it out of a room.</p>
+      <div class="list" id="pool" data-room="pool"></div>
+    </aside>
+
+    <main>
+      <div class="sh"><h2>Superior rooms</h2><span class="pill">22 rooms &middot; up to 2 each</span></div>
+      <p class="sub">Every room has two double beds, except two that have one king bed. Breakfast, the hot springs, the mud baths and the trail are included. The hotel gives the final room numbers closer to the date, all in this row, so think of this as who is next to whom; any room left empty goes back to the hotel.</p>
+      <div class="rooms" id="rooms"></div>
+
+      <div class="notes">
+        <label for="notes">Anything we should tell the hotel?</label>
+        <textarea id="notes" placeholder="Optional"></textarea>
+        <input type="text" id="hp" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      </div>
+    </main>
+  </div>
+</div>
+
+<div class="done" id="done">
+  <div class="circle"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+  <h1>Thank you!</h1>
+  <p class="lead">We have your room plan and will send it to Montaña de Fuego. If anything changes, just reply to our email.</p>
+</div>
+
+<div class="bar" id="bar">
+  <div class="in">
+    <div class="status" id="status"></div>
+    <button class="btn ghost" id="reset" type="button">Start over</button>
+    <button class="btn" id="send" type="button">Send to Stefano</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
+<script>
+(function () {
+  var PARTIES = [
+    { id: 'aa',  n: 'Ally and Aaron', p: 2, host: true },
+    { id: 'ag',  n: 'Aneesha and Gautham', p: 2 },
+    { id: 'bm',  n: 'Brett and Madi', p: 2 },
+    { id: 'ck',  n: 'Camille and Kendrick', p: 2 },
+    { id: 'cf',  n: 'Chris and Francesca', p: 2 },
+    { id: 'hk',  n: 'Hriday and Karly', p: 2 },
+    { id: 'jj',  n: 'Jake and Julia', p: 2 },
+    { id: 'mn',  n: 'Mika and Nolan', p: 2 },
+    { id: 'nh',  n: 'Nitika and Harrison', p: 2 },
+    { id: 'pa',  n: 'Praniti and Apricot', p: 2 },
+    { id: 'msi', n: 'Max Siegelman', p: 1 },
+    { id: 'ab',  n: 'Abby Bauer', p: 1 },
+    { id: 'mf',  n: 'Max Fredkin', p: 1 },
+    { id: 'cr',  n: 'Corso Rosati', p: 1 },
+    { id: 'msa', n: 'Max Savage', p: 1 },
+    { id: 'wr',  n: 'Will Reister', p: 1 }
+  ];
+  // Room label positions on the hotel's map (percent of the 1000 x 750 image).
+  var POS = {
+    231: [71.2, 43.6], 232: [73.3, 47.1], 233: [75.5, 50.3], 234: [77.7, 53.3],
+    235: [67.2, 72.0], 236: [64.5, 74.9], 237: [62.1, 77.7], 238: [59.7, 80.7],
+    239: [57.0, 82.9], 240: [54.1, 84.0], 241: [51.2, 84.9], 242: [48.2, 85.3],
+    243: [45.2, 85.6], 244: [42.4, 85.9], 245: [39.6, 86.4], 246: [36.7, 86.7],
+    247: [33.0, 89.6], 248: [29.9, 89.3], 249: [26.8, 89.3], 250: [24.0, 87.5],
+    251: [21.0, 85.3], 252: [17.8, 83.3]
+  };
+  var ROOMS = [];
+  for (var r = 231; r <= 252; r++) ROOMS.push({ id: String(r), label: 'Room ' + r, cap: 2 });
+  var KINGS = 2;
+  var IMG_TOP = -5.8, IMG_H = 750 / 690 * 100; // image offset inside the cropped frame, in % of frame height
+  var KEY = 'aa-mdf-rooming-v1';
+  var byId = {}; PARTIES.forEach(function (p) { byId[p.id] = p; });
+  var roomById = {}; ROOMS.forEach(function (t) { roomById[t.id] = t; });
+  var beds = {};
+  var selected = null;
+  var $ = function (id) { return document.getElementById(id); };
+
+  function load() { try { var s = JSON.parse(localStorage.getItem(KEY) || 'null'); if (s && s.place) return s; } catch (e) {} return null; }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify({ place: current(), beds: beds, notes: $('notes').value })); } catch (e) {} }
+
+  function chip(p) {
+    var el = document.createElement('div');
+    el.className = 'chip' + (p.host ? ' host' : '');
+    el.dataset.id = p.id;
+    var av = document.createElement('span'); av.className = 'av';
+    (p.p === 2 ? p.n.split(' and ').map(function (x) { return x[0]; }) : [p.n.split(' ').map(function (w) { return w[0]; }).join('').slice(0, 2).toUpperCase()]).forEach(function (t) {
+      var i = document.createElement('i'); i.textContent = t; av.appendChild(i);
+    });
+    var txt = document.createElement('span'); txt.className = 'txt';
+    var n = document.createElement('span'); n.className = 'n'; n.textContent = p.n;
+    if (p.host) { var tg = document.createElement('span'); tg.className = 'tag'; tg.textContent = 'Hosts'; n.appendChild(tg); }
+    txt.appendChild(n);
+    el.appendChild(av); el.appendChild(txt);
+    el.insertAdjacentHTML('beforeend', '<svg class="grip" viewBox="0 0 24 24"><path d="M9 6h.01M9 12h.01M9 18h.01M15 6h.01M15 12h.01M15 18h.01"/></svg>');
+    el.addEventListener('click', function (ev) {
+      ev.stopPropagation();
+      if (selected === el) { el.classList.remove('sel'); selected = null; refresh(); return; }
+      if (selected) selected.classList.remove('sel');
+      selected = el; el.classList.add('sel');
+      $('status').innerHTML = '<b></b> selected. Now tap a room or a number on the map.'; $('status').firstChild.textContent = p.n;
+    });
+    return el;
+  }
+
+  function people(list) { var n = 0; list.querySelectorAll('.chip').forEach(function (c) { n += byId[c.dataset.id].p; }); return n; }
+  function listOf(id) { return document.querySelector('[data-room="' + id + '"]'); }
+  function highlight(id, on) {
+    var card = $('room-' + id), mk = $('mk-' + id);
+    if (card) card.classList.toggle('hl', on); if (mk) mk.classList.toggle('hl', on);
+  }
+
+  function build() {
+    ROOMS.forEach(function (t) {
+      var card = document.createElement('div');
+      card.className = 'room'; card.id = 'room-' + t.id;
+      card.innerHTML = '<div class="head"><b></b><span class="cap"></span></div><div class="list" data-room="' + t.id + '"></div><div class="bed" hidden></div>';
+      card.querySelector('b').textContent = t.label;
+      card.addEventListener('click', function () { if (selected) move(selected, card.querySelector('.list')); });
+      card.addEventListener('mouseenter', function () { highlight(t.id, true); });
+      card.addEventListener('mouseleave', function () { highlight(t.id, false); });
+      $('rooms').appendChild(card);
+
+      var mk = document.createElement('button');
+      mk.type = 'button'; mk.className = 'mk'; mk.id = 'mk-' + t.id; mk.textContent = t.id;
+      mk.setAttribute('aria-label', t.label);
+      var pos = POS[t.id];
+      mk.style.left = pos[0] + '%';
+      mk.style.top = (IMG_TOP + pos[1] * IMG_H / 100) + '%';
+      mk.addEventListener('click', function () {
+        if (selected) { move(selected, card.querySelector('.list')); return; }
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        highlight(t.id, true); setTimeout(function () { highlight(t.id, false); }, 1400);
+      });
+      mk.addEventListener('mouseenter', function () { highlight(t.id, true); });
+      mk.addEventListener('mouseleave', function () { highlight(t.id, false); });
+      $('map').appendChild(mk);
+    });
+    document.querySelector('.pool').addEventListener('click', function () { if (selected) move(selected, $('pool')); });
+  }
+
+  function move(el, list) {
+    var t = list.dataset.room;
+    if (t !== 'pool') {
+      var room = roomById[t];
+      var add = el.parentNode === list ? 0 : byId[el.dataset.id].p;
+      if (people(list) + add > room.cap) { flash(room.label + ' fits up to ' + room.cap + '.'); return; }
+    }
+    list.appendChild(el); el.classList.remove('sel'); selected = null; refresh();
+  }
+
+  function place(state) {
+    var pool = $('pool');
+    PARTIES.forEach(function (p) {
+      var where = state[p.id];
+      var list = where && where !== 'pool' ? listOf(where) : pool;
+      (list || pool).appendChild(chip(p));
+    });
+  }
+
+  function current() { var out = {}; document.querySelectorAll('.chip').forEach(function (c) { out[c.dataset.id] = c.parentNode.dataset.room; }); return out; }
+  function kingsUsed() { var n = 0; Object.keys(beds).forEach(function (k) { if (beds[k] === 'King bed') n++; }); return n; }
+
+  var flashT;
+  function flash(msg) { var s = $('status'); s.innerHTML = '<span class="err"></span>'; s.firstChild.textContent = msg; clearTimeout(flashT); flashT = setTimeout(refresh, 2400); }
+
+  function refresh() {
+    var placed = 0, ppl = 0, used = 0;
+    ROOMS.forEach(function (t) {
+      var card = $('room-' + t.id), list = card.querySelector('.list'), n = people(list);
+      var chips = list.querySelectorAll('.chip');
+      if (!chips.length) delete beds[t.id];
+    });
+    ROOMS.forEach(function (t) {
+      var card = $('room-' + t.id), list = card.querySelector('.list'), n = people(list);
+      var chips = list.querySelectorAll('.chip');
+      var cap = card.querySelector('.cap'); cap.innerHTML = '';
+      for (var k = 0; k < t.cap; k++) { var d = document.createElement('i'); if (k < n) d.className = 'on'; cap.appendChild(d); }
+      card.classList.toggle('full', n === t.cap);
+      card.classList.toggle('free', n === 0);
+      var bed = card.querySelector('.bed');
+      var mk = $('mk-' + t.id);
+      var names = []; chips.forEach(function (c) { names.push(byId[c.dataset.id].n); });
+      mk.classList.toggle('taken', n > 0);
+      mk.title = names.length ? t.label + ': ' + names.join(', ') : t.label + ': free';
+      if (n > 0) {
+        if (!beds[t.id]) beds[t.id] = 'Two double beds';
+        bed.hidden = false; bed.innerHTML = '';
+        ['Two double beds', 'King bed'].forEach(function (b) {
+          var btn = document.createElement('button'); btn.type = 'button'; btn.textContent = b;
+          btn.setAttribute('aria-pressed', beds[t.id] === b ? 'true' : 'false');
+          if (b === 'King bed' && beds[t.id] !== 'King bed' && kingsUsed() >= KINGS) btn.disabled = true;
+          btn.addEventListener('click', function (ev) {
+            ev.stopPropagation();
+            if (b === 'King bed' && beds[t.id] !== 'King bed' && kingsUsed() >= KINGS) { flash('Only two rooms have a king bed.'); return; }
+            beds[t.id] = b; refresh();
+          });
+          bed.appendChild(btn);
+        });
+      } else { bed.hidden = true; bed.innerHTML = ''; }
+      mk.classList.toggle('king', beds[t.id] === 'King bed');
+      placed += chips.length; ppl += n; if (n) used++;
+    });
+    var left = PARTIES.length - placed;
+    $('poolCount').textContent = left ? left : '';
+    if (!selected) {
+      var k = kingsUsed();
+      $('status').innerHTML = left
+        ? '<b>' + left + '</b> ' + (left === 1 ? 'name' : 'names') + ' still to place &middot; ' + used + ' of 22 rooms used'
+        : '<b>' + ppl + ' people</b> in ' + used + ' rooms &middot; ' + k + ' of 2 king beds chosen';
+    }
+    $('send').disabled = left > 0;
+    save();
+  }
+
+  build();
+  var saved = load();
+  if (saved && saved.beds) beds = saved.beds;
+  place(saved ? saved.place : {});
+  if (saved && saved.notes) $('notes').value = saved.notes;
+
+  document.querySelectorAll('.list').forEach(function (list) {
+    Sortable.create(list, {
+      group: 'rooms', animation: 160, ghostClass: 'ghost', dragClass: 'drag', delay: 120, delayOnTouchOnly: true,
+      onMove: function (evt) {
+        var to = evt.to; if (to.dataset.room === 'pool' || evt.from === to) return true;
+        return people(to) + byId[evt.dragged.dataset.id].p <= roomById[to.dataset.room].cap;
+      },
+      onEnd: function () { if (selected) { selected.classList.remove('sel'); selected = null; } refresh(); }
+    });
+  });
+
+  $('notes').addEventListener('input', save);
+  $('reset').addEventListener('click', function () {
+    if (!confirm('Take everyone out of the rooms and start again?')) return;
+    document.querySelectorAll('.chip').forEach(function (c) { c.remove(); });
+    beds = {}; selected = null; place({}); refresh();
+  });
+
+  $('send').addEventListener('click', function () {
+    var rooms = [];
+    ROOMS.forEach(function (t) {
+      var names = []; $('room-' + t.id).querySelectorAll('.chip').forEach(function (c) { names.push(byId[c.dataset.id].n); });
+      if (names.length) rooms.push({ tent: t.label, type: 'Superior', guests: names, beds: beds[t.id] || '' });
+    });
+    var btn = $('send'); btn.disabled = true; btn.textContent = 'Sending...';
+    fetch('/api/rooming', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ wedding: 'allegra-aaron-mdf', tents: rooms, notes: $('notes').value.trim(), hp: $('hp').value })
+    }).then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+      .then(function (res) {
+        if (!res || !res.ok) throw new Error('fail');
+        $('app').style.display = 'none'; $('bar').style.display = 'none'; $('done').style.display = 'block'; window.scrollTo(0, 0);
+      })
+      .catch(function () { flash('Sorry, that did not go through. Please try again in a moment.'); btn.disabled = false; btn.textContent = 'Send to Stefano'; });
+  });
+
+  refresh();
+})();
+</script>
+</body>
+</html>
