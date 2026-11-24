@@ -25,6 +25,11 @@
     },
     "extra": [
       {
+        "title": "Your Cocktail Catamaran",
+        "href": "./cocktail-catamaran/",
+        "desc": "The catamaran with a lighter bar and six menus to choose from."
+      },
+      {
         "title": "Your Welcome Boat",
         "href": "./boat-options/",
         "desc": "Four boats for your welcome party on the water, side by side."
