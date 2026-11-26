@@ -321,24 +321,44 @@ const BOOKINGS = [
   },
   /* ---- Aleyna & Hector, wedding Mon 7 Dec 2026, Villa Diosa del Mar, Junquillal. Confirmed by Nacho 11 Nov. ---- */
   {
-    date:"2026-12-05", time:"12:56", type:"arrival",
+    date:"2026-12-05", time:"14:10", type:"arrival",
     wedding:"Aleyna & Hector",
     from:"LIR, Daniel Oduber (Liberia)",
     to:"Villa Diosa del Mar, Junquillal",
     groups:[
-      { airline:"United", flight:"UA 1120", when:"Arrives 12:56",
+      { airline:"United", flight:"UA 1120", when:"Arrives 12:56, waits for the 14:10 group",
         passengers:["Jarrett Brunner"] },
       { airline:"Delta", flight:"DL 1781", when:"Arrives 14:10",
-        passengers:["Aleyna Brunner (bride)","Harrison Plaza","Anastasia Brunner","Weston Brunner (child, 3, toddler seat)","Colten Brunner"] },
+        passengers:["Aleyna Brunner (bride)","Harrison Plaza","Anastasia Brunner","Weston Brunner (child, 3, toddler seat)","Colten Brunner"] }
+    ],
+    phone:"+1 217 419 1823",
+    notes:"Sign: Aleyna & Hector. 6 passengers. Toddler seat for Weston (age 3)."
+  },
+  {
+    date:"2026-12-05", time:"14:53", type:"arrival",
+    wedding:"Aleyna & Hector",
+    from:"LIR, Daniel Oduber (Liberia)",
+    to:"Villa Diosa del Mar, Junquillal",
+    groups:[
       { airline:"American", flight:"AA 887", when:"Arrives 14:53",
-        passengers:["Dawn Brunner","Robert Brunner"] },
+        passengers:["Dawn Brunner","Robert Brunner"] }
+    ],
+    phone:"+1 217 419 1823",
+    notes:"Sign: Aleyna & Hector. 2 passengers."
+  },
+  {
+    date:"2026-12-05", time:"15:54", type:"arrival",
+    wedding:"Aleyna & Hector",
+    from:"LIR, Daniel Oduber (Liberia)",
+    to:"Villa Diosa del Mar, Junquillal",
+    groups:[
       { airline:"United", flight:"UA 2767", when:"Arrives 15:54",
         passengers:["Dale Samson","Anne Reisch","Niloh Samson Reisch (child, 1, toddler seat)"] },
       { airline:"United", flight:"UA 775", when:"Arrives 15:54",
         passengers:["Hector Arturo Chong (groom)","Hector Mah Chong","Carmen Rodriguez","Juan Chong"] }
     ],
     phone:"+1 217 419 1823",
-    notes:"Sign: Aleyna & Hector. All 15 flights in. Two toddler seats: Weston (age 3) on DL 1781, Niloh (age 1) on UA 2767. Nacho, how do you want to group the vans? Jarrett lands alone at 12:56, and Dawn and Robert land 43 minutes after the DL 1781 group. Confirmed with Nacho Nov 11."
+    notes:"Sign: Aleyna & Hector. 7 passengers. Toddler seat for Niloh (age 1)."
   },
   {
     date:"2026-12-09", time:"11:45", type:"trip",
@@ -377,24 +397,44 @@ const BOOKINGS = [
     notes:"All 15 in the coaster. Confirmed with Nacho Nov 11."
   },
   {
-    date:"2026-12-12", time:"TBC", type:"return",
+    date:"2026-12-12", time:"09:15", type:"return",
     wedding:"Aleyna & Hector",
     from:"Villa Diosa del Mar, Junquillal",
     to:"LIR, Daniel Oduber (Liberia)",
     groups:[
       { airline:"Southwest", flight:"WN 0567", when:"Departs 13:15",
-        passengers:["Harrison Plaza"] },
+        passengers:["Harrison Plaza"] }
+    ],
+    phone:"+1 217 419 1823",
+    notes:"Harrison only."
+  },
+  {
+    date:"2026-12-12", time:"10:20", type:"return",
+    wedding:"Aleyna & Hector",
+    from:"Villa Diosa del Mar, Junquillal",
+    to:"LIR, Daniel Oduber (Liberia)",
+    groups:[
       { airline:"United", flight:"UA 1516", when:"Departs 14:20",
-        passengers:["Hector Arturo Chong (groom)","Hector Mah Chong","Carmen Rodriguez","Juan Chong","Dale Samson","Anne Reisch","Niloh Samson Reisch (child, 1, toddler seat)"] },
+        passengers:["Hector Arturo Chong (groom)","Hector Mah Chong","Carmen Rodriguez","Juan Chong","Dale Samson","Anne Reisch","Niloh Samson Reisch (child, 1, toddler seat)"] }
+    ],
+    phone:"+1 217 419 1823",
+    notes:"7 passengers. Toddler seat for Niloh."
+  },
+  {
+    date:"2026-12-12", time:"11:25", type:"return",
+    wedding:"Aleyna & Hector",
+    from:"Villa Diosa del Mar, Junquillal",
+    to:"LIR, Daniel Oduber (Liberia)",
+    groups:[
       { airline:"Delta", flight:"DL 1784", when:"Departs 15:25",
         passengers:["Aleyna Brunner (bride)","Anastasia Brunner","Weston Brunner (child, 3, toddler seat)","Colten Brunner"] },
       { airline:"American", flight:"AA 898", when:"Departs 15:53",
         passengers:["Dawn Brunner","Robert Brunner"] },
-      { airline:"No flight", flight:"", when:"Rides to the airport with the group, picks up a rental car",
+      { airline:"No flight", flight:"", when:"Rides along, picks up a rental car at the airport",
         passengers:["Jarrett Brunner"] }
     ],
     phone:"+1 217 419 1823",
-    notes:"All 15 flights in. Pickup times and vans to set with Nacho (our rule: pickup 2h30 before the flight). Harrison flies alone at 13:15. Confirmed with Nacho Nov 11."
+    notes:"7 passengers. Toddler seat for Weston."
   },
   // ── Add more bookings above this line ──
 ];
